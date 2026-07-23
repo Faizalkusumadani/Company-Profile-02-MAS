@@ -375,9 +375,9 @@ export default function Beranda() {
                   {tabout("title")}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
                 Mega Adhitama Sejati
-              </h2>
+              </h1>
               <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed text-justify [text-align-last:start]">
                 {tabout("desc")}
               </p>

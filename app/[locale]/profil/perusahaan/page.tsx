@@ -123,10 +123,10 @@ export default function Perusahaan() {
             {/* Judul & Deskripsi - bagian bawah hero */}
             <div className="mx-auto w-full max-w-6xl py-18">
               <div className="w-full max-w-xl text-left">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">
                   <span className="text-mas-red">{aboutTitleFirstWord}</span>{" "}
                   <span className="text-white">{aboutTitleRest}</span>
-                </h2>
+                </h1>
                 <div className="space-y-3 sm:space-y-4">
                   {descCompanyParagraphs.map((paragraph, index) => (
                     <p

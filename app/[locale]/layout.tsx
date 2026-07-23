@@ -32,12 +32,38 @@ const siteConfig = {
   ogImage: "/og-image.png",
 } as const;
 
+// ─── Schema Markup (JSON-LD) ──────────────────────────────────────────────────
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteConfig.url}/#organization`,
+  name: "PT Mega Adhitama Sejati",
+  alternateName: siteConfig.name,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo-mas.png`,
+  image: `${siteConfig.url}${siteConfig.ogImage}`,
+  description: siteConfig.description,
+  telephone: " +62 21-5835-1648",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "Jl. Jenderal Ahmad Yani Serang No.30, Cipare, Kec. Serang, Kota Serang, Banten 42117",
+    addressLocality: "Serang",
+    addressRegion: "Banten",
+    addressCountry: "ID",
+  },
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Banten",
+  },
+};
+
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: `${siteConfig.name} | Distributor Bahan Bangunan di wilayah Banten `,
+    default: `${siteConfig.name} | Distributor bahan bangunan retail di Serang Banten dan sekitarnya`,
     template: `${siteConfig.name} | %s`,
   },
 
@@ -56,7 +82,6 @@ export const metadata: Metadata = {
 
   creator: siteConfig.name,
 
-  // Izinkan mesin pencari mengindex & mengikuti link
   robots: {
     index: true,
     follow: true,
@@ -68,14 +93,13 @@ export const metadata: Metadata = {
     },
   },
 
-  // ── Open Graph ─────────────────────────────────────────────────────────────
   openGraph: {
     type: "website",
     locale: "id_ID",
     alternateLocale: ["en_US"],
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Beranda`,
+    title: `${siteConfig.name} | Distributor bahan bangunan retail di Serang Banten dan sekitarnya`,
     description: siteConfig.description,
     images: [
       {
@@ -88,15 +112,13 @@ export const metadata: Metadata = {
     ],
   },
 
-  // ── Twitter / X Card ────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Beranda`,
+    title: `${siteConfig.name} | Distributor bahan bangunan retail di Serang Banten dan sekitarnya`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
 
-  // ── Canonical & hreflang ────────────────────────────────────────────────────
   alternates: {
     canonical: siteConfig.url,
     languages: {
@@ -105,7 +127,6 @@ export const metadata: Metadata = {
     },
   },
 
-  // ── PWA Manifest ────────────────────────────────────────────────────────────
   manifest: "/manifest.webmanifest",
 };
 
@@ -122,6 +143,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        {/* Inject Schema Markup ke dalam Head */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${poppins.className} antialiased`}>
         <ServiceWorkerRegister />
         <NextIntlClientProvider locale={locale} messages={messages}>

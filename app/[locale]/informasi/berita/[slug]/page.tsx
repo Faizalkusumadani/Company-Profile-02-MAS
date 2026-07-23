@@ -120,7 +120,7 @@ export default async function BeritaDetail({
     <section id={slug}>
       <div className="w-full py-20">
         {/* ── Header ── */}
-        <header className="p-6 sm:p-8 bg-gray-100 shadow-sm">
+        <header className="p-6 sm:p-8 ">
           <div className="mx-auto max-w-6xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
