@@ -3,6 +3,7 @@ export type ActivityStatic = {
   slug: string;
   image: string;
   imageDetail?: string;
+  images?: string[];
   contentKey: string;
   isNew?: boolean;
 };
@@ -37,27 +38,110 @@ export const activitiesData: ActivityStatic[] = [
   },
   {
     id: "4",
-    slug: "annual-gathering-2023",
-    image: "/information/Bromo_tour/1.JPG",
-    contentKey: "annual_gathering_2023",
+    slug: "mas-qurban-2023",
+    image: "/information/Qurban_2023/001.jpeg",
+    images: [
+      "/information/Qurban_2023/001.jpeg",
+      "/information/Qurban_2023/002.jpeg",
+      "/information/Qurban_2023/003.jpeg",
+      "/information/Qurban_2023/004.jpeg",
+      "/information/Qurban_2023/005.jpeg",
+    ],
+    contentKey: "qurban_2023",
   },
   {
     id: "5",
-    slug: "door-prize-2024",
-    image: "/information/Program_Sakses/1.jpeg",
-    contentKey: "door_prize_2024",
+    slug: "annual-gathering-2023",
+    image: "/information/Bromo_tour/1.JPG",
+    images: [
+      "/information/Bromo_tour/1.JPG",
+      "/information/Bromo_tour/2.JPG",
+      "/information/Bromo_tour/3.JPG",
+      "/information/Bromo_tour/4.JPG",
+      "/information/Bromo_tour/5.JPG",
+    ],
+    contentKey: "annual_gathering_2023",
   },
   {
     id: "6",
-    slug: "qurban-2024",
-    image: "/information/Qurban_2024/1.jpg",
-    contentKey: "qurban_2024",
+    slug: "door-prize-2024",
+    image: "/information/Program_Sakses/1.jpeg",
+    images: [
+      "/information/Program_Sakses/1.jpeg",
+      "/information/Program_Sakses/2.jpeg",
+      "/information/Program_Sakses/3.jpeg",
+    ],
+    contentKey: "door_prize_2024",
   },
   {
     id: "7",
+    slug: "qurban-2024",
+    image: "/information/Qurban_2024/1.jpg",
+    images: [
+      "/information/Qurban_2024/1.jpg",
+      "/information/Qurban_2024/2.jpeg",
+    ],
+    contentKey: "qurban_2024",
+  },
+  {
+    id: "8",
     slug: "qurban-2025",
-    image: "/information/Qurban 2025/1A.jpeg",
+    image: "/information/Qurban_2025/001.jpeg",
+    images: [
+      "/information/Qurban_2025/001.jpeg",
+      "/information/Qurban_2025/002.jpeg",
+      "/information/Qurban_2025/003.jpeg",
+      "/information/Qurban_2025/004.jpeg",
+      "/information/Qurban_2025/005.jpeg",
+    ],
     contentKey: "qurban_2025",
+  },
+  {
+    id: "9",
+    slug: "bagi-parcel-2025",
+    image: "/information/Bagi_parcel_2025/001.jpeg",
+    images: [
+      "/information/Bagi_parcel_2025/001.jpeg",
+      "/information/Bagi_parcel_2025/002.jpeg",
+      "/information/Bagi_parcel_2025/003.jpeg",
+      "/information/Bagi_parcel_2025/004.jpeg",
+      "/information/Bagi_parcel_2025/005.jpeg",
+    ],
+    contentKey: "bagi_parcel_2025",
+  },
+  {
+    id: "10",
+    slug: "bandung-tour-2025",
+    image: "/information/Bandung_tour/IMG_2767.jpg",
+    contentKey: "bandung_tour_2025",
+    isNew: true,
+  },
+  {
+    id: "11",
+    slug: "mas-qurban-2026",
+    image: "/information/Qurban_2026/001.jpeg",
+    images: [
+      "/information/Qurban_2026/001.jpeg",
+      "/information/Qurban_2026/002.jpeg",
+      "/information/Qurban_2026/003.jpeg",
+      "/information/Qurban_2026/004.jpeg",
+      "/information/Qurban_2026/005.jpeg",
+    ],
+    contentKey: "qurban_2026",
+    isNew: true,
+  },
+  {
+    id: "12",
+    slug: "karimun-tour-2026",
+    image: "/information/Karimun_tour/001.jpg",
+    images: [
+      "/information/Karimun_tour/002.jpg",
+      "/information/Karimun_tour/003.jpg",
+      "/information/Karimun_tour/004.jpg",
+      "/information/Karimun_tour/005.jpg",
+      "/information/Karimun_tour/006.jpg",
+    ],
+    contentKey: "karimun_tour_2026",
     isNew: true,
   },
 ];
@@ -76,6 +160,15 @@ export function generateHref(slug: string): string {
  */
 export function getActivityBySlug(slug: string): ActivityStatic | null {
   return activitiesData.find((a) => a.slug === slug) ?? null;
+}
+
+/**
+ * Resolve daftar gambar untuk galeri di halaman detail.
+ * Fallback ke satu foto (imageDetail ?? image) kalau `images` kosong.
+ */
+export function getActivityGalleryImages(activity: ActivityStatic): string[] {
+  if (activity.images && activity.images.length > 0) return activity.images;
+  return [activity.imageDetail ?? activity.image];
 }
 
 /**

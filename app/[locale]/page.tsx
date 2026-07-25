@@ -190,8 +190,8 @@ export default function Beranda() {
   const tfeature = useTranslations("Home.Features");
   const ttestimoni = useTranslations("Home.Testimoni");
   const tfaq = useTranslations("Faq");
-
   const shouldReduceMotion = useReducedMotion();
+
   // Slides 1i8n
   const heroSlides = useMemo(() => {
     const slideTexts = thero.raw("slides") as Record<
@@ -231,7 +231,10 @@ export default function Beranda() {
   return (
     <div className="w-full py-20">
       {/* ── Hero Carousel ── */}
-      <Headercarousel slides={heroSlides} />
+      <Headercarousel
+        slides={heroSlides}
+        pageTitle="Mega Adhitama Sejati —  Distributor Bahan Bangunan Retail di Serang Banten"
+      />
 
       {/* ── Stats Section ── */}
       <div className="px-4 sm:px-6 py-10 md:py-14">
@@ -375,9 +378,9 @@ export default function Beranda() {
                   {tabout("title")}
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-snug">
                 Mega Adhitama Sejati
-              </h1>
+              </h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed text-justify [text-align-last:start]">
                 {tabout("desc")}
               </p>
@@ -530,10 +533,10 @@ export default function Beranda() {
                   >
                     <div>
                       <p className="text-base sm:text-lg font-semibold text-white">
-                        Konsultasikan kebutuhan proyek Anda
+                        {tproduct("desc_quotation")}
                       </p>
                       <p className="text-xs sm:text-sm text-white/60 mt-1">
-                        Dapatkan rekomendasi produk terbaik bersama tim kami.
+                        {tproduct("desc_quotation_01")}
                       </p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 ml-4">

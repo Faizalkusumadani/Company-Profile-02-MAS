@@ -100,7 +100,9 @@
       "icon_3_desc": "Perlengkapan keselamatan kerja profesional untuk mendukung standar keamanan proyek dan operasional industri.",
       "title-product": "Kategori",
       "sub-product": "Solusi Produk Terintegrasi",
-      "sub-desc-product": "Solusi material konstruksi, sanitary, dan safety equipment untuk mendukung proyek modern yang efisien, aman, dan berkualitas tinggi."
+      "sub-desc-product": "Solusi material konstruksi, sanitary, dan safety equipment untuk mendukung proyek modern yang efisien, aman, dan berkualitas tinggi.",
+      "desc_quotation": "Konsultasikan kebutuhan proyek Anda",
+      "desc_quotation_01": "Dapatkan rekomendasi produk terbaik bersama tim kami."
     },
     "Testimoni": {
       "testimoni": "Testimoni",
@@ -358,6 +360,14 @@
       "Fokus utama dari penyelenggaraan acara ini adalah untuk mempererat tali silaturahmi serta memperkokoh hubungan kemitraan dengan para Mitra Toko MAS. Di tengah suasana khidmat bulan suci Ramadan, kegiatan ini menjadi wadah efektif bagi perusahaan untuk berbagi nilai-nilai kebersamaan. Dengan komunikasi yang terjalin lebih dekat, diharapkan tercipta soliditas yang mampu melampaui sekadar hubungan transaksional.",
       "Sebagai penutup, inisiatif ini dirancang untuk menciptakan kolaborasi bisnis yang berkelanjutan dan saling menguntungkan. Melalui penguatan sinergi ini, PT Mega Adhitama Sejati bersama mitra strategisnya berkomitmen untuk terus mendukung pertumbuhan usaha serta mencapai kesuksesan bersama di masa depan."
     ],
+    "qurban_2023_title": "Qurban 2023",
+    "qurban_2023_description": "Salurkan Hewan Qurban untuk Masjid, Panti Asuhan 2023 dan Musola",
+    "qurban_2023_date": "20 Juni 2023",
+    "qurban_2023_content_1": [
+      "Dalam rangka memperingati Hari Raya Iduladha, PT. Mega Adhitama Sejati (MAS) kembali melaksanakan program penyaluran hewan qurban sebagai bagian dari komitmen perusahaan dalam menjalankan tanggung jawab sosial kepada masyarakat. Kegiatan yang rutin diselenggarakan setiap tahun ini diwujudkan melalui pendistribusian hewan qurban ke berbagai masjid, musala, dan panti asuhan di sekitar wilayah operasional perusahaan. Melalui program ini, MAS berharap dapat menghadirkan kebahagiaan sekaligus mempererat hubungan dengan masyarakat yang telah menjadi bagian dari perjalanan dan pertumbuhan perusahaan.",
+      "Program qurban tahunan ini tidak hanya menjadi bentuk kepedulian sosial, tetapi juga mencerminkan nilai-nilai perusahaan yang menjunjung tinggi semangat berbagi, kebersamaan, dan gotong royong. Dengan melibatkan berbagai pihak dalam proses penyaluran, PT. Mega Adhitama Sejati memastikan bahwa manfaat qurban dapat diterima secara merata oleh mereka yang membutuhkan, sehingga momen Iduladha menjadi lebih bermakna bagi seluruh lapisan masyarakat.",
+      "Sebagai perusahaan yang terus bertumbuh bersama para mitra dan masyarakat, PT. Mega Adhitama Sejati berkomitmen untuk menjadikan kegiatan sosial sebagai budaya perusahaan yang berkelanjutan. Penyaluran hewan qurban setiap tahun merupakan salah satu wujud nyata dari komitmen tersebut, sekaligus harapan agar nilai-nilai kepedulian, kebersamaan, dan keberkahan dapat terus menginspirasi serta memberikan manfaat yang luas bagi masyarakat, hari ini maupun di masa mendatang."
+    ],
     "annual_gathering_2023_title": "Annual Gathering 2023",
     "annual_gathering_2023_description": "Annual Gathering Bromo 2023 MAS dan Reddmasgroup",
     "annual_gathering_2023_date": "20 November 2023",
@@ -370,10 +380,42 @@
     "qurban_2024_description": "Salurkan Hewan Qurban untuk Masjid, Panti Asuhan 2024",
     "qurban_2024_date": "17 Juni 2024",
     "qurban_2024_content_1": "Program MAS Berqurban bertujuan untuk menumbuhkan kepedulian sosial serta mempererat rasa kebersamaan dan solidaritas dengan masyarakat sekitar. Melalui program ini, MAS berkomitmen untuk berbagi kebahagiaan di momen Idul Adha dengan menyalurkan hewan qurban kepada pihak-pihak yang membutuhkan, sehingga manfaatnya dapat dirasakan secara langsung dan merata. Selain itu, program ini juga menjadi wujud tanggung jawab sosial perusahaan dalam mendukung nilai-nilai kemanusiaan, kebersamaan, dan keberkahan bagi seluruh pihak.",
+    "bagi_parcel_2025_title": "MAS , Bagi-Bagi Parcel",
+    "bagi_parcel_2025_description": "Menyambut Lebaran MAS Bagi-Bagi parcel kepada costumer",
+    "bagi_parcel_2025_date": "18 Maret 2025",
+    "bagi_parcel_2025_content_1": [
+      "Dalam semangat menyambut Hari Raya Idulfitri, PT. Mega Adhitama Sejati (MAS) menggelar kegiatan bagi-bagi parcel Lebaran kepada para mitra dan toko yang telah menjadi bagian dari perjalanan bisnis perusahaan. Kegiatan ini merupakan bentuk apresiasi atas kepercayaan, loyalitas, serta kerja sama yang telah terjalin dengan baik selama ini. Melalui penyerahan parcel secara langsung, MAS ingin mempererat hubungan kemitraan sekaligus menghadirkan kebahagiaan dan kehangatan menjelang hari kemenangan.",
+      "Lebih dari sekadar tradisi tahunan, kegiatan ini menjadi wujud komitmen PT. Mega Adhitama Sejati dalam membangun hubungan bisnis yang berlandaskan nilai kebersamaan, saling menghargai, dan tumbuh bersama. Diharapkan, momen berbagi ini dapat semakin memperkuat sinergi antara MAS dan seluruh mitra toko, sehingga kolaborasi yang telah terjalin mampu terus berkembang dan memberikan manfaat bagi semua pihak di masa yang akan datang. Selamat Hari Raya Idulfitri, mohon maaf lahir dan batin."
+    ],
     "qurban_2025_title": "Qurban 2025",
     "qurban_2025_description": "Salurkan Hewan Qurban untuk Masjid, Panti Asuhan 2025",
-    "qurban_2025_date": "5 Juni 2024",
+    "qurban_2025_date": "5 Juni 2025",
     "qurban_2025_content_1": "Program MAS Berqurban bertujuan untuk menumbuhkan kepedulian sosial serta mempererat rasa kebersamaan dan solidaritas dengan masyarakat sekitar. Melalui program ini, MAS berkomitmen untuk berbagi kebahagiaan di momen Idul Adha dengan menyalurkan hewan qurban kepada pihak-pihak yang membutuhkan, sehingga manfaatnya dapat dirasakan secara langsung dan merata. Selain itu, program ini juga menjadi wujud tanggung jawab sosial perusahaan dalam mendukung nilai-nilai kemanusiaan, kebersamaan, dan keberkahan bagi seluruh pihak.",
+    "bandung_tour_2025_title": "Keliling Nusantara, pergi ke Bandung",
+    "bandung_tour_2025_description": "Program Keliling Nusantara bersama MAS dan Semen Merah Putih 2025",
+    "bandung_tour_2025_date": "18 Februari 2025",
+    "bandung_tour_2025_content_1": [
+      "Sebagai bentuk apresiasi kepada para mitra atas kepercayaan dan kerja sama yang telah terjalin, PT. Mega Adhitama Sejati (MAS) bersama Semen Merah Putih menyelenggarakan program \"Keliling Nusantara, Pergi Bandung\". Kegiatan ini menjadi momen istimewa yang menghadirkan pengalaman wisata sekaligus mempererat hubungan kekeluargaan antara perusahaan dan para mitra toko. Dengan mengunjungi berbagai destinasi menarik di Kota Bandung, peserta diajak menikmati suasana kebersamaan di luar aktivitas bisnis sehari-hari.",
+      "rogram ini tidak hanya memberikan kesempatan untuk berlibur, tetapi juga menjadi sarana membangun komunikasi yang lebih erat, saling bertukar pengalaman, serta memperkuat kolaborasi yang telah terjalin selama ini. Melalui berbagai kegiatan yang dikemas secara interaktif dan penuh keakraban, MAS dan Semen Merah Putih berharap tercipta hubungan kemitraan yang semakin solid, harmonis, dan berkelanjutan.",
+      "Melalui semangat \"Tumbuh Bersama Melampaui Batas\", PT. Mega Adhitama Sejati dan Semen Merah Putih berkomitmen untuk terus menghadirkan program-program yang memberikan nilai tambah bagi seluruh mitra. Diharapkan, perjalanan Keliling Nusantara – Pergi Bandung menjadi kenangan berharga sekaligus motivasi untuk terus berkembang bersama, menciptakan peluang baru, dan meraih kesuksesan yang berkelanjutan di masa mendatang."
+    ],
+    "karimun_tour_2026_title": "Keliling Nusantara, pergi ke Karimun",
+    "karimun_tour_2026_description": "Program Keliling Nusantara bersama MAS dan Semen Merah Putih 2026",
+    "karimun_tour_2026_date": "3 Juni 2026",
+    "karimun_tour_2026_content_1": [
+      "Keindahan alam Kepulauan Karimun menjadi destinasi pilihan dalam program \"Keliling Nusantara, Pergi Karimun\" yang diselenggarakan oleh PT. Mega Adhitama Sejati (MAS) bersama Semen Merah Putih. Kegiatan ini merupakan bentuk penghargaan kepada para mitra dan pelanggan setia yang telah memberikan kontribusi nyata terhadap pertumbuhan bisnis perusahaan. Melalui perjalanan yang penuh makna ini, peserta diajak menikmati pesona Karimun sekaligus membangun hubungan yang lebih erat dalam suasana yang hangat dan penuh kekeluargaan.",
+      "Selain menghadirkan pengalaman wisata yang berkesan, program ini juga menjadi ruang untuk memperkuat sinergi antara perusahaan dan mitra. Berbagai aktivitas kebersamaan, diskusi santai, hingga momen kebersamaan di setiap destinasi menjadi kesempatan untuk mempererat komunikasi dan menumbuhkan rasa saling percaya. MAS dan Semen Merah Putih meyakini bahwa kemitraan yang kuat tidak hanya dibangun melalui kerja sama bisnis, tetapi juga melalui pengalaman yang mampu menciptakan ikatan emosional yang berkelanjutan.",
+      "Melalui penyelenggaraan Keliling Nusantara, Pergi Karimun, PT. Mega Adhitama Sejati dan Semen Merah Putih kembali menegaskan komitmennya dalam menghadirkan program apresiasi yang bernilai bagi seluruh mitra. Semangat untuk terus bertumbuh bersama, memperluas kolaborasi, dan menciptakan hubungan yang saling menguntungkan menjadi fondasi utama dalam setiap langkah perusahaan. Diharapkan, perjalanan ini menjadi inspirasi untuk terus melangkah maju bersama menuju kesuksesan yang lebih besar di masa depan."
+    ],
+    "qurban_2026_title": "Qurban 2026",
+    "qurban_2026_description": "Salurkan Hewan Qurban untuk Musolah, Panti Asuhan 2026 dan Masjid",
+    "qurban_2026_date": "17 Mei 2026",
+    "qurban_2026_content_1": [
+      "Pada momentum Hari Raya Idul Adha 1447 H, PT Mega Adhitama kembali mewujudkan komitmen kepedulian sosial perusahaan melalui program penyaluran hewan qurban.",
+      "Tahun ini, PT Mega Adhitama menyalurkan hewan qurban ke beberapa titik penerima, antara lain masjid sekitar, panti asuhan, dan mushola. Melalui penyerahan ini, kami berharap dapat berbagi kebahagiaan, mempererat tali silaturahmi, serta memberikan manfaat nyata bagi sesama yang membutuhkan.",
+      "Terima kasih kepada seluruh pihak dan karyawan yang telah mendukung terlaksananya kegiatan sosial ini. Semoga keikhlasan dan semangat berbagi ini membawa keberkahan bagi kita semua."
+    ],
+
     "gathering": "Gathering",
     "gathering_semen_1_title": "Bersama-sama Membangun Bangsa",
     "gathering_semen_1_description": "Semen Merah Putih Gathering 2025",

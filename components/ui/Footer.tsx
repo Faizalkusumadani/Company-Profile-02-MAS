@@ -115,7 +115,6 @@ export default function Footer() {
               width={80}
               height={24}
               alt="Reddmas Group"
-              sizes="80"
               className="object-contain inline-block align-middle"
               loading="eager"
               style={{ height: "auto" }}
@@ -137,7 +136,6 @@ export default function Footer() {
           width={32}
           height={32}
           alt=""
-          sizes="32"
           aria-hidden="true"
           className="w-8 h-8"
         />

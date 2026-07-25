@@ -97,7 +97,7 @@ export default function Karir() {
                 {t("karir_desc")}
               </p>
               <Link
-                href="/profil/perusahaan"
+                href="https://reddmasgroup.com/id/karir"
                 className="inline-flex items-center gap-2 border border-mas-red text-mas-red font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105 group"
               >
                 {tabout("ctaabout")}

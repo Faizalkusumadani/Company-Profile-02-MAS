@@ -6,10 +6,12 @@ import { Calendar } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import {
   newsData,
-  getNewsBySlug,
   getAllNewsParams,
+  getNewsGalleryImages,
   generateHref,
 } from "../../../../tools/all_news";
+import PhotoGallery from "@/components/ui/SlidesGallery";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -38,7 +40,7 @@ export async function generateMetadata({
 
   const t = await getTranslations({ locale, namespace: "Roominformation" });
 
-  const news = getNewsBySlug(slug);
+  const news = newsData.find((a) => a.slug === slug);
   if (!news) return {};
 
   const title = t(`${news.contentKey}_title`);
@@ -152,7 +154,7 @@ export default async function BeritaDetail({
         </header>
 
         {/* ── Content ── */}
-        <div className="py-15 px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {/* ── Artikel Utama ── */}
@@ -168,16 +170,7 @@ export default async function BeritaDetail({
                 </div>
 
                 {/* Gambar Utama */}
-                <div className="relative h-75 lg:h-100 rounded-lg overflow-hidden">
-                  <Image
-                    src={news.image}
-                    alt={title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 750px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+                <PhotoGallery images={getNewsGalleryImages(news)} alt={title} />
 
                 {/* Isi Artikel */}
                 <div className="py-5 space-y-6 leading-relaxed text-justify">

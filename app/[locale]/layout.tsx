@@ -1,8 +1,9 @@
 import type React from "react";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import type { Metadata, Viewport } from "next";
 import Pageloader from "@/components/ui/Pageloader";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import type { Metadata } from "next";
 import ServiceWorkerRegister from "@/components/ui/ServiceWorkerRegister";
 import { Poppins } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -16,121 +17,144 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-poppins",
 });
 
 // ─── Static Params (i18n) ─────────────────────────────────────────────────────
+// Menghasilkan semua locale secara statis di build time.
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Kunci halaman ini agar hanya locale yang terdaftar yang valid.
+// Akses locale lain (mis. /fr) akan langsung 404 di level routing,
+export const dynamicParams = false;
+
 // ─── Site Config ──────────────────────────────────────────────────────────────
 const siteConfig = {
-  url: "https://megaadhitamasejati.id",
-  name: "Mega Adhitama Sejati",
-  description:
-    "Mega Adhitama Sejati merupakan mitra terpercaya dalam penyediaan bahan bangunan berkualitas untuk segmen retail, dengan wilayah layanan utama di Provinsi Banten.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://megaadhitamasejati.id",
+  name: "PT Mega Adhitama Sejati",
+  shortName: "Mega Adhitama Sejati",
+  description: {
+    id: "Mega Adhitama Sejati merupakan mitra terpercaya dalam penyediaan bahan bangunan berkualitas untuk segmen retail, dengan wilayah layanan utama di Provinsi Banten.",
+    en: "Mega Adhitama Sejati is a trusted partner in providing quality building materials for the retail segment, with a primary service area in Banten Province.",
+  },
   ogImage: "/og-image.png",
+  themeColor: "#18181b",
 } as const;
 
-// ─── Schema Markup (JSON-LD) ──────────────────────────────────────────────────
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${siteConfig.url}/#organization`,
-  name: "PT Mega Adhitama Sejati",
-  alternateName: siteConfig.name,
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/logo-mas.png`,
-  image: `${siteConfig.url}${siteConfig.ogImage}`,
-  description: siteConfig.description,
-  telephone: " +62 21-5835-1648",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress:
-      "Jl. Jenderal Ahmad Yani Serang No.30, Cipare, Kec. Serang, Kota Serang, Banten 42117",
-    addressLocality: "Serang",
-    addressRegion: "Banten",
-    addressCountry: "ID",
-  },
-  areaServed: {
-    "@type": "AdministrativeArea",
-    name: "Banten",
-  },
+// ─── Viewport (dipisah dari metadata sesuai Next.js 14+) ──────────────────────
+export const viewport: Viewport = {
+  themeColor: siteConfig.themeColor,
+  width: "device-width",
+  initialScale: 1,
 };
 
-// ─── Metadata ─────────────────────────────────────────────────────────────────
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+// ─── Dynamic Metadata Generator ───────────────────────────────────────────────
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEn = locale === "en";
 
-  title: {
-    default: `${siteConfig.name} | Distributor bahan bangunan retail di Serang Banten dan sekitarnya`,
-    template: `${siteConfig.name} | %s`,
-  },
+  const description = isEn
+    ? siteConfig.description.en
+    : siteConfig.description.id;
 
-  description: siteConfig.description,
+  const titleString = isEn
+    ? `${siteConfig.shortName} | Retail Building Material Distributor in Banten`
+    : `${siteConfig.shortName} | Distributor Bahan Bangunan Retail di Serang Banten`;
 
-  keywords: [
-    "bahan bangunan",
-    "material bangunan",
-    "toko bangunan Banten",
-    "distributor bangunan",
-    "Mega Adhitama Sejati",
-    "retail bangunan",
-  ],
+  return {
+    metadataBase: new URL(siteConfig.url),
 
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    title: {
+      default: titleString,
+      template: `%s | ${siteConfig.shortName}`,
+    },
 
-  creator: siteConfig.name,
+    description,
 
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    applicationName: siteConfig.name,
+
+    keywords: [
+      "bahan bangunan",
+      "material bangunan Banten",
+      "toko bangunan Banten",
+      "distributor bahan bangunan",
+      "Mega Adhitama Sejati",
+      "retail bahan bangunan Serang",
+      "building materials supplier Banten",
+    ],
+
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+
+    // Alternates dinamis untuk SEO i18n yang bersih
+    alternates: {
+      canonical: `${siteConfig.url}/${locale}`,
+      languages: {
+        id: `${siteConfig.url}/id`,
+        en: `${siteConfig.url}/en`,
+        "x-default": `${siteConfig.url}/id`,
+      },
+    },
+
+    robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  openGraph: {
-    type: "website",
-    locale: "id_ID",
-    alternateLocale: ["en_US"],
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name} | Distributor bahan bangunan retail di Serang Banten dan sekitarnya`,
-    description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: `Banner ${siteConfig.name}`,
-        type: "image/png",
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
       },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteConfig.name} | Distributor bahan bangunan retail di Serang Banten dan sekitarnya`,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-  },
-
-  alternates: {
-    canonical: siteConfig.url,
-    languages: {
-      "id-ID": `${siteConfig.url}/id`,
-      "en-US": `${siteConfig.url}/en`,
     },
-  },
 
-  manifest: "/manifest.webmanifest",
-};
+    openGraph: {
+      type: "website",
+      locale: isEn ? "en_US" : "id_ID",
+      alternateLocale: isEn ? ["id_ID"] : ["en_US"],
+      url: `${siteConfig.url}/${locale}`,
+      siteName: siteConfig.name,
+      title: titleString,
+      description,
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${siteConfig.name} - Official Banner`,
+          type: "image/png",
+        },
+      ],
+    },
 
-// ─── Layout ───────────────────────────────────────────────────────────────────
+    twitter: {
+      card: "summary_large_image",
+      title: titleString,
+      description,
+      images: [siteConfig.ogImage],
+    },
+
+    icons: {
+      icon: [{ url: "/favicon.ico", sizes: "32x32" }],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    },
+
+    manifest: "/manifest.webmanifest",
+
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    },
+  };
+}
+
+// ─── Layout Component ─────────────────────────────────────────────────────────
 export default async function LocaleLayout({
   children,
   params,
@@ -139,12 +163,51 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = await getMessages();
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const messages = await getMessages({ locale });
+
+  // Dynamic Schema JSON-LD per Locale
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}/#organization`,
+    name: siteConfig.name,
+    alternateName: siteConfig.shortName,
+    url: `${siteConfig.url}/${locale}`,
+    logo: `${siteConfig.url}/logo-mas.png`,
+    image: `${siteConfig.url}${siteConfig.ogImage}`,
+    description:
+      locale === "en" ? siteConfig.description.en : siteConfig.description.id,
+    telephone: "+62-21-5835-1648",
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress:
+        "Grand Puri Niaga Blok K6 No. 5S, Jl. Puri Kencana, Kembangan",
+      addressLocality: "Jakarta Barat",
+      addressRegion: "DKI Jakarta",
+      postalCode: "11610",
+      addressCountry: "ID",
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Banten",
+    },
+    sameAs: [
+      "https://www.tiktok.com/@megaadhitamasejati?_r=1&_t=ZS-98I1AGVgHHJ",
+      "https://www.instagram.com/megaadhitamasejati?igsh=dXQyb3o3c25sM3Z4",
+    ],
+  };
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Inject Schema Markup ke dalam Head */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

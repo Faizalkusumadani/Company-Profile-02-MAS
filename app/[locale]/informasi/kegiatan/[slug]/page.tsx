@@ -7,8 +7,10 @@ import { getTranslations } from "next-intl/server";
 import {
   activitiesData,
   getAllActivityParams,
+  getActivityGalleryImages,
   generateHref,
 } from "../../../../tools/all_activities";
+import ActivityGallery from "@/components/ui/SlidesGallery";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -40,8 +42,6 @@ export async function generateMetadata({
   const activity = activitiesData.find((a) => a.slug === slug);
   if (!activity) return {};
 
-  // Ambil title & description dari hasil terjemahan (bukan dari
-  // activity.title / activity.excerpt yang memang tidak ada di data statis)
   const title = t(`${activity.contentKey}_title`);
   const description = t(`${activity.contentKey}_description`);
   const imagePath = activity.imageDetail ?? activity.image;
@@ -153,7 +153,7 @@ export default async function KegiatanDetail({
         </header>
 
         {/* ── Content ── */}
-        <div className="py-15 px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {/* ── Artikel Utama ── */}
@@ -167,16 +167,10 @@ export default async function KegiatanDetail({
                   </p>
                 </div>
 
-                <div className="relative h-75 lg:h-100 rounded-lg overflow-hidden">
-                  <Image
-                    src={activity.imageDetail ?? activity.image}
-                    alt={title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 750px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+                <ActivityGallery
+                  images={getActivityGalleryImages(activity)}
+                  alt={title}
+                />
 
                 <div className="py-5 space-y-6 leading-relaxed text-justify">
                   {(() => {

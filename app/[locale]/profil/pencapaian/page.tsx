@@ -59,7 +59,7 @@ export default function Pencapaian() {
     <section id="Pencapaian">
       <div className="w-full">
         {/* Hero - dark themed, foto perusahaan membaur dari kanan */}
-        <div className="relative min-h-[600px] md:min-h-[700px] overflow-hidden bg-black/40 ">
+        <div className="relative min-h-150 md:min-h-175 overflow-hidden bg-black/40 ">
           <Image
             src="/piala2.png"
             alt="Profil Perusahaan"
@@ -110,10 +110,10 @@ export default function Pencapaian() {
               </div>
 
               <div className="ml-auto max-w-2xl text-right py-20 md:py-40">
-                <h2 className="mt-6 text-3xl md:text-5xl font-bold leading-tight">
+                <h1 className="mt-6 text-3xl md:text-5xl font-bold leading-tight">
                   <span className="text-mas-red">{t("achievement")}</span>{" "}
                   <span className="text-white">{t("awards")}</span>
-                </h2>
+                </h1>
 
                 <p className="mt-6 text-sm md:text-lg text-white/60 leading-relaxed">
                   {t("desc_achievement")}
