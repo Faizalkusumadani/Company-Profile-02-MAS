@@ -126,7 +126,7 @@ export default function Kontak() {
                   {/* Location Cards */}
                   <div className="space-y-4 pt-4">
                     <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                      <div className="shrink-0 w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <div className="shrink-0 w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center">
                         <Building2 className="w-6 h-6 text-mas-red" />
                       </div>
                       <div>
@@ -141,7 +141,7 @@ export default function Kontak() {
                     </div>
 
                     <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                      <div className="shrink-0 w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <div className="shrink-0 w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center">
                         <Building className="w-6 h-6 text-mas-red" />
                       </div>
                       <div>
@@ -156,7 +156,7 @@ export default function Kontak() {
                     </div>
 
                     <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                      <div className="shrink-0 w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                      <div className="shrink-0 w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center">
                         <Store className="w-6 h-6 text-mas-red" />
                       </div>
                       <div>
@@ -176,7 +176,7 @@ export default function Kontak() {
                       rel="noopener noreferrer"
                       className="group flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-mas-red/30 transition-all cursor-pointer"
                     >
-                      <div className="shrink-0 w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center group-hover:bg-red-50 transition-colors">
+                      <div className="shrink-0 w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center group-hover:bg-red-50 transition-colors">
                         <FileDown className="w-6 h-6 text-mas-red" />
                       </div>
                       <div className="flex-1">

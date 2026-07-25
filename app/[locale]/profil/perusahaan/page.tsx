@@ -245,7 +245,7 @@ export default function Perusahaan() {
                     return (
                       <div
                         key={loc.key}
-                        className="group relative flex items-start gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/80 hover:border-mas-red/40 hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden"
+                        className=" bg-white group relative flex items-start gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/80  hover:border-mas-red/40 hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden"
                       >
                         <span className="absolute left-0 top-0 bottom-0 w-1 bg-mas-red scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
 
@@ -256,7 +256,7 @@ export default function Perusahaan() {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-gray-800 text-base sm:text-lg leading-snug mb-1">
+                          <h3 className="font-bold text-gray-800  text-base sm:text-lg leading-snug mb-1">
                             {loc.title}
                           </h3>
                           <p className="flex items-center gap-1.5 text-sm text-gray-500">

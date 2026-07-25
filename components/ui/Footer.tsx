@@ -27,7 +27,7 @@ export default function Footer() {
             alt="Logo PT Mega Adhitama Sejati"
             className="object-contain mb-8"
             loading="eager"
-            style={{ width: "240px", height: "auto" }}
+            style={{ width: "240px", height: "114px" }}
           />
           {/* Social Icons */}
           <div className="flex items-center gap-6 text-4xl text-white">

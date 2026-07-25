@@ -357,7 +357,7 @@ const Navbar = () => {
               height={50}
               sizes="(max-width: 360px) 84px, (max-width: 640px) 100px, 120px"
               quality={80}
-              className="h-auto w-21 sm:w-25 lg:w-30"
+              className="h-15 w-21 sm:w-25 lg:w-30 "
               alt="Mega Adhitama Sejati"
               priority
             />

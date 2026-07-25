@@ -5,8 +5,13 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion as m, AnimatePresence, type Variants } from "framer-motion";
-import { LayoutGrid, Shovel, Bath, FireExtinguisher } from "lucide-react";
-import { LucideIcon } from "lucide-react";
+import {
+  GiWheelbarrow,
+  GiBathtub,
+  GiFireExtinguisher,
+  GiHamburgerMenu,
+} from "react-icons/gi";
+import type { IconType } from "react-icons";
 import { useTranslations } from "next-intl";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -39,13 +44,14 @@ interface MenuTabsCardProps {
 
 // ─── Icon Map ─────────────────────────────────────────────────────────────────
 
-const iconMap: Record<string, LucideIcon> = {
-  LayoutGrid,
-  Shovel,
-  Bath,
-  FireExtinguisher,
-};
+type AppIcon = IconType;
 
+const iconMap: Record<string, AppIcon> = {
+  GiHamburgerMenu,
+  GiWheelbarrow,
+  GiBathtub,
+  GiFireExtinguisher,
+};
 // ─── Animation Variants (defined outside component to avoid re-creation) ──────
 
 const gridVariants: Variants = {
@@ -84,7 +90,6 @@ const cardVariants: Variants = {
 };
 
 // ─── Product Card (extracted untuk menghindari re-render overhead) ────────────
-
 function ProductCard({
   produk,
   t,
@@ -110,7 +115,7 @@ function ProductCard({
 
         {/* Variants Badge */}
         {produk.variants && (
-          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/95 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-gray-600 shadow-md">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/95 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-mas-red shadow-md">
             {produk.variants}
           </div>
         )}
@@ -169,7 +174,7 @@ function MobileFilterChip({
   onClick,
 }: {
   label: string;
-  Icon: LucideIcon | null;
+  Icon: AppIcon | null;
   isActive: boolean;
   onClick: () => void;
 }) {
@@ -223,7 +228,7 @@ export default function MenuTabsCard({ categories }: MenuTabsCardProps) {
             <TabsTrigger
               key={cat.id}
               value={cat.id}
-              className="flex-1 min-w-0 text-sm md:text-base lg:text-lg text-gray-700 py-4 md:py-6 px-3 rounded-2xl border border-gray-200 data-[state=active]:bg-red-50 data-[state=active]:border-red-400 data-[state=active]:text-red-500"
+              className="flex-1 min-w-0 text-sm md:text-base lg:text-lg text-gray-700 py-4 md:py-6 px-3 rounded-2xl bg-white border border-gray-100 data-[state=active]:bg-red-50 data-[state=active]:border-red-400 data-[state=active]:text-red-500"
             >
               <div className="flex flex-col items-center">
                 {IconComponent && (

@@ -57,9 +57,9 @@ export default function Pencapaian() {
 
   return (
     <section id="Pencapaian">
-      <div className="w-full">
+      <div className="w-full py-20">
         {/* Hero - dark themed, foto perusahaan membaur dari kanan */}
-        <div className="relative min-h-150 md:min-h-175 overflow-hidden bg-black/40 ">
+        <div className="relative w-full min-h-105 sm:min-h-120 lg:min-h-160 overflow-hidden bg-black/30 ">
           <Image
             src="/piala2.png"
             alt="Profil Perusahaan"
@@ -69,9 +69,9 @@ export default function Pencapaian() {
             className="object-cover object-right"
           />
           {/* Gradasi gelap dari kiri agar teks tetap terbaca */}
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/80" />
 
-          <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 md:py-24 ">
+          <div className="relative z-10  px-6 sm:px-10 lg:px-16 py-8 sm:py-10 lg:py-14 ">
             <div className="mx-auto max-w-6xl">
               <div className="max-w-2xl">
                 {/* Aksen garis merah di atas judul */}

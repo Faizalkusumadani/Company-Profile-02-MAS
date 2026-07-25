@@ -64,8 +64,8 @@ export async function generateMetadata({
     : siteConfig.description.id;
 
   const titleString = isEn
-    ? `${siteConfig.shortName} | Retail Building Material Distributor in Banten`
-    : `${siteConfig.shortName} | Distributor Bahan Bangunan Retail di Serang Banten`;
+    ? `${siteConfig.shortName} | Retail Building Materials Distributor with a primary service area in Banten Province.`
+    : `${siteConfig.shortName} | Distributor Bahan Bangunan Retail dengan wilayah layanan utama di Provinsi Banten`;
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -218,7 +218,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Pageloader />
           <Header />
-          <main className="bg-zinc-100 min-h-screen">{children}</main>
+          <main className="bg-stone-50 min-h-screen">{children}</main>
           <Footer />
         </NextIntlClientProvider>
 

@@ -138,7 +138,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Karimun_tour/002.jpg",
       "/information/Karimun_tour/003.jpg",
       "/information/Karimun_tour/004.jpg",
-      "/information/Karimun_tour/005.jpg",
+      "/information/Karimun_tour/005.JPG",
       "/information/Karimun_tour/006.jpg",
     ],
     contentKey: "karimun_tour_2026",

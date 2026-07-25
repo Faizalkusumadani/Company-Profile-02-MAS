@@ -2,21 +2,21 @@ const Categories = [
   {
     id: "all",
     label: "All",
-    icon: "LayoutGrid",
+    icon: "GiHamburgerMenu",
   },
   {
     id: "Building Materials",
     label: "Building Materials",
-    icon: "Shovel",
+    icon: "GiWheelbarrow",
   },
   {
     id: "Sanitary",
-    icon: "Bath",
+    icon: "GiBathtub",
     label: "Sanitary",
   },
   {
     id: "Safety",
-    icon: "FireExtinguisher",
+    icon: "GiFireExtinguisher",
     label: "Safety",
   },
 ];

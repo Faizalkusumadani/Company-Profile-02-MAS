@@ -5,8 +5,10 @@ import { Link } from "@/i18n/navigation";
 import { motion as m, useReducedMotion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-import { ArrowRight, FireExtinguisher, Bath, Shovel } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { GiWheelbarrow, GiBathtub, GiFireExtinguisher } from "react-icons/gi";
+import type { IconType } from "react-icons";
 import Headercarousel from "@/components/ui/Headercarousel";
 import FaqAccordion from "@/components/ui/Faq";
 import BrandMarquee from "@/components/ui/Brandmarquee";
@@ -33,7 +35,7 @@ const TestimonialCard = dynamic(() => import("@/components/ui/Testimonicard"), {
 // ─── Types ────────────────────────────────────────────────────────────────────
 type LocationCard = {
   key: string;
-  icon: LucideIcon;
+  icon: LucideIcon | IconType;
   nameKey: string;
   descKey: string;
 };
@@ -49,14 +51,19 @@ const stats = [
 const locationCards: LocationCard[] = [
   {
     key: "Building Materials",
-    icon: Shovel,
+    icon: GiWheelbarrow,
     nameKey: "name_1",
     descKey: "icon_1_desc",
   },
-  { key: "Sanitary", icon: Bath, nameKey: "name_2", descKey: "icon_2_desc" },
+  {
+    key: "Sanitary",
+    icon: GiBathtub,
+    nameKey: "name_2",
+    descKey: "icon_2_desc",
+  },
   {
     key: "Safety",
-    icon: FireExtinguisher,
+    icon: GiFireExtinguisher,
     nameKey: "name_3",
     descKey: "icon_3_desc",
   },
@@ -233,7 +240,7 @@ export default function Beranda() {
       {/* ── Hero Carousel ── */}
       <Headercarousel
         slides={heroSlides}
-        pageTitle="Mega Adhitama Sejati —  Distributor Bahan Bangunan Retail di Serang Banten"
+        pageTitle="Mega Adhitama Sejati —  Distributor Bahan Bangunan Retail dengan wilayah layanan utama di Provinsi Banten"
       />
 
       {/* ── Stats Section ── */}
@@ -301,7 +308,7 @@ export default function Beranda() {
                     ease: "easeOut",
                     delay: index * 0.08,
                   }}
-                  className="group relative w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] max-w-md rounded-2xl  border border-gray-300/80 p-6 sm:p-7 shadow-xs transition-all duration-300 hover:border-mas-red/50 hover:shadow-lg hover:shadow-gray-200/50 hover:-translate-y-1"
+                  className=" bg-white group relative w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] max-w-md rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-xs transition-all duration-300 hover:border-mas-red/50 hover:shadow-lg hover:shadow-gray-200/50 hover:-translate-y-1"
                 >
                   <div className="flex flex-col h-full justify-start">
                     {/* Card Header: Icon + Title Inline */}
@@ -345,7 +352,7 @@ export default function Beranda() {
             >
               <div className="relative w-full aspect-square flex items-center justify-center">
                 <div
-                  className="absolute w-75 h-75 md:w-132.5 md:h-132.5 rounded-full bg-linear-to-br from-gray-300 via-gray-400 to-purple-300 blur-3xl opacity-80"
+                  className="absolute w-75 h-75 md:w-132.5 md:h-132.5 rounded-full bg-linear-to-br from-mas-red/50 via-mas-red/80 to-purple-300 blur-3xl opacity-80"
                   aria-hidden="true"
                 />
                 <Image
@@ -442,7 +449,7 @@ export default function Beranda() {
               }}
             >
               <div
-                className="absolute w-75 h-75 md:w-132.5 md:h-132.5 rounded-full bg-linear-to-br from-gray-300 via-gray-400 to-purple-300 blur-3xl opacity-80"
+                className="absolute w-75 h-75 md:w-132.5 md:h-132.5 rounded-full bg-linear-to-br  from-mas-red/50 via-mas-red/80 to-purple-300 blur-3xl opacity-80"
                 aria-hidden="true"
               />
               <Image
