@@ -21,9 +21,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import type { Metadata } from "next";
-
-// ── Site URL ────────────────────────────────────────────────────
-const siteUrl = "https://megaadhitamasejati.id";
+import { buildPageMetadata } from "@/config/metadata";
 
 // ── Static Params ──────────────────────────────────────────────
 export function generateStaticParams() {
@@ -46,42 +44,15 @@ export async function generateMetadata({
   const title = t(`${news.contentKey}_title`);
   const description = t(`${news.contentKey}_description`);
   const imagePath = news.imageDetail ?? news.image;
-  const imageUrl = `${siteUrl}${encodeURI(imagePath)}`;
-  const url = `${siteUrl}/${locale}/informasi/berita/${slug}`;
 
-  return {
+  return buildPageMetadata({
+    locale,
     title,
     description,
-    openGraph: {
-      title: `Mega Adhitama Sejati | ${title}`,
-      description,
-      url,
-      siteName: "Mega Adhitama Sejati",
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-      locale: locale === "id" ? "id_ID" : "en_US",
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [imageUrl],
-    },
-    alternates: {
-      canonical: url,
-      languages: {
-        "id-ID": `${siteUrl}/id/informasi/berita/${slug}`,
-        "en-US": `${siteUrl}/en/informasi/berita/${slug}`,
-      },
-    },
-  };
+    path: `/informasi/berita/${slug}`,
+    image: encodeURI(imagePath),
+    type: "article",
+  });
 }
 
 // ── Page Component ─────────────────────────────────────────────
@@ -131,7 +102,7 @@ export default async function BeritaDetail({
             </div>
 
             <Breadcrumb>
-              <BreadcrumbList className="text-xs sm:text-sm md:text-base">
+              <BreadcrumbList className="text-xs sm:text-sm md:text-base text-gray-700">
                 {breadcrumbs.map((item, index) => (
                   <React.Fragment key={index}>
                     <BreadcrumbItem>
@@ -140,7 +111,10 @@ export default async function BeritaDetail({
                           {item.label}
                         </BreadcrumbPage>
                       ) : (
-                        <BreadcrumbLink asChild>
+                        <BreadcrumbLink
+                          asChild
+                          className="text-gray-700 hover:text-mas-red transition-colors"
+                        >
                           <Link href={item.href!}>{item.label}</Link>
                         </BreadcrumbLink>
                       )}

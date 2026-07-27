@@ -5,12 +5,16 @@
       "title": "Tentang Kami",
       "profile": "Profil Perusahaan",
       "vision": "Visi & Misi",
+      "core": "Nilai-Nilai",
       "achievement": "Pencapaian",
+      "facility": "Fasilitas Distribusi ",
       "management": "Manajemen",
       "profile_desc": "Sejarah dan profil perusahaan kami",
       "vision_desc": "Visi, misi, dan nilai-nilai perusahaan",
       "achievement_desc": "Penghargaan dan pencapaian kami",
-      "management_desc": "Tim manajemen dan kepemimpinan"
+      "management_desc": "Tim manajemen dan kepemimpinan",
+      "core_desc": "Prinsip yang menjadi landasan kami",
+      "facility_desc": "Jaringan distribusi dan Gudang Kami"
     },
     "product": "Produk",
     "info": {
@@ -21,7 +25,31 @@
       "activities_desc": "Dokumentasi kegiatan dan event perusahaan"
     },
     "career": "Karir",
-    "contact": "Kontak"
+    "contact": "Hubungi Kami"
+  },
+  "metadata": {
+    "beranda_pages": "Distributor Bahan Bangunan Retail dengan Wilayah Layanan Utama di Provinsi Banten",
+    "beranda_pages_desc": "Mega Adhitama Sejati merupakan mitra terpercaya dalam penyediaan bahan bangunan berkualitas untuk segmen retail, dengan wilayah layanan utama di Provinsi Banten",
+    "perusahaan_pages": "Profil Perusahaan",
+    "perusahaan_pages_desc": "Mega Adhitama Sejati merupakan mitra terpercaya dalam penyediaan bahan bangunan berkualitas untuk segmen retail, dengan wilayah layanan utama di Provinsi Banten. Kami menghadirkan rangkaian produk unggulan lainnya.",
+    "managemen_pages": "Managemen Perusahaan",
+    "managemen_pages_desc": "Keberhasilan kami dibangun di atas fondasi kepemimpinan yang tangguh, berpengalaman, dan berintegritas",
+    "pencapaian_pages": "Pencapaian Perusahaan",
+    "pencapaian_pages_desc": "Mega Adhitama Sejati meraih berbagai penghargaan atas komitmennya dalam menerapkan prinsip keberlanjutan dalam operasi bisnisnya. Penghargaan-penghargaan ini mencerminkan upaya Perusahaan dalam menciptakan dampak positif bagi lingkungan, masyarakat, dan tata kelola yang bertanggung jawab",
+    "vision_pages": "Visi & Misi Perusahaan",
+    "vision_pages_desc": "Fondasi Utama dan Arah Strategis Perusahaan",
+    "facility_pages": "Fasilitas Distribusi Perusahaan",
+    "facility_pages_desc": "jaringan distribusi dan Fasilitas nya",
+    "products_pages": "Produk Perusahaan",
+    "products_pages_desc": "Bermacam-macam Category produk yang ada di Mega adhitama Sejati",
+    "career_pages": "Lowongan Perusahaan",
+    "career_pages_desc": "Bermacam-macam Category produk yang ada di Mega adhitama Sejati",
+    "contact_pages": "Kontak Perusahaan",
+    "contact_pages_desc": "Hubungi kami dengan mengisi form ini",
+    "activities_pages": "Kegiatan Perusahaan",
+    "activities_pages_desc": "dapatkan informasi kegiatan terbaru di mas",
+    "news_pages": "Berita Perusahaan",
+    "news_pages_desc": "dapatkan informasi berita terbaru di mas"
   },
 
   "Home": {
@@ -66,7 +94,9 @@
       "ctaabout": "Lihat Selengkapnya"
     },
     "Features": {
-      "title_features": "Nikmati berbagai keuntungan di MAS",
+      "title_features": "Nikmati berbagai",
+      "title_features_01": "keuntungan",
+      "title_features_02": "di MAS",
       "desc_features": "Distributor Building Materials berkualitas dengan mutu terjamin",
       "products": {
         "title": "Produk Berkualitas & Terpercaya",
@@ -99,14 +129,17 @@
       "icon_2_desc": "Solusi sanitary modern dengan kualitas terpercaya untuk kebutuhan residensial, komersial, dan industri.",
       "icon_3_desc": "Perlengkapan keselamatan kerja profesional untuk mendukung standar keamanan proyek dan operasional industri.",
       "title-product": "Kategori",
-      "sub-product": "Solusi Produk Terintegrasi",
+      "sub-product": "Solusi",
+      "sub-product_01": "Produk Terintegrasi",
       "sub-desc-product": "Solusi material konstruksi, sanitary, dan safety equipment untuk mendukung proyek modern yang efisien, aman, dan berkualitas tinggi.",
       "desc_quotation": "Konsultasikan kebutuhan proyek Anda",
       "desc_quotation_01": "Dapatkan rekomendasi produk terbaik bersama tim kami."
     },
     "Testimoni": {
       "testimoni": "Testimoni",
-      "desc_testimoni": "Pelanggan kami yang telah merasakan pelayanan dari MAS",
+      "desc_testimoni": "Pelanggan kami yang telah merasakan",
+      "desc_testimoni_01": "pelayanan",
+      "desc_testimoni_02": "dari MAS",
       "items": {
         "01": {
           "quote": "Pengiriman sangat cepat, pesan hari ini besok sudah sampai. Stoknya juga lengkap, jadi tidak perlu cari ke tempat lain.",
@@ -153,6 +186,9 @@
       "desc_warehouse": "Dalam menjalankan bisnisnya, PT. Mega Adhitama Sejati berkomitmen untuk memberikan pelayanan dan pengiriman yang terbaik bagi para pelanggan. Saat ini kami memiliki 2 (dua) lokasi warehouse yang luas berlokasi di Alam Sutera-Tangerang & Rangkasbitung-Banten."
     },
     "vision": {
+      "header": "Fondasi Utama",
+      "header_01": "dan Arah Strategis Perusahaan",
+      "header_desc": "Perjalanan kami digerakkan oleh visi yang jelas dan dipandu oleh misi yang terukur. Kami berkomitmen untuk terus beradaptasi dan berinovasi tanpa pernah mengesampingkan integritas serta kualitas, demi menciptakan nilai jangka panjang bagi seluruh stakeholder kami",
       "title_vision": "Visi",
       "desc_vision": "Menjadi perusahaan distribusi bahan bangunan terbaik don terpercaya di Banten, dengan produk berkualitas don harga kompetitif, serta pelayanan yang berorientasi pada kepuasan pelanggan.",
       "title_mision": "Misi",
@@ -165,12 +201,22 @@
       "desc_mission_2": "Terus berinovasi dan mengembangkan berbagai metode penjualan serta distribusi yang efisien dan efektif untuk meningkatkan daya saing dan kepuasan pelanggan.",
       "desc_mission_3": "Memberikan pelayanan pelanggan yang profesional, responsif, dan ramah, serta memastikan ketersediaan produk dengan pengiriman yang cepat dan tepat waktu, guna mencapai kepuasan dan kepercayaan pelanggan",
       "desc_mission_4": "Mensinergikan kepentingan pemegang saham (Shareholder) dengan pemangku kepentingan (Stakeholder) demi kemajuan perusahaan don kesejahteraan bersama",
-      "desc_mission_5": "Memberikan pelatihan dan pengembangan berkelanjutan bagi karyawan untuk meningkatkan kompetensi dan profesionalisme, serta membangun sumber daya manusia yang handal, jujur, dan berkualitas."
+      "desc_mission_5": "Memberikan pelatihan dan pengembangan berkelanjutan bagi karyawan untuk meningkatkan kompetensi dan profesionalisme, serta membangun sumber daya manusia yang handal, jujur, dan berkualitas.",
+      "desc_core": "Fondasi budaya kerja kami yang membentuk integritas dan keunggulan perusahaan"
+    },
+    "core": {
+      "responsibility": "Tugas, kewajiban, atau tindakan tertentu yang diharapkan dari seseorang dalam lingkup pekerjaannya.",
+      "excellent": "Standar kualitas yang tinggi dan konsisten dalam melakukan tugas atau kinerja pekerjaan.",
+      "dedicated": "Tingkat komitmen, semangat dan keseriusan seseorang terhadap tugas atau pekerjaannya.",
+      "detailOriented": "Kemampuan untuk memperhatikan dan memahami detail kecil atau hal-hal yang mungkin terlewatkan oleh orang lain.",
+      "modernization": "Proses atau upaya untuk memperbaharui, memodernisasi, atau mengadopsi teknologi, metode atau proses baru yang lebih efisien dan sesuai dengan perkembangan terkini.",
+      "agility": "Kemampuan seseorang atau organisasi untuk beradaptasi dengan cepat terhadap perubahan dan menangani situasi yang berubah dengan fleksibilitas dan responsif.",
+      "senseOfBelonging": "Perasaan bahwa seseorang adalah bagian integral dari tim atau organisasi tempat mereka bekerja."
     },
     "achievement": {
-      "achievement": "Pencapaian",
-      "awards": " Penghargaan",
-      "our": "kami",
+      "header_01": "Pencapaian",
+      "header_02": " Penghargaan",
+      "header_03": "Sertifikasi",
       "desc_achievement": "Mega Adhitama Sejati meraih berbagai penghargaan atas komitmennya dalam menerapkan prinsip keberlanjutan dalam operasi bisnisnya. Penghargaan-penghargaan ini mencerminkan upaya Perusahaan dalam menciptakan dampak positif bagi lingkungan, masyarakat, dan tata kelola yang bertanggung jawab.",
       "desc_achievement_1": "Penghargaan yang kami dapatkan"
     },
@@ -197,19 +243,26 @@
         "Mental kewirausahaan mulai terasah pada tahun 2003 ketika memulai bisnis dengan menjadi pedagang eceran. Pada tahun 2008, mendirikan perusahaan pertamanya, PT Intisukses Mitra Sejati, yang menjadi cikal bakal bagi berdirinya berbagai perusahaan selanjutnya. ",
         "Dengan pengalaman yang luas dan dedikasi yang tinggi, akan terus memimpin dan mengembangkan usaha yang memberikan dampak positif di berbagai sektor industri. "
       ]
+    },
+    "facility": {
+      "tag": "INFRASTRUKTUR",
+      "header": "Gudang",
+      "content": "Pusat operasional utama dan koordinasi logistik yang dirancang strategis guna memfasilitasi kelancaran arus perdagangan antar wilayah."
     }
   },
-
   "Products": {
     "product": "Produk",
     "not_found": "tidak ditemukan",
-    "titleproducts": "Jelajahi katalog",
-    "titleproducts_1": "Produk kami",
+    "title": "Jelajahi katalog",
+    "title_1": "Produk kami",
     "ctaproducts": "Lihat Detail",
-    "desc_products": "Temukan produk yang sesuai dengan kebutuhan Anda, dengan berbagai produk terbaik.",
+    "desc": "Temukan produk yang sesuai dengan kebutuhan Anda, dengan berbagai produk terbaik.",
     "show_product": "Menampilkan",
     "specification": "Spesifikasi",
     "type": "Tipe",
+    "search": "pencarian Produk",
+    "placeholder": "Cari nama produk...",
+    "search_desc": "Ketik sesuatu untuk mulai mencari...",
     "specification_features": "Fitur Spesifikasi",
     "servvo": "Servvo",
     "servvo_features_1": "Bersertifikat Lengkap dan Standar Nasional",
@@ -308,10 +361,7 @@
     "supreme_features_2": "Ketahanan terhadap panas dan api.",
     "supreme_features_3": "Sesuai dengan standar nasional dan internasional.",
     "supreme_features_4": "Stabil dan Konsisten.",
-    "supreme_desc": " Kabel Supreme adalah produk berkualitas tinggi yang terbuat dari tembaga murni dengan isolasi tahan lama berbahan PVC atau XLPE. Prociuk ini mencakup berbagai jenis kabel listrik, data, dan telekomunikasi, serta kabel instrumen dan kontrol yang dirancang untuk keandalan dan efisiensi dalam berbagai aplikasi.",
-    "search": "pencarian Produk",
-    "placeholder": "Cari nama produk...",
-    "search_desc": "Ketik sesuatu untuk mulai mencari..."
+    "supreme_desc": " Kabel Supreme adalah produk berkualitas tinggi yang terbuat dari tembaga murni dengan isolasi tahan lama berbahan PVC atau XLPE. Prociuk ini mencakup berbagai jenis kabel listrik, data, dan telekomunikasi, serta kabel instrumen dan kontrol yang dirancang untuk keandalan dan efisiensi dalam berbagai aplikasi."
   },
 
   "Faq": {
@@ -444,13 +494,15 @@
   },
 
   "Career": {
-    "title_karir": "Bergabunglah Dengan Kami",
-    "karir_desc": "Dengan lebih dari 14 brand bisnis dan 1.100 retail yang tersebar di seluruh Jabodetabek, kami menawarkan beragam posisi yang penuh tantangan untuk profesional, lulusan baru, hingga kesempatan magang."
+    "header": "Bergabunglah Dengan Kami",
+    "desc": "Dengan lebih dari 14 brand bisnis dan 1.100 retail yang tersebar di seluruh Jabodetabek, kami menawarkan beragam posisi yang penuh tantangan untuk profesional, lulusan baru, hingga kesempatan magang.",
+    "cta": "Lihat Selengkapnya",
+    "tag": "Lowongan pekerjaan"
   },
 
   "Contact": {
-    "metadatatitle": "Mega Adhitama Sejati | Kontak",
-    "title": "Lokasi Kami",
+    "title": "Informasi",
+    "title_01": "Perusahaan",
     "desc_1": "Kantor Pusat",
     "desc_2": "Kantor Perwakilan",
     "desc_3": "Showroom SERVVO",
@@ -465,6 +517,7 @@
     "form_5": "Pesan Anda",
     "form_submit": "Kirim Pesan",
     "form_send": "  Mengirim...",
+    "placeholder": "Ceritakan kebutuhan spesifik proyek anda...",
     "alert_message_name": "Nama lengkap harus diisi minimal 8 karakter.",
     "alert_message_email": "Alamat email harus diisi",
     "alert_message_telp": "Nomor telepon harus diisi dengan format yang benar.",

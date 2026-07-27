@@ -12,36 +12,32 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+// ─── Metadata halaman ini ──────────────────────────────────────────────────
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Managemen",
-    description: "Informasi seputar Managemen & BOD PT.Mega Adhitama Sejati",
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-    openGraph: {
-      title: " Mega Adhitama Sejati | Managemen",
-      description: "Informasi seputar Managemen & BOD PT.Mega Adhitama Sejati",
-      url: `${siteUrl}/${locale}/managemen`,
-    },
+  const t = await getTranslations({ locale });
 
-    alternates: {
-      canonical: `${siteUrl}/${locale}/managemen`,
-      languages: {
-        "id-ID": `${siteUrl}/id/managemen`,
-        "en-US": `${siteUrl}/en/managemen`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.managemen_pages"),
+    description: t("metadata.managemen_pages_desc"),
+  });
 }
+
 export default async function Manajemen() {
   const tNav = await getTranslations("Navigation");
   const tMgmt = await getTranslations("About.management");
@@ -61,8 +57,8 @@ export default async function Manajemen() {
     <section id="Manajemen">
       <div className="w-full py-20">
         {/* ── Header / Breadcrumb ── */}
-        <header className="p-6 sm:p-8 ">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8">
+          <div className="mx-auto max-w-7xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -70,7 +66,7 @@ export default async function Manajemen() {
             </div>
 
             <Breadcrumb>
-              <BreadcrumbList className="text-xs sm:text-sm md:text-base">
+              <BreadcrumbList className="text-xs sm:text-sm md:text-base text-gray-700">
                 {breadcrumbs.map((item, index) => (
                   <React.Fragment key={index}>
                     <BreadcrumbItem>
@@ -79,7 +75,10 @@ export default async function Manajemen() {
                           {item.label}
                         </BreadcrumbPage>
                       ) : (
-                        <BreadcrumbLink asChild>
+                        <BreadcrumbLink
+                          asChild
+                          className="text-gray-700 hover:text-mas-red transition-colors"
+                        >
                           <Link href={item.href!}>{item.label}</Link>
                         </BreadcrumbLink>
                       )}
@@ -94,7 +93,7 @@ export default async function Manajemen() {
 
         {/* ── BOD List ── */}
         <div className="px-4 sm:px-6 lg:px-8 py-16">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             {modalData.map((item, index) => (
               <React.Fragment key={item.id}>
                 {/* Card per anggota */}

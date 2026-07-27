@@ -14,9 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import type { Metadata } from "next";
-
-// ── Site URL ────────────────────────────────────────────────────
-const siteUrl = "https://megaadhitamasejati.id";
+import { buildPageMetadata } from "@/config/metadata";
 
 export async function generateStaticParams() {
   const locales = ["id", "en"];
@@ -36,44 +34,13 @@ export async function generateMetadata({
 
   const t = await getTranslations({ locale, namespace: "Products" });
 
-  const title = produk.namaBrand;
-  const description = t(produk.descKey);
-  const imageUrl = `${siteUrl}${encodeURI(produk.gambarUtama)}`;
-  const url = `${siteUrl}/${locale}/produk/${slug}`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title: `Mega Adhitama Sejati | ${title}`,
-      description,
-      url,
-      siteName: "Mega Adhitama Sejati",
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: `Produk ${title}`,
-        },
-      ],
-      locale: locale === "id" ? "id_ID" : "en_US",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [imageUrl],
-    },
-    alternates: {
-      canonical: url,
-      languages: {
-        "id-ID": `${siteUrl}/id/produk/${slug}`,
-        "en-US": `${siteUrl}/en/produk/${slug}`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: produk.namaBrand,
+    description: t(produk.descKey),
+    path: `/produk/${slug}`,
+    image: encodeURI(produk.gambarUtama),
+  });
 }
 
 // Komponen utama — tambahkan await params
@@ -108,7 +75,7 @@ export default async function ProdukDetail({
             </div>
 
             <Breadcrumb>
-              <BreadcrumbList className="text-xs sm:text-sm md:text-base">
+              <BreadcrumbList className="text-xs sm:text-sm md:text-base text-gray-700">
                 {breadcrumbs.map((item, index) => (
                   <React.Fragment key={index}>
                     <BreadcrumbItem>
@@ -117,7 +84,10 @@ export default async function ProdukDetail({
                           {item.label}
                         </BreadcrumbPage>
                       ) : (
-                        <BreadcrumbLink asChild>
+                        <BreadcrumbLink
+                          asChild
+                          className="text-gray-700 hover:text-mas-red transition-colors"
+                        >
                           <Link href={item.href!}>{item.label}</Link>
                         </BreadcrumbLink>
                       )}

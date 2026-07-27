@@ -13,47 +13,40 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Berita",
-    description: "Informasi Seluruh berita di PT Mega Adhitama Sejati",
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-    openGraph: {
-      title: " Mega Adhitama Sejati | Berita",
-      description: "Informasi Seluruh berita di PT Mega Adhitama Sejati",
-      url: `${siteUrl}/${locale}/berita`,
-    },
+  const t = await getTranslations({ locale });
 
-    alternates: {
-      canonical: `${siteUrl}/${locale}/berita`,
-      languages: {
-        "id-ID": `${siteUrl}/id/berita`,
-        "en-US": `${siteUrl}/en/berita`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.news_pages"),
+    description: t("metadata.news_pages_desc"),
+  });
 }
-
-export default function Berita() {
-  const tNav = useTranslations("Navigation");
-  const t = useTranslations("Roominformation");
+export default async function Berita({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
   const allNews = Allnews(t);
 
   const breadcrumbs = [
-    { label: tNav("home"), href: "/" },
-    { label: tNav("info.title"), href: "#" },
-    { label: tNav("info.news"), current: true },
+    { label: t("Navigation.home"), href: "/" },
+    { label: t("Navigation.info.title"), href: "#" },
+    { label: t("Navigation.info.news"), current: true },
   ];
 
   return (
@@ -68,7 +61,7 @@ export default function Berita() {
           </div>
 
           <Breadcrumb>
-            <BreadcrumbList className="text-xs sm:text-sm md:text-base">
+            <BreadcrumbList className="text-xs sm:text-sm md:text-base text-gray-700">
               {breadcrumbs.map((item, index) => (
                 <React.Fragment key={index}>
                   <BreadcrumbItem>
@@ -77,7 +70,10 @@ export default function Berita() {
                         {item.label}
                       </BreadcrumbPage>
                     ) : (
-                      <BreadcrumbLink asChild>
+                      <BreadcrumbLink
+                        asChild
+                        className="text-gray-700 hover:text-mas-red transition-colors"
+                      >
                         <Link href={item.href!}>{item.label}</Link>
                       </BreadcrumbLink>
                     )}
@@ -94,7 +90,10 @@ export default function Berita() {
       <section className="py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-gray-700 text-2xl font-semibold tracking-tight">
-            {t("news")} <span className="text-mas-red">{t("exclusive")}</span>
+            {t("Roominformation.news")}{" "}
+            <span className="text-mas-red">
+              {t("Roominformation.exclusive")}
+            </span>
           </h2>
           <div className="h-px bg-gray-200 my-9" />
 

@@ -14,60 +14,49 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Kegiatan",
-    description: "Informasi seluruh kegiatan di PT.Mega Adhitama Sejati",
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-    openGraph: {
-      title: " Mega Adhitama Sejati | Kegiatan",
-      description: "Informasi seluruh kegiatan di PT.Mega Adhitama Sejati",
-      url: `${siteUrl}/${locale}/kegiatan`,
-    },
+  const t = await getTranslations({ locale });
 
-    alternates: {
-      canonical: `${siteUrl}/${locale}/kegiatan`,
-      languages: {
-        "id-ID": `${siteUrl}/id/kegiatan`,
-        "en-US": `${siteUrl}/en/kegiatan`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.activities_pages"),
+    description: t("metadata.activities_pages_desc"),
+  });
 }
-
-export async function generateStaticParams() {
-  return [{ locale: "id" }, { locale: "en" }];
-}
-export default function Kegiatan() {
-  const tNav = useTranslations("Navigation");
-  const t = useTranslations("Roominformation");
+export default async function Kegiatan({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
   const allActivities = Allactivities(t);
-
   const newActivities = allActivities.filter((a) => a.isNew);
 
   const breadcrumbs = [
-    { label: tNav("home"), href: "/" },
-    { label: tNav("info.title"), href: "#" },
-    { label: tNav("info.activities"), current: true },
+    { label: t("Navigation.home"), href: "/" },
+    { label: t("Navigation.info.title"), href: "#" },
+    { label: t("Navigation.info.activities"), current: true },
   ];
 
   return (
     <section id="kegiatan">
       <div className="w-full py-20">
         {/* ── Header ── */}
-        <header className="p-6 sm:p-8">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8">
+          <div className="mx-auto max-w-7xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -75,7 +64,7 @@ export default function Kegiatan() {
             </div>
 
             <Breadcrumb>
-              <BreadcrumbList className="text-xs sm:text-sm md:text-base">
+              <BreadcrumbList className="text-xs sm:text-sm md:text-base text-gray-700">
                 {breadcrumbs.map((item, index) => (
                   <React.Fragment key={index}>
                     <BreadcrumbItem>
@@ -84,8 +73,11 @@ export default function Kegiatan() {
                           {item.label}
                         </BreadcrumbPage>
                       ) : (
-                        <BreadcrumbLink asChild>
-                          <Link href={item.href || "#"}>{item.label}</Link>
+                        <BreadcrumbLink
+                          asChild
+                          className="text-gray-700 hover:text-mas-red transition-colors"
+                        >
+                          <Link href={item.href!}>{item.label}</Link>
                         </BreadcrumbLink>
                       )}
                     </BreadcrumbItem>
@@ -99,7 +91,7 @@ export default function Kegiatan() {
 
         {/* ── Carousel + Sidebar ── */}
         <div className="px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Carousel */}
               <div className="order-2 lg:order-1 lg:col-span-2">
@@ -113,7 +105,7 @@ export default function Kegiatan() {
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                   <div className="bg-linear-to-r from-red-600 to-mas-red px-6 py-4">
                     <h2 className="text-white text-lg font-bold tracking-wide">
-                      {t("activities_news")}
+                      {t("Roominformation.activities_news")}
                     </h2>
                   </div>
 
@@ -157,8 +149,10 @@ export default function Kegiatan() {
         <div className="py-10 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <h2 className="text-gray-700 text-2xl lg:text-4xl font-semibold tracking-tight">
-              {t("activities")}{" "}
-              <span className="text-mas-red">{t("exclusive")}</span>
+              {t("Roominformation.activities")}{" "}
+              <span className="text-mas-red">
+                {t("Roominformation.exclusive")}
+              </span>
             </h2>
             <div className="h-px bg-gray-200 my-9" />
 

@@ -14,6 +14,8 @@ import {
   Target,
   Trophy,
   Users,
+  Forklift,
+  Handshake,
   Newspaper,
   Calendar,
 } from "lucide-react";
@@ -311,10 +313,22 @@ const Navbar = () => {
       icon: <Target className="w-4 h-4" />,
     },
     {
+      href: "/profil/core",
+      label: t("about.core"),
+      desc: t("about.core_desc"),
+      icon: <Handshake className="w-4 h-4" />,
+    },
+    {
       href: "/profil/pencapaian",
       label: t("about.achievement"),
       desc: t("about.achievement_desc"),
       icon: <Trophy className="w-4 h-4" />,
+    },
+    {
+      href: "/profil/fasilitas",
+      label: t("about.facility"),
+      desc: t("about.facility_desc"),
+      icon: <Forklift className="w-4 h-4" />,
     },
     {
       href: "/profil/manajemen",
@@ -347,7 +361,7 @@ const Navbar = () => {
         navVisible ? "translate-y-0" : "-translate-y-full",
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20 lg:h-20">
           {/* ── Logo ── */}
           <Link href="/" onClick={handleLinkClick} className="shrink-0">
@@ -451,7 +465,7 @@ const Navbar = () => {
                   <Link
                     href="/kontak"
                     onClick={handleLinkClick}
-                    className={desktopNavLink("/kontak")}
+                    className={desktopNavLink("/hubungi kami")}
                   >
                     {t("contact")}
                   </Link>

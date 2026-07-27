@@ -97,9 +97,9 @@ const Allnews = (t: (key: string) => string): News[] =>
   newsData.map((n) => ({
     ...n,
     href: generateHref(n.slug),
-    title: t(`${n.contentKey}_title`),
-    description: t(`${n.contentKey}_description`),
-    date: t(`${n.contentKey}_date`),
+    title: t(`Roominformation.${n.contentKey}_title`),
+    description: t(`Roominformation.${n.contentKey}_description`),
+    date: t(`Roominformation.${n.contentKey}_date`),
   }));
 
 export default Allnews;

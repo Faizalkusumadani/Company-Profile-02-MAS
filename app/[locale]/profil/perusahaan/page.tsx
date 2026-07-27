@@ -9,56 +9,50 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { MapPin, Store, Building2, ChevronRight, Building } from "lucide-react";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+// ─── Metadata halaman ini ──────────────────────────────────────────────────
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Tentang Perusahaan ",
-    description:
-      "PT. Mega Adhitama Sejati didirikan pada tahun 2012, dengan produk pertama yang dipasarkan adalah Semen Merah Putih untuk area distribusi di wilayah Banten.",
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-    openGraph: {
-      title: " Mega Adhitama Sejati | Tentang Perusahaan ",
-      description:
-        "PT. Mega Adhitama Sejati didirikan pada tahun 2012, dengan produk pertama yang dipasarkan adalah Semen Merah Putih untuk area distribusi di wilayah Banten.",
-      url: `${siteUrl}/${locale}/perusahaan`,
-    },
+  const t = await getTranslations({ locale });
 
-    alternates: {
-      canonical: `${siteUrl}/${locale}/perusahaan`,
-      languages: {
-        "id-ID": `${siteUrl}/id/perusahaan`,
-        "en-US": `${siteUrl}/en/perusahaan`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.perusahaan_pages"),
+    description: t("metadata.perusahaan_pages_desc"),
+  });
 }
 
-export default function Perusahaan() {
-  const tNav = useTranslations("Navigation");
-  const t = useTranslations("About.companyprofile");
+// ─── Komponen halaman ───────────────────────────────────────────────────────
+export default async function Perusahaan({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
 
   const breadcrumbs = [
-    { label: tNav("home"), href: "/" },
-    { label: tNav("about.title"), href: "#" },
-    { label: tNav("about.profile"), current: true },
+    { label: t("Navigation.home"), href: "/" },
+    { label: t("Navigation.about.title"), href: "#" },
+    { label: t("Navigation.about.profile"), current: true },
   ];
 
   // Pisahkan judul "About" menjadi kata pertama (merah) dan sisanya (putih)
-  const aboutTitleWords = t("about_company").split(" ");
+  const aboutTitleWords = t("About.companyprofile.about_company").split(" ");
   const aboutTitleFirstWord = aboutTitleWords[0];
   const aboutTitleRest = aboutTitleWords.slice(1).join(" ");
-  const descCompanyRaw = t.raw("desc_company");
+  const descCompanyRaw = t.raw("About.companyprofile.desc_company");
   const descCompanyParagraphs: string[] = Array.isArray(descCompanyRaw)
     ? descCompanyRaw
     : String(descCompanyRaw)
@@ -72,7 +66,7 @@ export default function Perusahaan() {
         {/* About - Overlay Style (breadcrumb menyatu di dalam hero) */}
         <div className="relative w-full min-h-105 sm:min-h-120 lg:min-h-160 overflow-hidden">
           <Image
-            src="/images/foto 1.jpg"
+            src="/images/foto-1.jpg"
             fill
             alt="Kantor PT. Mega Adhitama Sejati"
             className="object-cover object-center"
@@ -82,13 +76,13 @@ export default function Perusahaan() {
           />
 
           {/* Dark overlay untuk keterbacaan teks, lebih gelap di sisi kiri */}
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute inset-0 bg-linear-to-r from-black via-black to-transparent" />
+          <div className="absolute inset-0 bg-mas-dark/50" />
+          <div className="absolute inset-0 bg-linear-to-r from-mas-dark via-mas-dark/80 to-transparent" />
 
           {/* Konten Overlay: breadcrumb menempel di atas, judul & deskripsi di bawah */}
           <div className="relative h-full flex flex-col justify-between px-6 sm:px-10 lg:px-16 py-8 sm:py-10 lg:py-14">
             {/* Breadcrumb - bagian atas hero */}
-            <div className="mx-auto w-full max-w-6xl">
+            <div className="mx-auto w-full max-w-7xl px-4">
               <div className="flex items-center gap-1.5 mb-3">
                 <span className="block w-8 h-1 rounded-full bg-mas-red" />
                 <span className="block w-4 h-1 rounded-full bg-red-300" />
@@ -121,8 +115,8 @@ export default function Perusahaan() {
             </div>
 
             {/* Judul & Deskripsi - bagian bawah hero */}
-            <div className="mx-auto w-full max-w-6xl py-18">
-              <div className="w-full max-w-xl text-left">
+            <div className="mx-auto w-full max-w-7xl py-18">
+              <div className="w-full max-w-xl text-left px-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">
                   <span className="text-mas-red">{aboutTitleFirstWord}</span>{" "}
                   <span className="text-white">{aboutTitleRest}</span>
@@ -147,11 +141,11 @@ export default function Perusahaan() {
           <div className="mx-auto max-w-7xl">
             {/* Section header */}
             <div className="max-w-3xl mb-8 lg:mb-10">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-mas-dark leading-tight">
                 MAS <span className="text-mas-red">Office</span>
               </h2>
               <p className="mt-4 text-base md:text-lg text-gray-500 leading-relaxed">
-                {t("desc_office")}
+                {t("About.companyprofile.desc_office")}
               </p>
             </div>
 
@@ -159,7 +153,7 @@ export default function Perusahaan() {
               {/* LEFT: Asymmetric image mosaic */}
               <div className="lg:col-span-7">
                 <div className="grid grid-cols-5 grid-rows-2 gap-3 sm:gap-4 h-105 sm:h-125 lg:h-140">
-                  <div className="col-span-3 row-span-2 relative overflow-hidden rounded-2xl shadow-xl group ring-1 ring-black/5">
+                  <div className="col-span-3 row-span-2 relative overflow-hidden rounded-2xl shadow-xl group ring-1 ring-mas-dark/5">
                     <Image
                       src="/images/kantor-puri.jpg"
                       alt="Kantor Puri Kencana"
@@ -167,10 +161,10 @@ export default function Perusahaan() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       sizes="(max-width: 1024px) 60vw, 40vw"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-mas-dark/70 via-mas-dark/10 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
                       <p className="text-white/70 text-xs font-medium uppercase tracking-widest mb-1">
-                        {t("desc_1")}
+                        {t("About.companyprofile.desc_1")}
                       </p>
                       <h3 className="text-white text-xl sm:text-2xl font-bold">
                         Puri Kencana
@@ -178,7 +172,7 @@ export default function Perusahaan() {
                     </div>
                   </div>
 
-                  <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-lg group ring-1 ring-black/5">
+                  <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-lg group ring-1 ring-mas-dark/5">
                     <Image
                       src="/images/kantor-servvo.jpeg"
                       alt="SERVVO Showroom"
@@ -186,10 +180,10 @@ export default function Perusahaan() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       sizes="(max-width: 1024px) 40vw, 25vw"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-mas-dark/60 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3">
                       <p className="text-white/70 text-[10px] font-medium uppercase tracking-widest">
-                        {t("desc_3")}
+                        {t("About.companyprofile.desc_3")}
                       </p>
                       <h4 className="text-white text-sm font-semibold">
                         Serang
@@ -197,7 +191,7 @@ export default function Perusahaan() {
                     </div>
                   </div>
 
-                  <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-lg group ring-1 ring-black/5">
+                  <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-lg group ring-1 ring-mas-dark/5">
                     <Image
                       src="/images/kantor-serang.jpeg"
                       alt="Kantor Serang"
@@ -205,10 +199,10 @@ export default function Perusahaan() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       sizes="(max-width: 1024px) 40vw, 25vw"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-mas-dark/60 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3">
                       <p className="text-white/70 text-[10px] font-medium uppercase tracking-widest">
-                        {t("desc_2")}
+                        {t("About.companyprofile.desc_2")}
                       </p>
                       <h4 className="text-white text-sm font-semibold">
                         Serang
@@ -225,20 +219,20 @@ export default function Perusahaan() {
                     {
                       key: "office-1",
                       icon: Building2,
-                      title: t("desc_1"),
+                      title: t("About.companyprofile.desc_1"),
                       city: "Puri Kencana, Jakarta Barat",
                     },
                     {
                       key: "office-2",
                       icon: Building,
-                      title: t("desc_2"),
-                      city: `Serang ${t("city_1")}, Banten`,
+                      title: t("About.companyprofile.desc_2"),
+                      city: `Serang ${t("About.companyprofile.city_1")}, Banten`,
                     },
                     {
                       key: "office-3",
                       icon: Store,
-                      title: t("desc_3"),
-                      city: `Serang ${t("city_1")}, Banten`,
+                      title: t("About.companyprofile.desc_3"),
+                      city: `Serang ${t("About.companyprofile.city_1")}, Banten`,
                     },
                   ].map((loc) => {
                     const Icon = loc.icon;
@@ -256,7 +250,7 @@ export default function Perusahaan() {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-gray-800  text-base sm:text-lg leading-snug mb-1">
+                          <h3 className="font-bold text-mas-dark  text-base sm:text-lg leading-snug mb-1">
                             {loc.title}
                           </h3>
                           <p className="flex items-center gap-1.5 text-sm text-gray-500">
@@ -269,83 +263,6 @@ export default function Perusahaan() {
                       </div>
                     );
                   })}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Wharehouse section */}
-        <div className="px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          <div className="mx-auto max-w-7xl">
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-700">
-                MAS <span className="text-mas-red">Warehouse</span>
-              </h2>
-
-              <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed mb-10">
-                {t("desc_warehouse")}
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-              <div className="md:col-span-2 relative overflow-hidden rounded-xl shadow-xl group">
-                <div className="aspect-3/1 relative">
-                  <Image
-                    src="/images/slide-02.webp"
-                    alt="Warehouse Alam Sutera - Tangerang"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 66vw"
-                  />
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden rounded-xl group">
-                <div className="aspect-3/2 relative">
-                  <Image
-                    src="/images/slide-00.webp"
-                    alt="Warehouse Alamsutra - Detail 1"
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, (min-width: 769px) 33vw"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 lg:gap-6 md:col-span-2">
-                <div className="relative overflow-hidden rounded-xl shadow-xl group">
-                  <div className="aspect-video relative">
-                    <Image
-                      src="/images/slide-03.webp"
-                      alt="Warehouse Alamsutra"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
-                </div>
-                <div className="relative overflow-hidden rounded-xl shadow-xl group">
-                  <div className="aspect-video relative">
-                    <Image
-                      src="/images/slide-05.webp"
-                      alt="Gudang"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden rounded-xl shadow-xl group">
-                <div className="aspect-video relative">
-                  <Image
-                    src="/images/slide-07.webp"
-                    alt="Aktivitas di Gudang"
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
                 </div>
               </div>
             </div>

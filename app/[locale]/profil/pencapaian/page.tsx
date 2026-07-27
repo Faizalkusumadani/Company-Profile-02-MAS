@@ -11,55 +11,47 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+// ─── Metadata halaman ini ──────────────────────────────────────────────────
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Pencapaian",
-    description:
-      "Informasi seputar pencapaian dan sertifikasi PT.Mega Adhitama Sejati",
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-    openGraph: {
-      title: " Mega Adhitama Sejati | Pencapaian",
-      description:
-        "Informasi seputar pencapaian dan sertifikasi PT.Mega Adhitama Sejati",
-      url: `${siteUrl}/${locale}/pencapaian`,
-    },
+  const t = await getTranslations({ locale });
 
-    alternates: {
-      canonical: `${siteUrl}/${locale}/pencapaian`,
-      languages: {
-        "id-ID": `${siteUrl}/id/pencapaian`,
-        "en-US": `${siteUrl}/en/pencapaian`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.pencapaian_pages"),
+    description: t("metadata.pencapaian_pages_desc"),
+  });
 }
-
-export default function Pencapaian() {
-  const tNav = useTranslations("Navigation");
-  const t = useTranslations("About.achievement");
+export default async function Pencapaian({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
 
   const breadcrumbs = [
-    { label: tNav("home"), href: "/" },
-    { label: tNav("about.title"), href: "#" },
-    { label: tNav("about.achievement"), current: true },
+    { label: t("Navigation.home"), href: "/" },
+    { label: t("Navigation.about.title"), href: "#" },
+    { label: t("Navigation.about.achievement"), current: true },
   ];
 
   return (
     <section id="Pencapaian">
       <div className="w-full py-20">
         {/* Hero - dark themed, foto perusahaan membaur dari kanan */}
-        <div className="relative w-full min-h-105 sm:min-h-120 lg:min-h-160 overflow-hidden bg-black/30 ">
+        <div className="relative w-full min-h-105 sm:min-h-120 lg:min-h-160 overflow-hidden bg-mas-dark/10 ">
           <Image
             src="/piala2.png"
             alt="Profil Perusahaan"
@@ -69,10 +61,10 @@ export default function Pencapaian() {
             className="object-cover object-right"
           />
           {/* Gradasi gelap dari kiri agar teks tetap terbaca */}
-          <div className="absolute inset-0 bg-black/80" />
+          <div className="absolute inset-0 bg-linear-to-r from-mas-dark/60  to-mas-dark" />
 
           <div className="relative z-10  px-6 sm:px-10 lg:px-16 py-8 sm:py-10 lg:py-14 ">
-            <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-7xl">
               <div className="max-w-2xl">
                 {/* Aksen garis merah di atas judul */}
                 <div className="flex items-center gap-1.5 mb-5">
@@ -111,12 +103,16 @@ export default function Pencapaian() {
 
               <div className="ml-auto max-w-2xl text-right py-20 md:py-40">
                 <h1 className="mt-6 text-3xl md:text-5xl font-bold leading-tight">
-                  <span className="text-mas-red">{t("achievement")}</span>{" "}
-                  <span className="text-white">{t("awards")}</span>
+                  <span className="text-mas-red">
+                    {t("About.achievement.header_01")}
+                  </span>{" "}
+                  <span className="text-white">
+                    {t("About.achievement.header_02")}
+                  </span>
                 </h1>
 
                 <p className="mt-6 text-sm md:text-lg text-white/60 leading-relaxed">
-                  {t("desc_achievement")}
+                  {t("About.achievement.desc_achievement")}
                 </p>
               </div>
             </div>
@@ -124,10 +120,10 @@ export default function Pencapaian() {
         </div>
 
         {/* archivement */}
-        <div className="px-4 py-10 ">
+        <article className="px-4 py-10 ">
           <div className="mx-auto max-w-6xl">
             <h2 className="text-gray-700 text-2xl lg:text-4xl font-semibold tracking-wide">
-              Sertifikasi
+              {t("About.achievement.header_03")}
             </h2>
             <div className="h-px bg-gray-300 dark:bg-gray-700 my-9"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -161,7 +157,7 @@ export default function Pencapaian() {
               ))}
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

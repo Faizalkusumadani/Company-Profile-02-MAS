@@ -11,46 +11,40 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import MenuTabs from "@/components/ui/Menutabs";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Produk",
-    description: "Jelajahi Produk katalog Mega Adhitama Sejati",
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-    openGraph: {
-      title: " Mega Adhitama Sejati | Produk",
-      description: "Jelajahi Produk katalog Mega Adhitama Sejati",
-      url: `${siteUrl}/${locale}/produk`,
-    },
+  const t = await getTranslations({ locale });
 
-    alternates: {
-      canonical: `${siteUrl}/${locale}/produk`,
-      languages: {
-        "id-ID": `${siteUrl}/id/produk`,
-        "en-US": `${siteUrl}/en/produk`,
-      },
-    },
-  };
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.products_pages"),
+    description: t("metadata.products_pages_desc"),
+  });
 }
 
-export default function Produk() {
-  const tNav = useTranslations("Navigation");
-  const t = useTranslations("Products");
+export default async function Produk({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
   const allProducts = ProductData(t);
 
   const breadcrumbs = [
-    { label: tNav("home"), href: "/" },
-    { label: tNav("product"), current: true },
+    { label: t("Navigation.home"), href: "/" },
+    { label: t("Navigation.product"), current: true },
   ];
 
   const categoriesWithProducts = Categories.map((cat) => {
@@ -75,7 +69,7 @@ export default function Produk() {
             </div>
 
             <Breadcrumb>
-              <BreadcrumbList className="text-xs sm:text-sm md:text-base">
+              <BreadcrumbList className="text-xs sm:text-sm md:text-base text-gray-700">
                 {breadcrumbs.map((item, index) => (
                   <React.Fragment key={index}>
                     <BreadcrumbItem>
@@ -84,7 +78,10 @@ export default function Produk() {
                           {item.label}
                         </BreadcrumbPage>
                       ) : (
-                        <BreadcrumbLink asChild>
+                        <BreadcrumbLink
+                          asChild
+                          className="text-gray-700 hover:text-mas-red transition-colors"
+                        >
                           <Link href={item.href!}>{item.label}</Link>
                         </BreadcrumbLink>
                       )}
@@ -101,11 +98,11 @@ export default function Produk() {
           <div className="mx-auto max-w-6xl">
             <div className="space-y-6 text-center">
               <h2 className="text-gray-700 text-2xl md:text-3xl lg:text-[63px] font-semibold">
-                {t("titleproducts")}
-                <span className="text-mas-red"> {t("titleproducts_1")}</span>
+                {t("Products.title")}
+                <span className="text-mas-red"> {t("Products.title_1")}</span>
               </h2>
               <p className="text-gray-500 text-base sm:text-lg md:text-lg max-w-2xl mx-auto text-center mt-6">
-                {t("desc_products")}
+                {t("Products.desc")}
               </p>
             </div>
             <div className="py-10 lg:py-15">

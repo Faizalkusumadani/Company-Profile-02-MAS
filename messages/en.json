@@ -5,12 +5,16 @@
       "title": "About Us",
       "profile": "Company Profile",
       "vision": "Vision & Mission",
+      "core": "Core Values",
       "achievement": "Achievement",
+      "facility": "Distribution Facilitiess",
       "management": "Management",
       "profile_desc": "Our company history and profile",
       "vision_desc": "Our company vision, mission, and values",
       "achievement_desc": "Our awards and accomplishments",
-      "management_desc": "Our management and leadership team"
+      "management_desc": "Our management and leadership team",
+      "core_desc": "Our guiding principles",
+      "facility_desc": "Our distribution network and warehouses"
     },
     "product": "Product",
     "info": {
@@ -21,7 +25,32 @@
       "activities_desc": "Documentation of company activities and events"
     },
     "career": "Career",
-    "contact": "Contact"
+    "contact": "Contact Us"
+  },
+
+  "metadata": {
+    "beranda_pages": "Retail Building Materials Distributor Serving Primarily Banten Province",
+    "beranda_pages_desc": "Mega Adhitama Sejati is a trusted partner in providing quality building materials for the retail segment, with a primary service area in Banten Province",
+    "perusahaan_pages": "Company Profile",
+    "perusahaan_pages_desc": "Mega Adhitama Sejati is a trusted partner in providing quality building materials for the retail segment, with a primary service area in Banten Province. We offer a range of other superior products.",
+    "managemen_pages": "Company Management",
+    "managemen_pages_desc": "Our success is built on a foundation of strong, experienced leadership characterized by integrity.",
+    "pencapaian_pages": "Company Achievements",
+    "pencapaian_pages_desc": "Mega Adhitama Sejati has received various awards for its commitment to implementing sustainability principles in its business operations. These awards reflect the Company's efforts to create a positive impact on the environment, society, and responsible governance.",
+    "vision_pages": "Company Vision & Mission",
+    "vision_pages_desc": "The Company's Core Foundation and Strategic Direction",
+    "facility_pages": "Company Distribution Facilities",
+    "facility_pages_desc": "Distribution network and its facilities",
+    "products_pages": "Company Products",
+    "products_pages_desc": "Various product categories available at Mega Adhitama Sejati",
+    "career_pages": "Company Vacancies",
+    "career_pages_desc": "Various product categories available at Mega Adhitama Sejati",
+    "contact_pages": "Company Contact",
+    "contact_pages_desc": "Contact us by filling out this form",
+    "activities_pages": "Company Activities",
+    "activities_pages_desc": "Get the latest information on activities at MAS",
+    "news_pages": "Company News",
+    "news_pages_desc": "Get the latest news updates from MAS"
   },
 
   "Home": {
@@ -67,7 +96,9 @@
       "ctaabout": "See More"
     },
     "Features": {
-      "title_features": "Enjoy various benefits at MAS ",
+      "title_features": "Enjoy various",
+      "title_features_01": "benefits",
+      "title_features_02": "at MAS",
       "desc_features": "Distributor of quality building materials with guaranteed quality",
       "products": {
         "title": "Quality & Trusted Products",
@@ -100,14 +131,17 @@
       "icon_2_desc": "Modern sanitary solutions with trusted quality for residential, commercial, and industrial needs.",
       "icon_3_desc": "Professional safety equipment to support industrial project and operational safety standards.",
       "title-product": "Category",
-      "sub-product": "Integrated Product Solutions",
+      "sub-product": "Solutions",
+      "sub-product_01": "Integrated Products",
       "sub-desc-product": "Construction material, sanitary, and safety equipment solutions to support modern projects that are efficient, safe, and high quality.",
       "desc_quotation": "Consult on your project needs",
       "desc_quotation_01": "Get the best product recommendations from our team."
     },
     "Testimoni": {
       "testimoni": "Testimonial",
-      "desc_testimoni": "Our customers who have experienced MAS service",
+      "desc_testimoni": "Our customers who have experienced",
+      "desc_testimoni_01": "the service",
+      "desc_testimoni_02": "from MAS",
       "items": {
         "01": {
           "quote": "Very fast delivery, order today, arrive tomorrow. They're also fully stocked, so you don't need to look elsewhere.",
@@ -154,6 +188,9 @@
       "desc_warehouse": " In running its business, PT. Mega Adhitama Sejati is committed to providing the best service and delivery for customers. Currently we have 2 (two) large warehouse locations located in Alam Sutera-Tangerang & Rangkasbitung-Banten."
     },
     "vision": {
+      "header": "Key Foundations",
+      "header_01": "and the Company's Strategic Direction",
+      "header_desc": "Our journey is driven by a clear vision and guided by a measurable mission. We are committed to continuous adaptation and innovation—without ever compromising on integrity or quality—to create long-term value for all our stakeholders.",
       "title_vision": "Vision",
       "desc_vision": "To become the best and most trusted building materials distribution company in Banten, with quality products at competitive prices, and services oriented towards customer satisfaction.",
       "title_mision": "Mission",
@@ -166,12 +203,22 @@
       "desc_mission_2": "Continuously innovating and developing various efficient and effective sales and distribution methods to increase competitiveness and customer satisfaction.",
       "desc_mission_3": "Providing professional, responsive, and friendly customer service, and ensuring product availability with fast and timely delivery, to achieve customer satisfaction and trust.",
       "desc_mission_4": "Synergizing the interests of shareholders and stakeholders for the advancement of the company and the common good.",
-      "desc_mission_5": "Providing continuous training and development for employees to improve competence and professionalism, as well as building reliable, honest, and high-quality human resources."
+      "desc_mission_5": "Providing continuous training and development for employees to improve competence and professionalism, as well as building reliable, honest, and high-quality human resources.",
+      "desc_core": "The foundation of our work culture that shapes the company's integrity and excellence"
+    },
+    "core": {
+      "responsibility": "The duties, obligations, or specific actions expected of someone within the scope of their work.",
+      "excellent": "A high, consistent standard of quality in carrying out tasks and job performance.",
+      "dedicated": "A person's level of commitment, enthusiasm, and seriousness toward their tasks or work.",
+      "detailOriented": "The ability to notice and understand small details or things others might overlook.",
+      "modernization": "The process of renewing, modernizing, or adopting new technologies, methods, or processes that are more efficient and aligned with current developments.",
+      "agility": "The ability of a person or organization to adapt quickly to change and handle shifting situations with flexibility and responsiveness.",
+      "senseOfBelonging": "The feeling of being an integral part of the team or organization one works for."
     },
     "achievement": {
-      "achievement": "Achievements",
-      "awards": " Awards",
-      "our": "our",
+      "header_01": "Achievements",
+      "header_02": " Awards",
+      "header_03": "Certification",
       "desc_achievement": "Mega Adhitama Sejati has received various awards for its commitment to implementing sustainability principles in its business operations. These awards reflect the Company's efforts to create a positive impact on the environment, society, and responsible governance.",
       "desc_achievement_1": "The awards we received"
     },
@@ -198,15 +245,20 @@
         "His entrepreneurial spirit began to be honed in 2003 when he started a business as a retailer. In 2008, he founded his first company, PT Intisukses Mitra Sejati, which became the forerunner for various subsequent companies.",
         "With extensive experience and high dedication, he will continue to lead and develop businesses that have a positive impact in various industrial sectors."
       ]
+    },
+    "facility": {
+      "tag": "INFRASTRUCTURE",
+      "header": "Warehouse",
+      "content": "Key operational hubs and logistics coordination centers strategically designed to facilitate the smooth flow of trade between regions."
     }
   },
   "Products": {
     "product": "Products",
     "not_found": "not found",
-    "titleproducts": "Explore the catalog",
+    "title": "Explore the catalog",
+    "title_1": "our products",
     "ctaproducts": "View Details",
-    "titleproducts_1": "our products",
-    "desc_products": "Find the product that suits your needs, with a variety of the best products.",
+    "desc": "Find the product that suits your needs, with a variety of the best products.",
     "show_product": "Display",
     "specification": "Specification",
     "type": "Type",
@@ -444,12 +496,14 @@
   },
 
   "Career": {
-    "title_karir": "Join Us",
-    "karir_desc": "With more than 14 business brands and 1,100 retail spread across Jabodetabek, we offer a variety of challenging positions for professionals, fresh graduates, and internship opportunities."
+    "header": "Join Us",
+    "desc": "With more than 14 business brands and 1,100 retail spread across Jabodetabek, we offer a variety of challenging positions for professionals, fresh graduates, and internship opportunities.",
+    "cta": "See More",
+    "tag": "Job vacancies"
   },
   "Contact": {
-    "metadatatitle": "Mega Adhitama Sejati | Contact",
-    "title": "Our Location",
+    "title": "Information",
+    "title_01": "Company",
     "desc_1": "Head Office",
     "desc_2": "Representative Office",
     "desc_3": "SERVVO Showroom",
@@ -464,6 +518,7 @@
     "form_5": "Your Message",
     "form_submit": "Send Message",
     "form_send": "Send...",
+    "placeholder": "Describe your project's specific needs...",
     "alert_message_name": "Full name must be at least 8 characters.",
     "alert_message_email": "Email address is required.",
     "alert_message_telp": "Phone number must be formatted correctly.",

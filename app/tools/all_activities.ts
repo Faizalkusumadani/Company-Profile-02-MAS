@@ -190,9 +190,9 @@ const Allactivities = (t: (key: string) => string): Activity[] =>
   activitiesData.map((a) => ({
     ...a,
     href: generateHref(a.slug),
-    title: t(`${a.contentKey}_title`),
-    description: t(`${a.contentKey}_description`),
-    date: t(`${a.contentKey}_date`),
+    title: t(`Roominformation.${a.contentKey}_title`),
+    description: t(`Roominformation.${a.contentKey}_description`),
+    date: t(`Roominformation.${a.contentKey}_date`),
   }));
 
 export default Allactivities;

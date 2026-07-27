@@ -18,7 +18,7 @@ export interface FaqItem {
 
 export interface FaqAccordionProps {
   data: FaqItem[];
-  title?: string;
+  title?: React.ReactNode;
   subtitle?: string;
 }
 

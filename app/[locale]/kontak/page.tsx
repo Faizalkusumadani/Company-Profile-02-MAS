@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  MapPin,
   Store,
   Building2,
   ChevronRight,
@@ -18,53 +17,46 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Formcontact from "@/components/ui/Formcontact";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/metadata";
 
-const siteUrl = "https://megaadhitamasejati.id/";
-
-export async function generateMetadata({
-  params,
-}: {
+type Props = {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  return {
-    title: "Kontak",
-    description:
-      "Informasi kontak dan lokasi kantor kami di Jakarta dan Serang.",
-    openGraph: {
-      title: " Mega Adhitama Sejati | Kontak",
-      description:
-        "Informasi kontak dan lokasi kantor kami di Jakarta dan Serang.",
-      url: `${siteUrl}/${locale}/kontak`,
-    },
-    alternates: {
-      canonical: `${siteUrl}/${locale}/kontak`,
-      languages: {
-        "id-ID": `${siteUrl}/id/kontak`,
-        "en-US": `${siteUrl}/en/kontak`,
-      },
-    },
-  };
-}
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
 
-export default function Kontak() {
-  const t = useTranslations("Contact");
-  const tNav = useTranslations("Navigation");
+  const t = await getTranslations({ locale });
+
+  return buildPageMetadata({
+    locale,
+    title: t("metadata.contact_pages"),
+    description: t("metadata.contact_pages_desc"),
+  });
+}
+export default async function Kontak({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
 
   // Ditambahkan type atau fallback href agar aman dari error linting/TypeScript
   const breadcrumbs = [
-    { label: tNav("home"), href: "/" },
-    { label: tNav("contact"), href: "#", current: true },
+    { label: t("Navigation.home"), href: "/" },
+    { label: t("Navigation.contact"), href: "#", current: true },
   ];
 
   return (
     <section id="kontak">
       <div className="w-full py-20">
-        <header className="p-6 sm:p-8">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8">
+          <div className="mx-auto max-w-7xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -118,8 +110,12 @@ export default function Kontak() {
                 {/* Location */}
                 <div className="space-y-6 order-2">
                   <div>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-700">
-                      {t("title")}
+                    <h2 className="text-3xl sm:text-4xl font-bold text-mas-dark">
+                      {t("Contact.title")}
+                      <span className="text-mas-red">
+                        {" "}
+                        {t("Contact.title_01")}
+                      </span>
                     </h2>
                   </div>
 
@@ -130,8 +126,8 @@ export default function Kontak() {
                         <Building2 className="w-6 h-6 text-mas-red" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-700 mb-1">
-                          {t("desc_1")}
+                        <h3 className="font-bold text-mas-dark mb-1">
+                          {t("Contact.desc_1")}
                         </h3>
                         <p className="text-sm text-gray-500">
                           Grand Puri Niaga Blok K6 No. 5S Jl. Puri Kencana,
@@ -145,8 +141,8 @@ export default function Kontak() {
                         <Building className="w-6 h-6 text-mas-red" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-700 mb-1">
-                          {t("desc_2")}
+                        <h3 className="font-bold text-mas-dark mb-1">
+                          {t("Contact.desc_2")}
                         </h3>
                         <p className="text-sm text-gray-500">
                           Jl. Jenderal Ahmad Yani Serang No.30, Cipare, Kec.
@@ -160,8 +156,8 @@ export default function Kontak() {
                         <Store className="w-6 h-6 text-mas-red" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-700 mb-1">
-                          {t("desc_3")}
+                        <h3 className="font-bold text-mas-dark mb-1">
+                          {t("Contact.desc_3")}
                         </h3>
                         <p className="text-sm text-gray-500">
                           Jl. Sultan Agung Tirtayasa No.18A, Kotabaru, Kec.
@@ -180,8 +176,8 @@ export default function Kontak() {
                         <FileDown className="w-6 h-6 text-mas-red" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-gray-700 mb-1 group-hover:text-mas-red transition-colors">
-                          {t("desc_4")}
+                        <h3 className="font-bold text-mas-dark mb-1 group-hover:text-mas-red transition-colors">
+                          {t("Contact.desc_4")}
                         </h3>
                         <p className="text-sm text-gray-500">
                           Download Company Profile
@@ -195,11 +191,11 @@ export default function Kontak() {
             </div>
 
             <div className="mb-4 space-y-6">
-              <h3 className="text-3xl sm:text-4xl font-bold text-gray-700">
-                {t("titleform")}{" "}
-                <span className="text-mas-red">{t("titleform_1")}</span>
+              <h3 className="text-3xl sm:text-4xl font-bold text-mas-dark">
+                {t("Contact.titleform")}{" "}
+                <span className="text-mas-red">{t("Contact.titleform_1")}</span>
               </h3>
-              <p className="text-gray-500 py-4">{t("descform")}</p>
+              <p className="text-gray-500 py-4">{t("Contact.descform")}</p>
             </div>
 
             {/* Form */}

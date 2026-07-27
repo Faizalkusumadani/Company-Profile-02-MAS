@@ -16,7 +16,7 @@ interface BrandMarqueeProps {
   speed?: number;
   direction?: "left" | "right";
   pauseOnHover?: boolean;
-  title?: string;
+  title?: React.ReactNode;
   subtitle?: string;
 }
 
@@ -57,9 +57,6 @@ export default function BrandMarquee({
   // All derived values are pure functions of props — same on server & client.
   const scrollWidth = brands.length * (ITEM_W + GAP);
   const animId = `bm-${direction}-${scrollWidth}`;
-
-  // duration: if reducedMotion, set to a very large number so animation
-  // appears frozen — avoids "0s" which can cause a flash/jump on some browsers.
   const duration = shouldReduceMotion ? 999999 : scrollWidth / speed;
 
   const fromX = direction === "left" ? "0px" : `-${scrollWidth}px`;
@@ -67,11 +64,6 @@ export default function BrandMarquee({
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 overflow-hidden">
-      {/*
-        suppressHydrationWarning on <style>: the CSS string is deterministic
-        (derived only from props), so server & client always match.
-        No isMounted / setState-in-effect needed.
-      */}
       <style suppressHydrationWarning>{`
         @keyframes ${animId} {
           from { transform: translateX(${fromX}); }

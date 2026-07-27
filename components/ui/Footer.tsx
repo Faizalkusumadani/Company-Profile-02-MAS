@@ -117,7 +117,7 @@ export default function Footer() {
               alt="Reddmas Group"
               className="object-contain inline-block align-middle"
               loading="eager"
-              style={{ height: "auto" }}
+              style={{ width: "80px", height: "30px" }}
             />
           </a>
         </span>

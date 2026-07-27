@@ -204,10 +204,10 @@ export default function Formcontact() {
                 </FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder=""
+                    placeholder={t("placeholder")}
                     {...field}
-                    rows={6}
-                    className="border-2 resize-none focus:ring-0 focus:border-gray-400"
+                    rows={15}
+                    className="border-2 resize-none focus:ring-0 focus:border-gray-400 min-h-30"
                   />
                 </FormControl>
                 <FormMessage />

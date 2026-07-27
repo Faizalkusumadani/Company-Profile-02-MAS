@@ -20,7 +20,7 @@ import type { Product } from "../../app/tools/produk";
 export function SearchDialog() {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
-  const t = useTranslations("Products");
+  const t = useTranslations();
 
   const results = useMemo((): Product[] => {
     const trimmedQuery = query.trim().toLowerCase();
@@ -52,10 +52,10 @@ export function SearchDialog() {
 
       <DialogContent className="sm:max-w-md gap-0 p-0 overflow-hidden">
         <DialogHeader className="p-4 border-b">
-          <DialogTitle className="text-2xl">{t("search")}</DialogTitle>
+          <DialogTitle className="text-2xl">{t("Products.search")}</DialogTitle>
           <div className="relative p-4">
             <Input
-              placeholder={t("placeholder")}
+              placeholder={t("Products.placeholder")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="pr-9"
@@ -77,7 +77,7 @@ export function SearchDialog() {
           {!query && (
             <div className="py-12 text-center text-sm text-muted-foreground">
               <Search className="h-12 w-12 mx-auto mb-4 opacity-20" />
-              <p>{t("search_desc")}</p>
+              <p>{t("Products.search_desc")}</p>
             </div>
           )}
 
@@ -85,9 +85,9 @@ export function SearchDialog() {
           {query && results.length === 0 && (
             <div className="py-12 text-center text-sm text-muted-foreground">
               <p>
-                {t("product")}{" "}
+                {t("Products.product")}{" "}
                 <b className="text-foreground">&quot;{query}&quot;</b>
-                {t("not_found")}
+                {t("Products.not_found")}
               </p>
             </div>
           )}
