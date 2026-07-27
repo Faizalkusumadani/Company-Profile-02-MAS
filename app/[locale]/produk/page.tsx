@@ -60,8 +60,8 @@ export default async function Produk({ params }: Props) {
   return (
     <section id="Produk">
       <div className="w-full py-20">
-        <header className="p-6 sm:p-8 ">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8 ">
+          <div className="mx-auto max-w-7xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -94,8 +94,8 @@ export default async function Produk({ params }: Props) {
           </div>
         </header>
         {/* Content */}
-        <div className="px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          <div className="mx-auto max-w-6xl">
+        <article className="px-4 sm:px-6 lg:px-8 py-16">
+          <div className="mx-auto max-w-7xl">
             <div className="space-y-6 text-center">
               <h2 className="text-gray-700 text-2xl md:text-3xl lg:text-[63px] font-semibold">
                 {t("Products.title")}
@@ -109,7 +109,7 @@ export default async function Produk({ params }: Props) {
               <MenuTabs categories={categoriesWithProducts} />
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

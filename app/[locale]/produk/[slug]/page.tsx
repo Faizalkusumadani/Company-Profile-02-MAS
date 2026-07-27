@@ -66,8 +66,8 @@ export default async function ProdukDetail({
   return (
     <section id={produk!.slug}>
       <div className="w-full py-20">
-        <header className="p-6 sm:p-8">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8">
+          <div className="mx-auto max-w-7xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -100,8 +100,8 @@ export default async function ProdukDetail({
           </div>
         </header>
 
-        <div className="px-4 sm:px-6 lg:px-8 py-15">
-          <div className="mx-auto max-w-6xl">
+        <article className="px-4 sm:px-6 lg:px-8 py-16">
+          <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 items-center">
               <div className="order-1 lg:order-2">
                 <div className="relative rounded-2xl overflow-hidden group">
@@ -124,6 +124,7 @@ export default async function ProdukDetail({
                   height={150}
                   alt={`Logo ${produk!.namaBrand}`}
                   className="block"
+                  style={{ width: "auto", height: "auto" }}
                 />
                 <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed text-justify [text-align-last:start]">
                   {t(produk!.descKey)}
@@ -131,10 +132,10 @@ export default async function ProdukDetail({
               </div>
             </div>
           </div>
-        </div>
+        </article>
 
         <div className="px-4 sm:px-6 lg:px-8 py-15">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <TabsCustom
               tabs={[
                 { id: "fitur", label: t("specification"), icon: "Settings" },

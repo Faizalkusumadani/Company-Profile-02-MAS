@@ -12,7 +12,7 @@ const trilliunproduk = [
   {
     id: 3,
     name: "Trilliun Spiral",
-    image: "/produk/Trilliun/Trilliun-Spiral.JPG",
+    image: "/produk/Trilliun/Trilliun-Spiral.jpg",
   },
   {
     id: 4,

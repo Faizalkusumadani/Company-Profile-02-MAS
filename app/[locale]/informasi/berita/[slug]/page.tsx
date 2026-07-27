@@ -93,8 +93,8 @@ export default async function BeritaDetail({
     <section id={slug}>
       <div className="w-full py-20">
         {/* ── Header ── */}
-        <header className="p-6 sm:p-8 ">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8">
+          <div className="mx-auto max-w-7xl">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -129,7 +129,7 @@ export default async function BeritaDetail({
 
         {/* ── Content ── */}
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {/* ── Artikel Utama ── */}
               <article className="order-1 lg:col-span-2">

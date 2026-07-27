@@ -52,8 +52,8 @@ export default async function Berita({ params }: Props) {
   return (
     <div className="w-full py-20">
       {/* ── Header & Breadcrumb ── */}
-      <header className="p-6 sm:p-8 ">
-        <div className="mx-auto max-w-6xl">
+      <header className="px-4 py-8">
+        <div className="mx-auto max-w-7xl">
           {/* Aksen garis merah di atas judul */}
           <div className="flex items-center gap-1.5 mb-3">
             <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -87,8 +87,8 @@ export default async function Berita({ params }: Props) {
       </header>
 
       {/* ── Daftar Berita ── */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-gray-700 text-2xl font-semibold tracking-tight">
             {t("Roominformation.news")}{" "}
             <span className="text-mas-red">

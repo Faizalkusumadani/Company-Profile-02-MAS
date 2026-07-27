@@ -12,7 +12,7 @@ const dcotaproduk = [
   {
     id: 3,
     name: "Dcota Ball Valve",
-    image: "/produk/Dcota/ball-valve.png",
+    image: "/produk/Dcota/Ball-valve.png",
   },
   {
     id: 4,
@@ -22,7 +22,7 @@ const dcotaproduk = [
   {
     id: 5,
     name: "Dcota Seal Tape",
-    image: "/produk/Dcota/seal-tape.png",
+    image: "/produk/Dcota/Seal-tape.png",
   },
 ];
 

@@ -21,13 +21,12 @@ export default function Footer() {
           <Image
             src="/Logo-mas.webp"
             width={240}
-            height={70}
+            height={114}
             quality={75}
             sizes="240px"
             alt="Logo PT Mega Adhitama Sejati"
             className="object-contain mb-8"
             loading="eager"
-            style={{ width: "240px", height: "114px" }}
           />
           {/* Social Icons */}
           <div className="flex items-center gap-6 text-4xl text-white">
@@ -113,11 +112,10 @@ export default function Footer() {
             <Image
               src="/logo_reddmas.png"
               width={80}
-              height={24}
+              height={30}
               alt="Reddmas Group"
               className="object-contain inline-block align-middle"
               loading="eager"
-              style={{ width: "80px", height: "30px" }}
             />
           </a>
         </span>

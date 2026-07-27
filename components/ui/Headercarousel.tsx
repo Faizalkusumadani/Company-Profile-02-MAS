@@ -94,6 +94,10 @@ export default function HeaderCarousel({
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [firstSlideLoaded, setFirstSlideLoaded] = useState(false);
+  // true hanya saat render awal (slide ke-0 sebelum pernah berpindah).
+  // Setelah user pernah pindah slide, background kembali memakai
+  // Framer Motion seperti biasa — CSS animation hanya untuk LCP awal.
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const total = slides.length;
 
   const shouldReduceMotion = useReducedMotion();
@@ -126,7 +130,10 @@ export default function HeaderCarousel({
   }, [current, total, slides, autoplayDelay]);
 
   const goTo = useCallback(
-    (index: number) => setCurrent((index + total) % total),
+    (index: number) => {
+      setIsInitialLoad(false);
+      setCurrent((index + total) % total);
+    },
     [total],
   );
 
@@ -158,29 +165,47 @@ export default function HeaderCarousel({
       >
         {/* ── Background Image ───────────────────────────────────────────── */}
         <AnimatePresence mode="sync">
-          <motion.div
-            key={`bg-${current}`}
-            className="absolute inset-0"
-            variants={activeImageVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={imageCenterTransition}
-          >
-            <Image
-              src={slides[current].src}
-              alt=""
-              fill
-              loading={current === 0 ? "eager" : "lazy"}
-              fetchPriority={current === 0 ? "high" : "auto"}
-              quality={75}
-              className="object-cover"
-              sizes="100vw"
-              onLoad={
-                current === 0 ? () => setFirstSlideLoaded(true) : undefined
-              }
-            />
-          </motion.div>
+          {isInitialLoad ? (
+            // Render pertama: animasi CSS native (bukan Framer Motion) agar
+            // browser bisa mulai fade+scale sesaat setelah paint, tanpa
+            // menunggu React hydration selesai — ini yang menambah LCP.
+            <div
+              key={`bg-${current}`}
+              className="absolute inset-0 lcp-fade-scale"
+            >
+              <Image
+                src={slides[current].src}
+                alt=""
+                fill
+                priority
+                fetchPriority="high"
+                quality={75}
+                className="object-cover"
+                sizes="100vw"
+                onLoad={() => setFirstSlideLoaded(true)}
+              />
+            </div>
+          ) : (
+            <motion.div
+              key={`bg-${current}`}
+              className="absolute inset-0"
+              variants={activeImageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={imageCenterTransition}
+            >
+              <Image
+                src={slides[current].src}
+                alt=""
+                fill
+                loading="eager"
+                quality={75}
+                className="object-cover"
+                sizes="100vw"
+              />
+            </motion.div>
+          )}
 
           {/* ── Overlay ─────────────────────────────────────────────────── */}
           <motion.div
