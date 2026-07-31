@@ -99,7 +99,7 @@ const produkDetailList: ProdukDetail[] = [
     slug: "superex",
     namaBrand: "Superex",
     gambarUtama: "/produk/SUPEREXX.png",
-    logoSrc: "/produk/Superex/logo-superex.png",
+    logoSrc: "/produk/Superex/logosuperex.png",
     descKey: "superex_desc",
     featuresKeys: [
       "superex_features_1",
@@ -181,7 +181,7 @@ const produkDetailList: ProdukDetail[] = [
   {
     slug: "aquaproof",
     namaBrand: "Aquaproof",
-    gambarUtama: "/produk/AQUAPROOFF.png",
+    gambarUtama: "/produk/AQUAPROOFF.PNG",
     logoSrc: "/produk/Aquaproof/logoaquaproof.jpeg",
     descKey: "aquaproof_desc",
     featuresKeys: [

@@ -147,7 +147,7 @@ export default async function Fasilitas({ params }: Props) {
 
                   <div className="absolute inset-0 bg-linear-to-t from-mas-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col justify-end p-6">
                     <span className="text-[10px] uppercase font-bold text-mas-red tracking-wider">
-                      DOKUMENTASI INTERNAL
+                      {t("About.facility.header")}
                     </span>
                     <p className="text-sm font-medium text-white mt-1">
                       {img.alt}

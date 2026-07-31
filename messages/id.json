@@ -7,7 +7,7 @@
       "vision": "Visi & Misi",
       "core": "Nilai-Nilai",
       "achievement": "Pencapaian",
-      "facility": "Fasilitas Distribusi ",
+      "facility": "Logistik",
       "management": "Manajemen",
       "profile_desc": "Sejarah dan profil perusahaan kami",
       "vision_desc": "Visi, misi, dan nilai-nilai perusahaan",
@@ -43,7 +43,7 @@
     "products_pages": "Produk Perusahaan",
     "products_pages_desc": "Bermacam-macam Category produk yang ada di Mega adhitama Sejati",
     "career_pages": "Lowongan Perusahaan",
-    "career_pages_desc": "Jelajahi berbagai posisi pekerjaan yang tersedia untuk profesional berpengalaman maupun lulusan baru (fresh graduate)",
+    "career_pages_desc": "Bermacam-macam Category produk yang ada di Mega adhitama Sejati",
     "contact_pages": "Kontak Perusahaan",
     "contact_pages_desc": "Hubungi kami dengan mengisi form ini",
     "activities_pages": "Kegiatan Perusahaan",
@@ -68,7 +68,7 @@
         },
         "seamless-loading": {
           "subtitle": "Mengoptimalkan Waktu Pengiriman",
-          "title": "Proses Pemuatan yang Mulus",
+          "title": "Proses Pemuatan yang Mudah",
           "description": "Kami memastikan proses pemuatan Building Material ke armada pengiriman berlangsung efisien dan akurat."
         },
         "warehouse-excellence": {
@@ -83,7 +83,7 @@
         },
         "massive-storage": {
           "subtitle": "Solusi yang Dapat Diskalakan",
-          "title": "Kapasitas Penyimpanan Sangat Besar",
+          "title": "Kapasitas Penyimpanan Besar",
           "description": "Fasilitas distribusi kami memiliki ruang penyimpanan yang besar, memungkinkan kami memegang stok beragam material seperti cat dan produk lainnya dalam jumlah masif."
         }
       }
@@ -457,14 +457,6 @@
       "Selain menghadirkan pengalaman wisata yang berkesan, program ini juga menjadi ruang untuk memperkuat sinergi antara perusahaan dan mitra. Berbagai aktivitas kebersamaan, diskusi santai, hingga momen kebersamaan di setiap destinasi menjadi kesempatan untuk mempererat komunikasi dan menumbuhkan rasa saling percaya. MAS dan Semen Merah Putih meyakini bahwa kemitraan yang kuat tidak hanya dibangun melalui kerja sama bisnis, tetapi juga melalui pengalaman yang mampu menciptakan ikatan emosional yang berkelanjutan.",
       "Melalui penyelenggaraan Keliling Nusantara, Pergi Karimun, PT. Mega Adhitama Sejati dan Semen Merah Putih kembali menegaskan komitmennya dalam menghadirkan program apresiasi yang bernilai bagi seluruh mitra. Semangat untuk terus bertumbuh bersama, memperluas kolaborasi, dan menciptakan hubungan yang saling menguntungkan menjadi fondasi utama dalam setiap langkah perusahaan. Diharapkan, perjalanan ini menjadi inspirasi untuk terus melangkah maju bersama menuju kesuksesan yang lebih besar di masa depan."
     ],
-    "mas_imlek_2026_title": "Imlek 2026",
-    "mas_imlek_2026_description": "Menyambut Imlek 2026, MAS bagi-bagi Berkat",
-    "mas_imlek_2026_date": "17 Februari 2026",
-    "mas_imlek_2026_content_1": [
-      "Merayakan Tahun Baru Imlek terasa jauh lebih bermakna ketika kebahagiaan dapat dirasakan oleh semua orang di sekitar kita. Melalui semangat kebersamaan di tahun yang baru ini, MAS dengan bangga mempersembahkan inisiatif spesial untuk menyebarkan kehangatan, kepedulian, dan harapan baik bagi masyarakat luas. Mari jadikan momen pergantian tahun ini sebagai pengingat untuk terus saling menguatkan, berbagi rezeki, dan mempererat tali persaudaraan dalam keberagaman.",
-      "Semoga perayaan Imlek 2026 membawa kesehatan yang prima, kedamaian hati, serta limpahan keberkahan dan hoki yang menyertai setiap langkah kita ke depan. Gong Xi Fa Cai, Xin Nian Kuai Le!"
-    ],
-
     "qurban_2026_title": "Qurban 2026",
     "qurban_2026_description": "Salurkan Hewan Qurban untuk Musolah, Panti Asuhan 2026 dan Masjid",
     "qurban_2026_date": "17 Mei 2026",

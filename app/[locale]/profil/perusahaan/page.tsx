@@ -15,7 +15,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/config/metadata";
-
+import ZoomableImage from "@/components/ui/Zoomimage";
 type Props = {
   params: Promise<{ locale: string }>;
 };
@@ -137,84 +137,57 @@ export default async function Perusahaan({ params }: Props) {
         </div>
 
         {/* Office Section */}
-        <div className="relative px-4 sm:px-6 lg:px-8 py-12 lg:py-16 overflow-hidden">
+        <div className="relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 overflow-hidden">
           <div className="mx-auto max-w-7xl">
             {/* Section header */}
-            <div className="max-w-3xl mb-8 lg:mb-10">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-mas-dark leading-tight">
+            <div className="max-w-3xl mb-6 sm:mb-8 lg:mb-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-mas-dark leading-tight">
                 MAS <span className="text-mas-red">Office</span>
               </h2>
-              <p className="mt-4 text-base md:text-lg text-gray-500 leading-relaxed">
+              <p className="mt-2 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
                 {t("About.companyprofile.desc_office")}
               </p>
             </div>
 
-            <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 items-start">
+            <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-12 items-start">
               {/* LEFT: Asymmetric image mosaic */}
               <div className="lg:col-span-7">
                 <div className="grid grid-cols-5 grid-rows-2 gap-3 sm:gap-4 h-105 sm:h-125 lg:h-140">
-                  <div className="col-span-3 row-span-2 relative overflow-hidden rounded-2xl shadow-xl group ring-1 ring-mas-dark/5">
-                    <Image
-                      src="/images/kantor-puri.jpg"
-                      alt="Kantor Puri Kencana"
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 1024px) 60vw, 40vw"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-mas-dark/70 via-mas-dark/10 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                      <p className="text-white/70 text-xs font-medium uppercase tracking-widest mb-1">
-                        {t("About.companyprofile.desc_1")}
-                      </p>
-                      <h3 className="text-white text-xl sm:text-2xl font-bold">
-                        Puri Kencana
-                      </h3>
-                    </div>
-                  </div>
+                  {/* Gambar 1 - Puri Kencana */}
+                  <ZoomableImage
+                    src="/images/kantor-puri-02.jpeg"
+                    alt="Kantor Puri Kencana"
+                    className="col-span-3 row-span-2 sm:col-span-3 sm:row-span-2"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 40vw"
+                    title="Puri Kencana"
+                    subtitle={t("About.companyprofile.desc_1")}
+                  />
 
-                  <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-lg group ring-1 ring-mas-dark/5">
-                    <Image
-                      src="/images/kantor-servvo.jpeg"
-                      alt="SERVVO Showroom"
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                      sizes="(max-width: 1024px) 40vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-mas-dark/60 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <p className="text-white/70 text-[10px] font-medium uppercase tracking-widest">
-                        {t("About.companyprofile.desc_3")}
-                      </p>
-                      <h4 className="text-white text-sm font-semibold">
-                        Serang
-                      </h4>
-                    </div>
-                  </div>
+                  {/* Gambar 2 - SERVVO Showroom */}
+                  <ZoomableImage
+                    src="/images/kantor-servvo.jpeg"
+                    alt="SERVVO Showroom"
+                    className="col-span-2 row-span-1 sm:col-span-2"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw, 25vw"
+                    title="Serang"
+                    subtitle={t("About.companyprofile.desc_3")}
+                  />
 
-                  <div className="col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-lg group ring-1 ring-mas-dark/5">
-                    <Image
-                      src="/images/kantor-serang.jpeg"
-                      alt="Kantor Serang"
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                      sizes="(max-width: 1024px) 40vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-mas-dark/60 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <p className="text-white/70 text-[10px] font-medium uppercase tracking-widest">
-                        {t("About.companyprofile.desc_2")}
-                      </p>
-                      <h4 className="text-white text-sm font-semibold">
-                        Serang
-                      </h4>
-                    </div>
-                  </div>
+                  {/* Gambar 3 - Kantor Serang */}
+                  <ZoomableImage
+                    src="/images/kantor-serang-02.jpeg"
+                    alt="Kantor Serang"
+                    className="col-span-2 row-span-1 sm:col-span-2"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 40vw, 25vw"
+                    title="Serang"
+                    subtitle={t("About.companyprofile.desc_2")}
+                  />
                 </div>
               </div>
 
               {/* RIGHT: Location list */}
               <div className="lg:col-span-5 lg:pt-2">
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {[
                     {
                       key: "office-1",
@@ -239,27 +212,30 @@ export default async function Perusahaan({ params }: Props) {
                     return (
                       <div
                         key={loc.key}
-                        className=" bg-white group relative flex items-start gap-5 p-5 sm:p-6 rounded-2xl border border-gray-200/80  hover:border-mas-red/40 hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden"
+                        className="bg-white group relative flex items-start gap-3 sm:gap-5 p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl border border-gray-200/80 hover:border-mas-red/40 hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden"
                       >
                         <span className="absolute left-0 top-0 bottom-0 w-1 bg-mas-red scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
 
                         <div className="shrink-0">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-mas-red/10 text-mas-red group-hover:bg-mas-red group-hover:text-white transition-colors duration-300">
-                            <Icon className="h-6 w-6" strokeWidth={2} />
+                          <div className="flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 items-center justify-center rounded-lg sm:rounded-xl bg-mas-red/10 text-mas-red group-hover:bg-mas-red group-hover:text-white transition-colors duration-300">
+                            <Icon
+                              className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"
+                              strokeWidth={2}
+                            />
                           </div>
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-mas-dark  text-base sm:text-lg leading-snug mb-1">
+                          <h3 className="font-bold text-mas-dark text-sm sm:text-base md:text-lg leading-snug mb-0.5 sm:mb-1">
                             {loc.title}
                           </h3>
-                          <p className="flex items-center gap-1.5 text-sm text-gray-500">
-                            <MapPin className="w-3.5 h-3.5 text-mas-red/70 shrink-0" />
-                            {loc.city}
+                          <p className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
+                            <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-mas-red/70 shrink-0" />
+                            <span className="truncate">{loc.city}</span>
                           </p>
                         </div>
 
-                        <ChevronRight className="shrink-0 w-5 h-5 text-gray-300 group-hover:text-mas-red group-hover:translate-x-1 transition-all duration-300 self-center" />
+                        <ChevronRight className="shrink-0 w-4 h-4 sm:w-5 sm:h-5 text-gray-300 group-hover:text-mas-red group-hover:translate-x-1 transition-all duration-300 self-center" />
                       </div>
                     );
                   })}

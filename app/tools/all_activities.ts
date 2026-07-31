@@ -114,19 +114,6 @@ export const activitiesData: ActivityStatic[] = [
     slug: "bandung-tour-2025",
     image: "/information/Bandung_tour/IMG_2767.jpg",
     contentKey: "bandung_tour_2025",
-  },
-  {
-    id: "11",
-    slug: "mas-imlek-2026",
-    image: "/information/Imlek_2026/001.jpeg",
-    images: [
-      "/information/Imlek_2026/001.jpeg",
-      "/information/Imlek_2026/002.jpeg",
-      "/information/Imlek_2026/003.jpeg",
-      "/information/Imlek_2026/004.jpeg",
-      "/information/Imlek_2026/005.jpeg",
-    ],
-    contentKey: "mas_imlek_2026",
     isNew: true,
   },
   {

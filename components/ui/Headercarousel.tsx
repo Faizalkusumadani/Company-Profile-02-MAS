@@ -1,15 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { preload } from "react-dom";
 import Image from "next/image";
 import {
   motion,
   AnimatePresence,
   useReducedMotion,
+  useAnimation,
+  PanInfo,
   type Transition,
 } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { usePageReady } from "@/components/ui/Pageready";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Slide {
@@ -40,18 +42,20 @@ const reducedTransition: Transition = { duration: 0.3 };
 
 // ─── Variants ─────────────────────────────────────────────────────────────────
 const imageVariants = {
-  enter: { opacity: 0, scale: 1.06 },
-  center: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 1.02 },
+  enter: (direction: number) => ({
+    opacity: 0,
+    scale: 1.06,
+    x: direction > 0 ? 100 : -100,
+  }),
+  center: { opacity: 1, scale: 1, x: 0 },
+  exit: (direction: number) => ({
+    opacity: 0,
+    scale: 1.02,
+    x: direction > 0 ? -100 : 100,
+  }),
 };
 
-const imageVariantsReduced = {
-  enter: { opacity: 0 },
-  center: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
-const overlayVariants = {
+const defaultVariantsReduced = {
   enter: { opacity: 0 },
   center: { opacity: 1 },
   exit: { opacity: 0 },
@@ -69,21 +73,10 @@ const textItemVariants = {
   exit: { opacity: 0, y: -16, filter: "blur(4px)" },
 };
 
-const textItemVariantsReduced = {
-  enter: { opacity: 0 },
-  center: { opacity: 1 },
-  exit: { opacity: 0 },
+const SWIPE_CONFIDENCE_THRESHOLD = 10000;
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
 };
-
-// ─── Module-level preload guard ───────────────────────────────────────────────
-const preloadedUrls = new Set<string>();
-
-function preloadIfNeeded(src: string) {
-  if (!preloadedUrls.has(src)) {
-    preload(src, { as: "image", fetchPriority: "low" });
-    preloadedUrls.add(src);
-  }
-}
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function HeaderCarousel({
@@ -91,145 +84,184 @@ export default function HeaderCarousel({
   autoplayDelay = 7000,
   pageTitle,
 }: HeaderCarouselProps) {
-  const [current, setCurrent] = useState(0);
+  const [[current, direction], setPage] = useState([0, 0]);
   const [isPaused, setIsPaused] = useState(false);
   const [firstSlideLoaded, setFirstSlideLoaded] = useState(false);
-  // true hanya saat render awal (slide ke-0 sebelum pernah berpindah).
-  // Setelah user pernah pindah slide, background kembali memakai
-  // Framer Motion seperti biasa — CSS animation hanya untuk LCP awal.
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [warmIndex, setWarmIndex] = useState<number | null>(null);
   const total = slides.length;
 
   const shouldReduceMotion = useReducedMotion();
+  const progressControls = useAnimation();
+  const { markHeroReady } = usePageReady();
+  const firstImageRef = useRef<HTMLImageElement>(null);
+  const liveRegionRef = useRef<HTMLDivElement>(null);
+
   const activeTransition = shouldReduceMotion
     ? reducedTransition
     : textTransition;
   const activeImageVariants = shouldReduceMotion
-    ? imageVariantsReduced
+    ? defaultVariantsReduced
     : imageVariants;
   const activeTextItemVariants = shouldReduceMotion
-    ? textItemVariantsReduced
+    ? defaultVariantsReduced
     : textItemVariants;
 
-  // Live region: umumkan pergantian slide ke screen reader tanpa
-  // memindahkan fokus atau menduplikasi H1.
-  const liveRegionRef = useRef<HTMLDivElement>(null);
-
-  // ── Preload gambar slide berikutnya sesaat sebelum giliran tampil ──
+  // ── Sync Pageloader ──────────────────────────────────────
   useEffect(() => {
-    const nextIndex = (current + 1) % total;
-    if (nextIndex === 0) return;
+    if (firstImageRef.current?.complete) {
+      setFirstSlideLoaded(true);
+      markHeroReady();
+    }
+  }, [markHeroReady]);
 
-    const leadTime = Math.min(2000, autoplayDelay * 0.6);
-    const timer = setTimeout(
-      () => preloadIfNeeded(slides[nextIndex].src),
-      Math.max(autoplayDelay - leadTime, 0),
-    );
-
-    return () => clearTimeout(timer);
-  }, [current, total, slides, autoplayDelay]);
+  // ── Handlers ───────────────────────────────────────────────
+  const paginate = useCallback(
+    (newDirection: number) => {
+      setWarmIndex(null);
+      let nextIndex = current + newDirection;
+      if (nextIndex < 0) nextIndex = total - 1;
+      else if (nextIndex >= total) nextIndex = 0;
+      setPage([nextIndex, newDirection]);
+    },
+    [current, total],
+  );
 
   const goTo = useCallback(
     (index: number) => {
-      setIsInitialLoad(false);
-      setCurrent((index + total) % total);
+      setWarmIndex(null);
+      setPage([index, index > current ? 1 : -1]);
     },
-    [total],
+    [current],
   );
 
-  const goPrev = useCallback(() => goTo(current - 1), [current, goTo]);
-  const goNext = useCallback(() => goTo(current + 1), [current, goTo]);
-
-  // ── Autoplay: berhenti saat hover, fokus keyboard, atau reduced-motion ──
+  // ── Autoplay & Progress Bar ──────────────────────────────
   useEffect(() => {
-    if (isPaused || !firstSlideLoaded || shouldReduceMotion) return;
-    const timer = setInterval(goNext, autoplayDelay);
-    return () => clearInterval(timer);
-  }, [goNext, autoplayDelay, isPaused, firstSlideLoaded, shouldReduceMotion]);
+    if (!firstSlideLoaded || shouldReduceMotion) return;
+
+    if (isPaused) {
+      progressControls.stop();
+      return;
+    }
+
+    progressControls.set({ scaleX: 0 });
+    progressControls.start({
+      scaleX: 1,
+      transition: { duration: autoplayDelay / 1000, ease: "linear" },
+    });
+
+    const timer = setInterval(() => paginate(1), autoplayDelay);
+    return () => {
+      clearInterval(timer);
+      progressControls.stop();
+    };
+  }, [
+    paginate,
+    autoplayDelay,
+    isPaused,
+    firstSlideLoaded,
+    shouldReduceMotion,
+    progressControls,
+  ]);
+
+  // ── Warm up Cache ────────────────────────────────────────
+  useEffect(() => {
+    const nextIndex = (current + 1) % total;
+    const leadTime = Math.min(2000, autoplayDelay * 0.6);
+    const timer = setTimeout(
+      () => setWarmIndex(nextIndex),
+      Math.max(autoplayDelay - leadTime, 0),
+    );
+    return () => clearTimeout(timer);
+  }, [current, total, autoplayDelay]);
+
+  // ── Gestur Swipe ─────────────────────────────────────────
+  const handleDragEnd = (e: Event, { offset, velocity }: PanInfo) => {
+    const swipe = swipePower(offset.x, velocity.x);
+    if (swipe < -SWIPE_CONFIDENCE_THRESHOLD) {
+      paginate(1);
+    } else if (swipe > SWIPE_CONFIDENCE_THRESHOLD) {
+      paginate(-1);
+    }
+  };
 
   return (
     <section className="lg:mt-0" aria-roledescription="carousel">
-      {/*
-        H1 tunggal & stabil untuk halaman ini. Disembunyikan secara visual
-        (bukan dari DOM) sehingga tetap terbaca search engine & screen
-        reader, tanpa berubah-ubah mengikuti rotasi slide.
-      */}
       <h1 className="sr-only">{pageTitle}</h1>
 
       <div
-        className="relative w-full h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] overflow-hidden bg-black"
+        className="relative w-full h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] overflow-hidden bg-black touch-pan-y"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onFocus={() => setIsPaused(true)}
         onBlur={() => setIsPaused(false)}
       >
-        {/* ── Background Image ───────────────────────────────────────────── */}
-        <AnimatePresence mode="sync">
-          {isInitialLoad ? (
-            // Render pertama: animasi CSS native (bukan Framer Motion) agar
-            // browser bisa mulai fade+scale sesaat setelah paint, tanpa
-            // menunggu React hydration selesai — ini yang menambah LCP.
-            <div
-              key={`bg-${current}`}
-              className="absolute inset-0 lcp-fade-scale"
-            >
-              <Image
-                src={slides[current].src}
-                alt=""
-                fill
-                priority
-                fetchPriority="high"
-                quality={75}
-                className="object-cover"
-                sizes="100vw"
-                onLoad={() => setFirstSlideLoaded(true)}
-              />
-            </div>
-          ) : (
-            <motion.div
-              key={`bg-${current}`}
-              className="absolute inset-0"
-              variants={activeImageVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={imageCenterTransition}
-            >
-              <Image
-                src={slides[current].src}
-                alt=""
-                fill
-                loading="eager"
-                quality={75}
-                className="object-cover"
-                sizes="100vw"
-              />
-            </motion.div>
-          )}
+        {/* Hidden Warm Cache Image */}
+        {warmIndex !== null && (
+          <div
+            key={`warm-cache-${warmIndex}`}
+            className="absolute inset-0 opacity-0 pointer-events-none -z-10"
+            aria-hidden="true"
+          >
+            <Image
+              src={slides[warmIndex].src}
+              alt=""
+              fill
+              quality={60}
+              sizes="10vw"
+              loading="eager"
+            />
+          </div>
+        )}
 
-          {/* ── Overlay ─────────────────────────────────────────────────── */}
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          {/* Draggable Area for Mobile */}
           <motion.div
-            key={`overlay-${current}`}
-            className="absolute inset-0 bg-linear-to-r from-black/85 via-black/60 to-black/20"
-            variants={overlayVariants}
+            key={current}
+            custom={direction}
+            variants={activeImageVariants}
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.8, delay: 0.2 }}
-          />
+            transition={imageCenterTransition}
+            drag={shouldReduceMotion ? false : "x"}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={handleDragEnd}
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
+          >
+            <Image
+              ref={current === 0 ? firstImageRef : null}
+              src={slides[current].src}
+              alt=""
+              fill
+              priority={current === 0} // Preload HTML tag khusus slide pertama
+              loading="eager" // Solusi Fix Peringatan LCP
+              quality={80}
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1536px"
+              onLoad={() => {
+                if (current === 0 && !firstSlideLoaded) {
+                  setFirstSlideLoaded(true);
+                  markHeroReady();
+                }
+              }}
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/60 to-black/20" />
+          </motion.div>
         </AnimatePresence>
 
         {/* ── Slide Content ─────────────────────────────────────────────── */}
         <AnimatePresence mode="wait">
           <motion.div
             key={`content-${current}`}
-            className="absolute inset-0 flex flex-col justify-center px-6 sm:px-14 lg:px-20 z-10"
+            className="absolute inset-0 flex flex-col justify-center px-6 sm:px-14 lg:px-20 z-10 pointer-events-none"
             variants={textContainerVariants}
             initial="enter"
             animate="center"
             exit="exit"
           >
-            <div className="max-w-2xl">
+            <div className="max-w-2xl pointer-events-auto">
               <motion.p
                 variants={activeTextItemVariants}
                 transition={activeTransition}
@@ -237,19 +269,12 @@ export default function HeaderCarousel({
               >
                 {slides[current].subtitle}
               </motion.p>
-
               <motion.div
                 variants={activeTextItemVariants}
                 transition={activeTransition}
                 className="w-10 h-0.5 bg-mas-red mb-4"
                 aria-hidden="true"
               />
-
-              {/*
-                Judul per-slide: secara semantik ini adalah copy promosi
-                yang berganti-ganti, bukan judul halaman — jadi H2, bukan
-                H1. H1 halaman sudah didefinisikan secara statis di atas.
-              */}
               <motion.h2
                 variants={activeTextItemVariants}
                 transition={activeTransition}
@@ -257,7 +282,6 @@ export default function HeaderCarousel({
               >
                 {slides[current].title}
               </motion.h2>
-
               <motion.p
                 variants={activeTextItemVariants}
                 transition={activeTransition}
@@ -269,10 +293,7 @@ export default function HeaderCarousel({
           </motion.div>
         </AnimatePresence>
 
-        {/*
-          Live region tersembunyi: mengumumkan pergantian slide ke screen
-          reader tanpa memindahkan fokus, terpisah dari elemen visual.
-        */}
+        {/* Live region tersembunyi untuk Accessibility/Screen Readers */}
         <div
           ref={liveRegionRef}
           aria-live="polite"
@@ -286,10 +307,9 @@ export default function HeaderCarousel({
         <div className="absolute bottom-8 left-6 sm:left-14 lg:left-20 z-20 flex items-center gap-3">
           <motion.button
             type="button"
-            onClick={goPrev}
+            onClick={() => paginate(-1)}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.15 }}
             className="p-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white hover:border-white/70 hover:bg-white/20 transition-colors duration-200 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
             aria-label="Slide sebelumnya"
           >
@@ -320,10 +340,9 @@ export default function HeaderCarousel({
 
           <motion.button
             type="button"
-            onClick={goNext}
+            onClick={() => paginate(1)}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.15 }}
             className="p-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white hover:border-white/70 hover:bg-white/20 transition-colors duration-200 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
             aria-label="Slide berikutnya"
           >
@@ -346,14 +365,11 @@ export default function HeaderCarousel({
         </div>
 
         {/* ── Progress Bar ─────────────────────────────────────────────── */}
-        {!isPaused && firstSlideLoaded && !shouldReduceMotion && (
+        {!shouldReduceMotion && (
           <motion.div
-            key={`progress-${current}`}
             className="absolute top-0 left-0 h-1 bg-mas-red z-20 origin-left"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: autoplayDelay / 1000, ease: "linear" }}
-            style={{ width: "100%" }}
+            animate={progressControls}
+            style={{ width: "100%", scaleX: 0 }}
             aria-hidden="true"
           />
         )}
