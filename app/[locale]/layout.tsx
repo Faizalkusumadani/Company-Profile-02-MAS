@@ -49,6 +49,14 @@ export async function generateMetadata({
     metadataBase: new URL(siteConfig.url),
     title: siteConfig.shortName,
     applicationName: siteConfig.name,
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        en: "/en",
+        id: "/id",
+        "x-default": "/",
+      },
+    },
 
     keywords: [
       "bahan bangunan",

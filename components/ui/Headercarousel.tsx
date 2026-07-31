@@ -234,8 +234,9 @@ export default function HeaderCarousel({
               src={slides[current].src}
               alt=""
               fill
-              priority={current === 0} // Preload HTML tag khusus slide pertama
-              loading="eager" // Solusi Fix Peringatan LCP
+              priority={current === 0}
+              fetchPriority={current === 0 ? "high" : "auto"}
+              loading="eager"
               quality={80}
               className="object-cover"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1536px"
