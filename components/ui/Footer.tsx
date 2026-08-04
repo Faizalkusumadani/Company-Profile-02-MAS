@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:flex md:justify-between">
         {/* CONNECT WITH US */}
         <div>
-          <h3 className="text-lg sm:text-xl font-bold mb-6 text-red-600">
+          <h3 className="text-lg sm:text-xl font-bold mb-6 text-white">
             CONNECT WITH US
           </h3>
           <Image
@@ -30,25 +30,25 @@ export default function Footer() {
             style={{ width: "240px", height: "114px" }}
           />
           {/* Social Icons */}
-          <div className="flex items-center gap-6 text-4xl text-white">
+          <div className="flex items-center gap-6 text-4xl text-white/80">
             <a
               href="#"
               aria-label="Instagram PT Mega Adhitama Sejati"
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-mas-red transition-colors"
             >
               <FaInstagram />
             </a>
             <a
               href="#"
               aria-label="LinkedIn PT Mega Adhitama Sejati"
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-mas-red transition-colors"
             >
               <FaLinkedin />
             </a>
             <a
               href="#"
               aria-label="YouTube PT Mega Adhitama Sejati"
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-mas-red transition-colors"
             >
               <FaYoutube />
             </a>
@@ -57,10 +57,10 @@ export default function Footer() {
 
         {/* HEAD OFFICE */}
         <div className="mt-12 md:mt-0">
-          <h3 className="text-lg sm:text-xl font-bold mb-6 text-red-600">
+          <h3 className="text-lg sm:text-xl font-bold mb-6 text-white">
             HEAD OFFICE
           </h3>
-          <address className="not-italic space-y-4 text-base text-white">
+          <address className="not-italic space-y-4 text-base text-white/80">
             <p className="flex items-start gap-3">
               <IoLocationSharp
                 className="text-xl mt-0.5 shrink-0"
@@ -76,7 +76,7 @@ export default function Footer() {
               <FaPhoneAlt className="text-xl shrink-0" aria-hidden="true" />
               <a
                 href="tel:+622158351648"
-                className="hover:text-gray-300 transition-colors"
+                className="hover:text-mas-red transition-colors"
               >
                 +62 21 5835 1648
               </a>
@@ -86,7 +86,7 @@ export default function Footer() {
               <IoMail className="text-xl shrink-0" aria-hidden="true" />
               <a
                 href="mailto:sales@megaadhitamasejati.id"
-                className="hover:text-gray-300 transition-colors"
+                className="hover:text-mas-red transition-colors"
               >
                 sales@megaadhitamasejati.id
               </a>

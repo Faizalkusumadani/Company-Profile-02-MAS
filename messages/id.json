@@ -122,18 +122,18 @@
     "Product": {
       "best": "Terbaik",
       "desc_product": "Temukan produk Building Materials berkualitas tinggi untuk kebutuhan Anda",
-      "name_1": "Building Materials",
-      "name_2": "Sanitary",
-      "name_3": "Safety ",
-      "icon_1_desc": "Material konstruksi berkualitas tinggi untuk mendukung pembangunan yang kuat, presisi, dan berkelanjutan.",
-      "icon_2_desc": "Solusi sanitary modern dengan kualitas terpercaya untuk kebutuhan residensial, komersial, dan industri.",
-      "icon_3_desc": "Perlengkapan keselamatan kerja profesional untuk mendukung standar keamanan proyek dan operasional industri.",
+      "name_1": "Bahan Bangunan",
+      "name_2": "Sanitari",
+      "name_3": "K3",
+      "icon_1_desc": "Material konstruksi berkualitas tinggi untuk mendukung pembangunan yang kuat, presisi, dan berkelanjutan",
+      "icon_2_desc": "Solusi sanitari modern dengan kualitas terpercaya untuk kebutuhan residensial, komersial, dan industri",
+      "icon_3_desc": "Perlengkapan keselamatan kerja profesional untuk mendukung standar keamanan proyek dan operasional industri",
       "title-product": "Kategori",
       "sub-product": "Solusi",
       "sub-product_01": "Produk Terintegrasi",
-      "sub-desc-product": "Solusi material konstruksi, sanitary, dan safety equipment untuk mendukung proyek modern yang efisien, aman, dan berkualitas tinggi.",
+      "sub-desc-product": "Solusi material konstruksi, sanitari, dan K3 peralatan untuk mendukung proyek modern yang efisien, aman, dan berkualitas tinggi",
       "desc_quotation": "Konsultasikan kebutuhan proyek Anda",
-      "desc_quotation_01": "Dapatkan rekomendasi produk terbaik bersama tim kami."
+      "desc_quotation_01": "Dapatkan rekomendasi produk terbaik bersama tim kami"
     },
     "Testimoni": {
       "testimoni": "Testimoni",
@@ -171,7 +171,7 @@
 
   "About": {
     "companyprofile": {
-      "about_company": "Profil Perusahaan",
+      "header": "<red>Profil</red> Perusahaan",
       "desc_company": [
         "PT. Mega Adhitama Sejati didirikan pada tahun 2012, dengan produk pertama yang dipasarkan adalah Semen Merah Putih untuk area distribusi di wilayah Banten.",
         "Seiring pertumbuhan bisnis yang pesat, perusahaan memperluas jaringan distribusinya hingga ke area Tangerang pada tahun 2018. Didukung oleh infrastruktur yang solid dan pengalaman lebih dari 12 tahun, PT Mega Adhitama Sejati telah dipercaya oleh berbagai merek terkemuka seperti Dulux, Servvo, Trilliun, Supreme, dan Dcota. Kepercayaan ini semakin mengukuhkan posisi perusahaan sebagai pemain utama dalam industri distribusi.",
@@ -182,6 +182,7 @@
       "desc_2": "Kantor Perwakilan",
       "desc_3": "Showroom SERVVO",
       "desc_4": "Unduh File",
+      "desc_5": "MAS <red>Kantor</red>",
       "city_1": "Kota",
       "desc_warehouse": "Dalam menjalankan bisnisnya, PT. Mega Adhitama Sejati berkomitmen untuk memberikan pelayanan dan pengiriman yang terbaik bagi para pelanggan. Saat ini kami memiliki 2 (dua) lokasi warehouse yang luas berlokasi di Alam Sutera-Tangerang & Rangkasbitung-Banten."
     },
@@ -214,9 +215,8 @@
       "senseOfBelonging": "Perasaan bahwa seseorang adalah bagian integral dari tim atau organisasi tempat mereka bekerja."
     },
     "achievement": {
-      "header_01": "Pencapaian",
-      "header_02": " Penghargaan",
-      "header_03": "Sertifikasi",
+      "header_01": "Pencapaian <red>Penghargaan</red>",
+      "header_02": "<red>Sertifikat</red> Penghargaan",
       "desc_achievement": "Mega Adhitama Sejati meraih berbagai penghargaan atas komitmennya dalam menerapkan prinsip keberlanjutan dalam operasi bisnisnya. Penghargaan-penghargaan ini mencerminkan upaya Perusahaan dalam menciptakan dampak positif bagi lingkungan, masyarakat, dan tata kelola yang bertanggung jawab.",
       "desc_achievement_1": "Penghargaan yang kami dapatkan"
     },
@@ -256,6 +256,10 @@
     "title": "Jelajahi katalog",
     "title_1": "Produk kami",
     "ctaproducts": "Lihat Detail",
+    "name_0": "Semua",
+    "name_1": "Bahan Bangunan",
+    "name_2": "Sanitari",
+    "name_3": "K3",
     "desc": "Temukan produk yang sesuai dengan kebutuhan Anda, dengan berbagai produk terbaik.",
     "show_product": "Menampilkan",
     "specification": "Spesifikasi",

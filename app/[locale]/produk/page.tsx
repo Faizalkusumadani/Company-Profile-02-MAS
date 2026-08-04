@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import React from "react";
-import Categories from "../../tools/categories";
+import getCategories from "../../tools/categories";
 import ProductData from "../../tools/produk";
 import {
   Breadcrumb,
@@ -47,7 +47,7 @@ export default async function Produk({ params }: Props) {
     { label: t("Navigation.product"), current: true },
   ];
 
-  const categoriesWithProducts = Categories.map((cat) => {
+  const categoriesWithProducts = getCategories(t).map((cat) => {
     if (cat.id === "all") {
       return { ...cat, products: allProducts };
     }

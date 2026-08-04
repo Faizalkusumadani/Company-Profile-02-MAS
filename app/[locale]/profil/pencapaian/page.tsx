@@ -102,14 +102,13 @@ export default async function Pencapaian({ params }: Props) {
               </div>
 
               <div className="ml-auto max-w-2xl text-right py-20 md:py-40">
-                <h1 className="mt-6 text-3xl md:text-5xl font-bold leading-tight">
-                  <span className="text-mas-red">
-                    {t("About.achievement.header_01")}
-                  </span>{" "}
-                  <span className="text-white">
-                    {t("About.achievement.header_02")}
-                  </span>
-                </h1>
+                <h2 className="text-white text-2xl lg:text-4xl font-semibold tracking-wide mb-6">
+                  {t.rich("About.achievement.header_01", {
+                    red: (chunks) => (
+                      <span className="text-mas-red">{chunks}</span>
+                    ),
+                  })}
+                </h2>
 
                 <p className="mt-6 text-sm md:text-lg text-white/60 leading-relaxed">
                   {t("About.achievement.desc_achievement")}
@@ -120,12 +119,14 @@ export default async function Pencapaian({ params }: Props) {
         </div>
 
         {/* archivement */}
-        <article className="px-4 py-10 ">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="text-gray-700 text-2xl lg:text-4xl font-semibold tracking-wide">
-              {t("About.achievement.header_03")}
+        <article className="px-4 py-10">
+          <div className="mx-auto max-w-7xl">
+            <h2 className="text-mas-dark text-2xl lg:text-4xl font-semibold tracking-wide mb-6">
+              {t.rich("About.achievement.header_02", {
+                red: (chunks) => <span className="text-mas-red">{chunks}</span>,
+              })}
             </h2>
-            <div className="h-px bg-gray-300 dark:bg-gray-700 my-9"></div>
+            <div className="h-px bg-gray-300 mb-6"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {Allarchivement.map((archivement) => (
                 <a
@@ -133,7 +134,7 @@ export default async function Pencapaian({ params }: Props) {
                   href={archivement.href}
                   className="group transition-all duration-300 overflow-hidden transform hover:-translate-y-2 block "
                 >
-                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-200 border-2 border-gray-200">
+                  <div className="relative h-66 sm:h-68 md:h-72 overflow-hidden bg-gray-200 border-2 border-gray-200">
                     <Image
                       src={archivement.image}
                       alt={archivement.title}
@@ -143,6 +144,8 @@ export default async function Pencapaian({ params }: Props) {
                       loading="lazy"
                       className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    {/* Overlay tipis biar background putih sertifikat gak silau, memudar saat hover */}
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300 pointer-events-none" />
                   </div>
                   <div className="mt-4">
                     <h4 className="text-gray-900 font-semibold text-sm leading-snug mb-2 line-clamp-3">

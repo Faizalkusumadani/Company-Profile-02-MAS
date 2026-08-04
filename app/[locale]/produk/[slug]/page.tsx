@@ -66,8 +66,8 @@ export default async function ProdukDetail({
   return (
     <section id={produk!.slug}>
       <div className="w-full py-20">
-        <header className="p-6 sm:p-8">
-          <div className="mx-auto max-w-6xl">
+        <header className="px-4 py-8">
+          <div className="mx-auto max-w-7xl ">
             {/* Aksen garis merah di atas judul */}
             <div className="flex items-center gap-1.5 mb-3">
               <span className="block w-8 h-1 rounded-full bg-mas-red" />
@@ -101,7 +101,7 @@ export default async function ProdukDetail({
         </header>
 
         <div className="px-4 sm:px-6 lg:px-8 py-15">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 items-center">
               <div className="order-1 lg:order-2">
                 <div className="relative rounded-2xl overflow-hidden group">
@@ -110,7 +110,7 @@ export default async function ProdukDetail({
                       src={produk!.gambarUtama}
                       fill
                       alt={`Produk ${produk!.namaBrand}`}
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105 p-4"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 650px"
                     />
                   </div>
@@ -134,7 +134,7 @@ export default async function ProdukDetail({
         </div>
 
         <div className="px-4 sm:px-6 lg:px-8 py-15">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <TabsCustom
               tabs={[
                 { id: "fitur", label: t("specification"), icon: "Settings" },

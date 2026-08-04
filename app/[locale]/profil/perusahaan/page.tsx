@@ -48,10 +48,6 @@ export default async function Perusahaan({ params }: Props) {
     { label: t("Navigation.about.profile"), current: true },
   ];
 
-  // Pisahkan judul "About" menjadi kata pertama (merah) dan sisanya (putih)
-  const aboutTitleWords = t("About.companyprofile.about_company").split(" ");
-  const aboutTitleFirstWord = aboutTitleWords[0];
-  const aboutTitleRest = aboutTitleWords.slice(1).join(" ");
   const descCompanyRaw = t.raw("About.companyprofile.desc_company");
   const descCompanyParagraphs: string[] = Array.isArray(descCompanyRaw)
     ? descCompanyRaw
@@ -117,9 +113,12 @@ export default async function Perusahaan({ params }: Props) {
             {/* Judul & Deskripsi - bagian bawah hero */}
             <div className="mx-auto w-full max-w-7xl py-18">
               <div className="w-full max-w-xl text-left px-4">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">
-                  <span className="text-mas-red">{aboutTitleFirstWord}</span>{" "}
-                  <span className="text-white">{aboutTitleRest}</span>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 text-white">
+                  {t.rich("About.companyprofile.header", {
+                    red: (chunks) => (
+                      <span className="text-mas-red">{chunks}</span>
+                    ),
+                  })}
                 </h1>
                 <div className="space-y-3 sm:space-y-4">
                   {descCompanyParagraphs.map((paragraph, index) => (
@@ -141,8 +140,12 @@ export default async function Perusahaan({ params }: Props) {
           <div className="mx-auto max-w-7xl">
             {/* Section header */}
             <div className="max-w-3xl mb-6 sm:mb-8 lg:mb-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-mas-dark leading-tight">
-                MAS <span className="text-mas-red">Office</span>
+              <h2 className="text-mas-dark text-2xl lg:text-4xl font-semibold tracking-wide mb-6">
+                {t.rich("About.companyprofile.desc_5", {
+                  red: (chunks) => (
+                    <span className="text-mas-red">{chunks}</span>
+                  ),
+                })}
               </h2>
               <p className="mt-2 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed">
                 {t("About.companyprofile.desc_office")}

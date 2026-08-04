@@ -15,14 +15,14 @@ import type { IconType } from "react-icons";
 import { useTranslations } from "next-intl";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-
+export type ProductCategoryKey = "name_1" | "name_2" | "name_3";
 interface Product {
   id: number | string;
   name: string;
   image?: string;
   description?: string;
   slug: string;
-  category?: string;
+  category: ProductCategoryKey;
   rating?: number;
   reviews?: number;
   discount?: string | number;
@@ -146,7 +146,7 @@ function ProductCard({
 
         {/* Category Badge */}
         <span className="inline-block text-[11px] sm:text-xs font-medium text-mas-red mb-2 sm:mb-3">
-          {produk.category}
+          {t(produk.category)}
         </span>
 
         <p className="text-gray-500 text-xs sm:text-sm line-clamp-3 sm:line-clamp-4 leading-relaxed grow">

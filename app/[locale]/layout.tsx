@@ -54,15 +54,15 @@ export async function generateMetadata({
       languages: {
         en: "/en",
         id: "/id",
-        "x-default": "/",
+        "x-default": "/id",
       },
     },
 
     keywords: [
-      "bahan bangunan",
+      "distributor bahan bangunan",
       "material bangunan Banten",
       "toko bangunan Banten",
-      "distributor bahan bangunan",
+      "distributor bahan bangunan retail",
       "Mega Adhitama Sejati",
       "retail bahan bangunan Serang",
       "building materials supplier Banten",

@@ -27,6 +27,7 @@ export const newsData: NewsStatic[] = [
       "/information/Retailer Semen_merah_2026/002.jpeg",
       "/information/Retailer Semen_merah_2026/003.jpeg",
       "/information/Retailer Semen_merah_2026/004.jpeg",
+      "/information/Retailer Semen_merah_2026/005.jpg",
     ],
     contentKey: "gathering_semen_2026_1",
   },

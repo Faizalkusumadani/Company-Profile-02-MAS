@@ -126,14 +126,14 @@
       "desc_product": "Find high quality Building Materials products for your project needs.",
       "name_1": "Building Materials",
       "name_2": "Sanitary",
-      "name_3": "Safety",
+      "name_3": "K3",
       "icon_1_desc": "High-quality construction materials to support strong, precise, and sustainable construction.",
       "icon_2_desc": "Modern sanitary solutions with trusted quality for residential, commercial, and industrial needs.",
       "icon_3_desc": "Professional safety equipment to support industrial project and operational safety standards.",
       "title-product": "Category",
       "sub-product": "Solutions",
       "sub-product_01": "Integrated Products",
-      "sub-desc-product": "Construction material, sanitary, and safety equipment solutions to support modern projects that are efficient, safe, and high quality.",
+      "sub-desc-product": "Construction material, sanitary, and K3 equipment solutions to support modern projects that are efficient, safe, and high quality.",
       "desc_quotation": "Consult on your project needs",
       "desc_quotation_01": "Get the best product recommendations from our team."
     },
@@ -173,7 +173,7 @@
 
   "About": {
     "companyprofile": {
-      "about_company": "Company profile",
+      "header": "Company profile",
       "desc_company": [
         "PT. Mega Adhitama Sejati was founded in 2012, with its first product marketed as Semen Merah Putih, distributed in the Banten region.",
         "Following rapid business growth, the company expanded its distribution network to the Tangerang area in 2018. Supported by a solid infrastructure and over 12 years of experience, PT Mega Adhitama Sejati has been trusted by various leading brands such as Dulux, Servvo, Trilliun, Supreme, and Dcota. This trust further solidifies the company's position as a major player in the distribution industry.",
@@ -185,6 +185,7 @@
       "desc_3": "SERVVO Showroom",
       "desc_4": "Download File",
       "city_1": "City",
+      "desc_5": "MAS <red>Office</red>",
       "desc_warehouse": " In running its business, PT. Mega Adhitama Sejati is committed to providing the best service and delivery for customers. Currently we have 2 (two) large warehouse locations located in Alam Sutera-Tangerang & Rangkasbitung-Banten."
     },
     "vision": {
@@ -218,7 +219,7 @@
     "achievement": {
       "header_01": "Achievements",
       "header_02": " Awards",
-      "header_03": "Certification",
+      "header_03": "Certificate of Appreciation",
       "desc_achievement": "Mega Adhitama Sejati has received various awards for its commitment to implementing sustainability principles in its business operations. These awards reflect the Company's efforts to create a positive impact on the environment, society, and responsible governance.",
       "desc_achievement_1": "The awards we received"
     },
@@ -258,6 +259,10 @@
     "title": "Explore the catalog",
     "title_1": "our products",
     "ctaproducts": "View Details",
+    "name_0": "All",
+    "name_1": "Building Materials",
+    "name_2": "Sanitary",
+    "name_3": "K3",
     "desc": "Find the product that suits your needs, with a variety of the best products.",
     "show_product": "Display",
     "specification": "Specification",

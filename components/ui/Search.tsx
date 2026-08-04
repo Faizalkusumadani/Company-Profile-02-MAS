@@ -116,7 +116,7 @@ export function SearchDialog() {
                     {product.name}
                   </span>
                   <span className="text-sm italic text-red-700">
-                    {product.category}
+                    {t(`Products.${product.category}`)}
                   </span>
                   <span className="text-sm line-clamp-3 text-gray-500">
                     {product.description}

@@ -398,13 +398,10 @@ export default function BerandaClient() {
               <div className="pt-2 sm:pt-4">
                 <Link
                   href="/profil/perusahaan"
-                  className="inline-flex items-center gap-2 border border-mas-red text-mas-red font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
+                  className="inline-flex items-center gap-2 border border-mas-red text-mas-red font-medium px-8 py-4 rounded-full hover:bg-mas-red hover:text-white "
                 >
                   {tabout("ctaabout")}
-                  <ArrowRight
-                    className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
-                    aria-hidden="true"
-                  />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </m.div>

@@ -1,5 +1,4 @@
 import AquaproofVariants from "./aquaproof";
-import BildoVariants from "./bildo";
 import DcotaVariants from "./dcota";
 import SemenmerahputihVariants from "./semenmerahputih";
 import ServvoVariants from "./servvo";
@@ -10,7 +9,6 @@ import TokkaVariants from "./tokka";
 import TrilliunVariants from "./trilliun";
 import TrilliunwareVariants from "./trilliunware";
 import WavinVariants from "./wavin";
-import YoshinoVariants from "./yoshino";
 import DuluxVariants from "./dulux";
 import en from "../../messages/en.json";
 
@@ -192,30 +190,6 @@ const produkDetailList: ProdukDetail[] = [
       "aquaproof_features_5",
     ],
     variants: AquaproofVariants,
-  },
-  {
-    slug: "bildo",
-    namaBrand: "Bildo",
-    gambarUtama: "/produk/BILDOO.png",
-    logoSrc: "/produk/Bildo/logobildo.png",
-    descKey: "bildo_desc",
-    featuresKeys: ["bildo_features_1", "bildo_features_2", "bildo_features_3"],
-    variants: BildoVariants,
-  },
-  {
-    slug: "yoshino",
-    namaBrand: "Yoshino Gypsium",
-    gambarUtama: "/produk/YOSHINOO.png",
-    logoSrc: "/produk/Yoshino/logoyoshino.png",
-    descKey: "yoshino_desc",
-    featuresKeys: [
-      "yoshino_features_1",
-      "yoshino_features_2",
-      "yoshino_features_3",
-      "yoshino_features_4",
-      "yoshino_features_5",
-    ],
-    variants: YoshinoVariants,
   },
   {
     slug: "dulux",
