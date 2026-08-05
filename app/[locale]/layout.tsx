@@ -137,10 +137,9 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   // Dynamic Schema JSON-LD per Locale — tetap di layout karena ini
-  // structured data organisasi, bukan metadata per-halaman.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "HomeAndConstructionBusiness",
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     alternateName: siteConfig.shortName,
@@ -148,6 +147,7 @@ export default async function LocaleLayout({
     logo: `${siteConfig.url}/logo-mas.png`,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
     telephone: "+62-21-5835-1648",
+    email: "sales@megaadhitamasejati.id",
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
@@ -158,13 +158,18 @@ export default async function LocaleLayout({
       postalCode: "11610",
       addressCountry: "ID",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.1902626659085,
+      longitude: 106.74986318024929,
+    },
     areaServed: {
       "@type": "AdministrativeArea",
       name: "Banten",
     },
     sameAs: [
       "https://www.tiktok.com/@megaadhitamasejati?_r=1&_t=ZS-98I1AGVgHHJ",
-      "https://www.instagram.com/megaadhitamasejati?igsh=dXQyb3o3c25sM3Z4",
+      "https://www.instagram.com/megaadhitamasejati?igsh=MWIzY2twMTRtNjh0NA%3D%3D",
     ],
   };
 

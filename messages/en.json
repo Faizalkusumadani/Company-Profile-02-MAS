@@ -123,7 +123,9 @@
     },
     "Product": {
       "best": "Best",
-      "desc_product": "Find high quality Building Materials products for your project needs.",
+      "tag": "Find high quality Building Materials products for your project needs.",
+      "header": "Trusted by",
+      "header01": "leading brands",
       "name_1": "Building Materials",
       "name_2": "Sanitary",
       "name_3": "K3",

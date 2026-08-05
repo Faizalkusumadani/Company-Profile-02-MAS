@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center gap-6 text-4xl text-white/80">
             <a
-              href="#"
+              href="https://www.instagram.com/megaadhitamasejati?igsh=MWIzY2twMTRtNjh0NA%3D%3D"
               aria-label="Instagram PT Mega Adhitama Sejati"
               className="hover:text-mas-red transition-colors"
             >

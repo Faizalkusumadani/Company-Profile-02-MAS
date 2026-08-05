@@ -121,7 +121,9 @@
     },
     "Product": {
       "best": "Terbaik",
-      "desc_product": "Temukan produk Building Materials berkualitas tinggi untuk kebutuhan Anda",
+      "tag": "Temukan produk Building Materials berkualitas tinggi untuk kebutuhan Anda",
+      "header": "Dipercaya oleh",
+      "header01": "brand terkemuka",
       "name_1": "Bahan Bangunan",
       "name_2": "Sanitari",
       "name_3": "K3",

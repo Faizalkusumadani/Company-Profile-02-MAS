@@ -573,11 +573,11 @@ export default function BerandaClient() {
           brands={Brands}
           title={
             <>
-              <span className="text-mas-red">Brand</span>{" "}
-              <span className="text-mas-dark">Partners</span>
+              <span className="text-mas-red">{tproduct("header")}</span>{" "}
+              <span className="text-mas-dark">{tproduct("header01")}</span>
             </>
           }
-          subtitle={tproduct("desc_product")}
+          subtitle={tproduct("tag")}
           speed={20}
           direction="left"
           pauseOnHover

@@ -41,8 +41,6 @@ export function buildPageMetadata({
         "en-US": `${siteConfig.url}/en${path}`,
       },
     },
-    // path sudah diikutsertakan di atas — untuk halaman /produk/[slug],
-    // panggil buildPageMetadata dengan path: `/produk/${slug}`
 
     openGraph: {
       title: fullTitle,
