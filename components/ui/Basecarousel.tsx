@@ -114,7 +114,7 @@ export default function NewsCarousel({
               fill
               className="object-cover"
               quality={75}
-              sizes="100vw"
+              sizes="(max-width: 1280px) 100vw, 1280px"
               priority={i === 0}
             />
 

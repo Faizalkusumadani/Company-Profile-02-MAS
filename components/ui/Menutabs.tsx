@@ -110,6 +110,8 @@ function ProductCard({
           alt={produk.name}
           width={500}
           height={370}
+          loading="lazy"
+          fetchPriority="high"
           className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
         />
 

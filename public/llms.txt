@@ -10,11 +10,11 @@ Mega Adhitama Sejati merupakan mitra terpercaya dalam penyediaan bahan bangunan 
 
 ## Tentang Kami
 
-- [Profil Perusahaan](https://megaadhitamasejati.id/tentang-kami/): Sejarah dan profil perusahaan
+- [Profil Perusahaan](https://megaadhitamasejati.id/perusahaan/): Sejarah dan profil perusahaan
 - [Visi & Misi](https://megaadhitamasejati.id/tentang-kami/visi-misi/): Fondasi dan arah strategis perusahaan
-- [Nilai-Nilai](https://megaadhitamasejati.id/tentang-kami/nilai/): Nilai-nilai inti perusahaan
-- [Fasilitas Distribusi](https://megaadhitamasejati.id/tentang-kami/fasilitas/): Jaringan dan fasilitas distribusi
-- [Manajemen](https://megaadhitamasejati.id/tentang-kami/pendiri/): Tim manajemen perusahaan
+- [Nilai-Nilai](https://megaadhitamasejati.id/tentang-kami/nilai-nilai/): Nilai-nilai inti perusahaan
+- [Logistik](https://megaadhitamasejati.id/tentang-kami/logistik/): Jaringan dan fasilitas distribusi
+- [Manajemen](https://megaadhitamasejati.id/tentang-kami/manajemen/): Tim manajemen perusahaan
 - [Pencapaian](https://megaadhitamasejati.id/tentang-kami/pencapaian/): Penghargaan dan pencapaian perusahaan
 
 ## Produk
@@ -24,7 +24,7 @@ Mega Adhitama Sejati merupakan mitra terpercaya dalam penyediaan bahan bangunan 
 ## Ruang Informasi
 
 - [Berita](https://megaadhitamasejati.id/ruang-informasi/berita/): Berita  terbaru perusahaan
-- [Kegiatan](https://megaadhitamasejati.id/id/ruang-informasi/kegiatan/) : Kegiatan terbaru perusahaan
+- [Kegiatan](https://megaadhitamasejati.id/ruang-informasi/kegiatan/) : Kegiatan terbaru perusahaan
 
 ## Karir
 

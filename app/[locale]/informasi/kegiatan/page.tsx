@@ -90,7 +90,7 @@ export default async function Kegiatan({ params }: Props) {
         </header>
 
         {/* ── Carousel + Sidebar ── */}
-        <div className="px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div className="px-4 sm:px-6 lg:px-8 py-8">
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Main Carousel */}

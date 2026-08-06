@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   },
   output: "standalone",
   experimental: {
-    optimizeCss: true,
+    inlineCss: true,
   },
   turbopack: {},
 };

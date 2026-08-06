@@ -313,7 +313,7 @@ const Navbar = () => {
       icon: <Target className="w-4 h-4" />,
     },
     {
-      href: "/profil/core",
+      href: "/profil/nilai-nilai",
       label: t("about.core"),
       desc: t("about.core_desc"),
       icon: <Handshake className="w-4 h-4" />,
@@ -325,7 +325,7 @@ const Navbar = () => {
       icon: <Trophy className="w-4 h-4" />,
     },
     {
-      href: "/profil/fasilitas",
+      href: "/profil/logistik",
       label: t("about.facility"),
       desc: t("about.facility_desc"),
       icon: <Forklift className="w-4 h-4" />,
