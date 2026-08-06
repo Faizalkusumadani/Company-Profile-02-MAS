@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
     qualities: [25, 50, 60, 70, 75, 80, 100],
   },
   output: "standalone",
-  experimental: {
-    inlineCss: true,
-  },
   turbopack: {},
 };
 
