@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [25, 50, 60, 70, 75, 80, 100],
   },
+    experimental: {
+    inlineCss: true,
+  },
+
   output: "standalone",
   turbopack: {},
 };
