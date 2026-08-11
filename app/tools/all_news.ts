@@ -6,6 +6,7 @@ export type NewsStatic = {
   images?: string[];
   contentKey: string;
   isNew?: boolean;
+  updatedAt: string;
 };
 
 /** Shape lengkap setelah digabung dengan terjemahan */
@@ -30,6 +31,7 @@ export const newsData: NewsStatic[] = [
       "/information/Retailer Semen_merah_2026/005.jpg",
     ],
     contentKey: "gathering_semen_2026_1",
+    updatedAt: "2026-06-10",
   },
   {
     id: "2",
@@ -40,6 +42,7 @@ export const newsData: NewsStatic[] = [
       "/information/RetailerGatheringMP2025/002.jpg",
     ],
     contentKey: "gathering_semen_1",
+    updatedAt: "2025-04-10",
   },
   {
     id: "3",
@@ -53,6 +56,7 @@ export const newsData: NewsStatic[] = [
       "/information/RetailerWavin2025/img-05.jpg",
     ],
     contentKey: "gathering_wavin_1",
+    updatedAt: "2025-07-15",
   },
 ];
 

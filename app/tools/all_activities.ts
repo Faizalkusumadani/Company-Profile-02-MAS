@@ -6,6 +6,7 @@ export type ActivityStatic = {
   images?: string[];
   contentKey: string;
   isNew?: boolean;
+  updatedAt: string;
 };
 
 /** Shape lengkap setelah digabung dengan terjemahan */
@@ -23,18 +24,21 @@ export const activitiesData: ActivityStatic[] = [
     slug: "santunan-anak-yatim-2023",
     image: "/information/Santunan_Anak_Yatim_2023/Santunan-101.jpeg",
     contentKey: "santunan_2023",
+    updatedAt: "2023-01-20",
   },
   {
     id: "2",
     slug: "mas-shadaqah-2023",
     image: "/information/MAS Shodaqo/MAS Shodaqo.jpeg",
     contentKey: "shadaqah_2023",
+    updatedAt: "2023-02-20",
   },
   {
     id: "3",
     slug: "buka-bersama-2023",
     image: "/information/Buka Bersama 2023/Buka-Bersama.jpeg",
     contentKey: "buka_bersama_2023",
+    updatedAt: "2023-03-20",
   },
   {
     id: "4",
@@ -48,6 +52,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Qurban_2023/005.jpeg",
     ],
     contentKey: "qurban_2023",
+    updatedAt: "2023-07-23",
   },
   {
     id: "5",
@@ -61,6 +66,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Bromo_tour/5.JPG",
     ],
     contentKey: "annual_gathering_2023",
+    updatedAt: "2023-11-20",
   },
   {
     id: "6",
@@ -72,6 +78,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Program_Sakses/3.jpeg",
     ],
     contentKey: "door_prize_2024",
+    updatedAt: "2023-10-10",
   },
   {
     id: "7",
@@ -82,6 +89,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Qurban_2024/2.jpeg",
     ],
     contentKey: "qurban_2024",
+    updatedAt: "2024-06-17",
   },
   {
     id: "8",
@@ -95,6 +103,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Qurban_2025/005.jpeg",
     ],
     contentKey: "qurban_2025",
+    updatedAt: "2025-03-18",
   },
   {
     id: "9",
@@ -108,6 +117,7 @@ export const activitiesData: ActivityStatic[] = [
       "/information/Bagi_parcel_2025/005.jpeg",
     ],
     contentKey: "bagi_parcel_2025",
+    updatedAt: "2025-06-05",
   },
   {
     id: "10",
@@ -115,6 +125,7 @@ export const activitiesData: ActivityStatic[] = [
     image: "/information/Bandung_tour/IMG_2767.jpg",
     contentKey: "bandung_tour_2025",
     isNew: true,
+    updatedAt: "2025-02-18",
   },
   {
     id: "11",
@@ -129,6 +140,7 @@ export const activitiesData: ActivityStatic[] = [
     ],
     contentKey: "qurban_2026",
     isNew: true,
+    updatedAt: "2026-05-17",
   },
   {
     id: "12",
@@ -143,6 +155,7 @@ export const activitiesData: ActivityStatic[] = [
     ],
     contentKey: "karimun_tour_2026",
     isNew: true,
+    updatedAt: "2026-06-03",
   },
 ];
 
