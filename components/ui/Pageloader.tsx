@@ -9,9 +9,6 @@ export default function PageLoader() {
   const barRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLParagraphElement>(null);
 
-  // useLayoutEffect: jalan sebelum browser sempat repaint,
-  // jadi kalau loader harus disembunyikan (sudah pernah tampil
-  // di sesi ini), tidak sempat kelihatan flash sama sekali.
   useLayoutEffect(() => {
     const loader = loaderRef.current;
     const bar = barRef.current;
