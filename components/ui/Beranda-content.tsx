@@ -363,7 +363,6 @@ export default function BerandaClient() {
                   src="/images/hero-mas-05.webp"
                   width={900}
                   height={600}
-                  priority
                   quality={70}
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 560px"
                   className="w-full h-full z-10 object-contain mask-[linear-gradient(to_bottom,black_90%,transparent_100%)]"

@@ -10,8 +10,7 @@ import {
   PanInfo,
   type Transition,
 } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { usePageReady } from "@/components/ui/Pageready";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Slide {
@@ -85,14 +84,15 @@ export default function HeaderCarousel({
   pageTitle,
 }: HeaderCarouselProps) {
   const [[current, direction], setPage] = useState([0, 0]);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const isPaused = isHovering || isManuallyPaused;
   const [firstSlideLoaded, setFirstSlideLoaded] = useState(false);
   const [warmIndex, setWarmIndex] = useState<number | null>(null);
   const total = slides.length;
 
   const shouldReduceMotion = useReducedMotion();
   const progressControls = useAnimation();
-  const { markHeroReady } = usePageReady();
   const firstImageRef = useRef<HTMLImageElement>(null);
   const liveRegionRef = useRef<HTMLDivElement>(null);
 
@@ -106,13 +106,12 @@ export default function HeaderCarousel({
     ? defaultVariantsReduced
     : textItemVariants;
 
-  // ── Sync Pageloader ──────────────────────────────────────
+  // ── Cek apakah slide pertama sudah selesai load (untuk gate autoplay) ──
   useEffect(() => {
     if (firstImageRef.current?.complete) {
       setFirstSlideLoaded(true);
-      markHeroReady();
     }
-  }, [markHeroReady]);
+  }, []);
 
   // ── Handlers ───────────────────────────────────────────────
   const paginate = useCallback(
@@ -124,14 +123,6 @@ export default function HeaderCarousel({
       setPage([nextIndex, newDirection]);
     },
     [current, total],
-  );
-
-  const goTo = useCallback(
-    (index: number) => {
-      setWarmIndex(null);
-      setPage([index, index > current ? 1 : -1]);
-    },
-    [current],
   );
 
   // ── Autoplay & Progress Bar ──────────────────────────────
@@ -190,10 +181,10 @@ export default function HeaderCarousel({
 
       <div
         className="relative w-full h-[calc(100svh-4rem)] lg:h-[calc(100svh-5rem)] overflow-hidden bg-black touch-pan-y"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onFocus={() => setIsPaused(true)}
-        onBlur={() => setIsPaused(false)}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        onFocus={() => setIsHovering(true)}
+        onBlur={() => setIsHovering(false)}
       >
         {/* Hidden Warm Cache Image */}
         {warmIndex !== null && (
@@ -243,7 +234,6 @@ export default function HeaderCarousel({
               onLoad={() => {
                 if (current === 0 && !firstSlideLoaded) {
                   setFirstSlideLoaded(true);
-                  markHeroReady();
                 }
               }}
             />
@@ -304,8 +294,8 @@ export default function HeaderCarousel({
           {`Slide ${current + 1} dari ${total}: ${slides[current].title}`}
         </div>
 
-        {/* ── Nav Controls ──────────────────────────────────────────────── */}
-        <div className="absolute bottom-8 left-6 sm:left-14 lg:left-20 z-20 flex items-center gap-3">
+        {/* ── Nav Controls (panah + counter + play/pause, satu bar terpusat) ── */}
+        <div className="absolute bottom-35 left-6 sm:left-14 lg:left-20 z-20 flex items-center gap-3">
           <motion.button
             type="button"
             onClick={() => paginate(-1)}
@@ -317,27 +307,34 @@ export default function HeaderCarousel({
             <ChevronLeft className="w-5 h-5" aria-hidden="true" />
           </motion.button>
 
-          <div className="flex items-center gap-2">
-            {slides.map((slide, i) => (
-              <button
-                key={slide.src}
-                type="button"
-                onClick={() => goTo(i)}
-                aria-label={`Ke slide ${i + 1}: ${slide.title}`}
-                aria-current={i === current ? "true" : undefined}
-                className="group focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 rounded-full"
-              >
-                <motion.div
-                  animate={{
-                    width: i === current ? 24 : 6,
-                    opacity: i === current ? 1 : 0.4,
-                  }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="h-0.75 rounded-full bg-white group-hover:opacity-80"
-                />
-              </button>
-            ))}
-          </div>
+          <span
+            className="text-white font-semibold text-sm tabular-nums min-w-14 text-center"
+            aria-hidden="true"
+          >
+            {String(current + 1).padStart(2, "0")}/
+            {String(total).padStart(2, "0")}
+          </span>
+
+          {!shouldReduceMotion && (
+            <motion.button
+              type="button"
+              onClick={() => setIsManuallyPaused((prev) => !prev)}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white hover:border-white/70 hover:bg-white/20 transition-colors duration-200 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+              aria-label={
+                isManuallyPaused
+                  ? "Lanjutkan slide otomatis"
+                  : "Jeda slide otomatis"
+              }
+            >
+              {isManuallyPaused ? (
+                <Play className="w-4 h-4" aria-hidden="true" />
+              ) : (
+                <Pause className="w-4 h-4" aria-hidden="true" />
+              )}
+            </motion.button>
+          )}
 
           <motion.button
             type="button"
@@ -349,20 +346,6 @@ export default function HeaderCarousel({
           >
             <ChevronRight className="w-5 h-5" aria-hidden="true" />
           </motion.button>
-        </div>
-
-        {/* ── Slide Counter ─────────────────────────────────────────────── */}
-        <div
-          className="absolute bottom-8 right-6 sm:right-10 z-20 flex items-center gap-2"
-          aria-hidden="true"
-        >
-          <span className="text-white font-semibold text-sm tabular-nums">
-            {String(current + 1).padStart(2, "0")}
-          </span>
-          <div className="w-8 h-px bg-white/40" />
-          <span className="text-white/40 text-sm tabular-nums">
-            {String(total).padStart(2, "0")}
-          </span>
         </div>
 
         {/* ── Progress Bar ─────────────────────────────────────────────── */}

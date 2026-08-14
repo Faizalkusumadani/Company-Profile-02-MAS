@@ -127,11 +127,14 @@ export default async function Kegiatan({ params }: Props) {
                             />
                           </div>
                           <div className="flex-1 flex flex-col justify-between">
-                            <h3 className="text-gray-900 font-semibold text-sm leading-snug mb-2 line-clamp-3 group-hover:text-mas-red transition-colors duration-200">
-                              {activity.description}
+                            <h3 className="text-gray-900 font-semibold text-sm leading-snug mb-1 line-clamp-3 group-hover:text-mas-red transition-colors duration-200">
+                              {activity.title}
                             </h3>
-                            <div className="flex items-center text-gray-400 text-xs mt-auto">
-                              <Calendar className="w-3.5 h-3.5 mr-1" />
+                            <p className="text-gray-500 text-xs line-clamp-2 mb-1">
+                              {activity.description}
+                            </p>
+                            <div className="flex items-center text-gray-400 text-xs">
+                              <Calendar className="w-4 h-4 mr-1.5" />
                               <time>{activity.date}</time>
                             </div>
                           </div>

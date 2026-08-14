@@ -207,17 +207,20 @@ export default async function BeritaDetail({
                             </div>
                             <div className="flex-1 flex flex-col justify-between">
                               <h3
-                                className={`font-semibold text-sm leading-snug mb-2 line-clamp-3 transition-colors ${
+                                className={`font-semibold text-sm leading-snug mb-1 line-clamp-3 transition-colors ${
                                   isActive
                                     ? "text-mas-red"
                                     : "text-gray-900 group-hover:text-mas-red"
                                 }`}
                               >
-                                {item.description}
+                                {item.title}
                               </h3>
-                              <div className="flex items-center text-gray-500 text-xs mt-auto">
+                              <p className="text-gray-500 text-xs line-clamp-2 mb-1">
+                                {item.description}
+                              </p>
+                              <div className="flex items-center text-gray-400 text-xs">
                                 <Calendar className="w-4 h-4 mr-1.5" />
-                                <time className="font-medium">{item.date}</time>
+                                <time>{item.date}</time>
                               </div>
                             </div>
                           </div>

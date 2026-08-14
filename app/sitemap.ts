@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { newsData } from "@/app/tools/all_news";
 import { activitiesData } from "@/app/tools/all_activities";
+import getProducts from "@/app/tools/produk";
 
 const baseUrl = "https://megaadhitamasejati.id";
 const SITE_LAST_UPDATED = new Date("2026-08-01");
@@ -66,6 +67,32 @@ function buildDynamicUrls(
   );
 }
 
+// Bikin entri sitemap untuk tiap produk (berdasarkan slug) x semua locale.
+// t di sini hanya dummy karena sitemap tidak butuh isi description, cuma slug.
+function buildProductUrls(): MetadataRoute.Sitemap {
+  const products = getProducts((key: string) => key);
+
+  return routing.locales.flatMap((locale) =>
+    products.map((product) => ({
+      url: `${baseUrl}/${locale}/produk/${product.slug}`,
+      lastModified: SITE_LAST_UPDATED,
+      changeFrequency: "monthly" as const,
+      priority: locale === routing.defaultLocale ? 0.7 : 0.6,
+      alternates: {
+        languages: {
+          ...Object.fromEntries(
+            routing.locales.map((l) => [
+              l,
+              `${baseUrl}/${l}/produk/${product.slug}`,
+            ]),
+          ),
+          "x-default": `${baseUrl}/${routing.defaultLocale}/produk/${product.slug}`,
+        },
+      },
+    })),
+  );
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticUrls: MetadataRoute.Sitemap = routing.locales.flatMap((locale) =>
     routes.map((route) => ({
@@ -89,6 +116,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const beritaUrls = buildDynamicUrls(newsData, "berita");
   const kegiatanUrls = buildDynamicUrls(activitiesData, "kegiatan");
+  const produkUrls = buildProductUrls();
 
-  return [...staticUrls, ...kegiatanUrls, ...beritaUrls];
+  return [...staticUrls, ...kegiatanUrls, ...beritaUrls, ...produkUrls];
 }

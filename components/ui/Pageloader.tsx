@@ -49,7 +49,7 @@ export default function PageLoader() {
       id="mas-page-loader"
       aria-hidden="true"
       style={{
-        display: "flex", // ← default TAMPIL, bukan "none"
+        display: "flex",
         position: "fixed",
         inset: 0,
         zIndex: 9999,
@@ -80,7 +80,7 @@ export default function PageLoader() {
           <Image
             src="/Logo-mas.webp"
             alt="MAS Logo"
-            width={120}
+            width={160}
             height={80}
             style={{ objectFit: "contain" }}
             priority

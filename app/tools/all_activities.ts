@@ -123,12 +123,33 @@ export const activitiesData: ActivityStatic[] = [
     id: "10",
     slug: "bandung-tour-2025",
     image: "/information/Bandung_tour/IMG_2767.jpg",
+    images: [
+      "/information/Bandung_tour/IMG_2767.jpg",
+      "/information/Bandung_tour/IMG_2768.jpg",
+      "/information/Bandung_tour/IMG_2769.jpg",
+      "/information/Bandung_tour/IMG_2770.jpg",
+      "/information/Bandung_tour/IMG_2771.jpg",
+    ],
     contentKey: "bandung_tour_2025",
-    isNew: true,
     updatedAt: "2025-02-18",
   },
   {
     id: "11",
+    slug: "traning-sales-2026",
+    image: "/information/Boundaries/IMG_1001.jpg",
+    images: [
+      "/information/Boundaries/IMG_1001.jpg",
+      "/information/Boundaries/IMG_1002.jpg",
+      "/information/Boundaries/IMG_1003.jpg",
+      "/information/Boundaries/IMG_1004.jpg",
+      "/information/Boundaries/IMG_1005.jpg",
+    ],
+    contentKey: "traning_sales_2026",
+    isNew: true,
+    updatedAt: "2026-02-07",
+  },
+  {
+    id: "12",
     slug: "mas-qurban-2026",
     image: "/information/Qurban_2026/001.jpeg",
     images: [
@@ -143,7 +164,7 @@ export const activitiesData: ActivityStatic[] = [
     updatedAt: "2026-05-17",
   },
   {
-    id: "12",
+    id: "13",
     slug: "karimun-tour-2026",
     image: "/information/Karimun_tour/001.jpg",
     images: [
