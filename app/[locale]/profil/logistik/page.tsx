@@ -120,12 +120,12 @@ export default async function Fasilitas({ params }: Props) {
                 </span>
                 <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-mas-dark">
                   Mega Adhitama Sejati{" "}
-                  <span className="font-bold text-mas-red">
+                  <span className="font-semibold text-mas-red">
                     {t("About.facility.header")}
                   </span>
                 </h2>
               </div>
-              <p className="text-gray-400 max-w-md text-xs md:text-sm font-normal leading-relaxed md:text-right">
+              <p className="text-gray-500 max-w-md text-xs md:text-sm font-normal leading-relaxed md:text-right">
                 {t("About.facility.content")}
               </p>
             </div>
@@ -146,10 +146,10 @@ export default async function Fasilitas({ params }: Props) {
                   />
 
                   <div className="absolute inset-0 bg-linear-to-t from-mas-dark/90 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col justify-end p-6">
-                    <span className="text-[10px] uppercase font-bold text-mas-red tracking-wider">
+                    <span className="text-xs uppercase font-semibold text-mas-red tracking-wider">
                       {t("About.facility.header")}
                     </span>
-                    <p className="text-sm font-medium text-white mt-1">
+                    <p className="text-sm font-medium text-white/70 mt-1">
                       {img.alt}
                     </p>
                   </div>

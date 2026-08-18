@@ -170,7 +170,7 @@ export default async function LocaleLayout({
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "08:00",
       closes: "16:30",
     },
