@@ -15,10 +15,10 @@ import "../globals.css";
 
 // ─── Font ─────────────────────────────────────────────────────────────────────
 const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
 });
 
 // ─── Static Params (i18n) ─────────────────────────────────────────────────────
@@ -168,6 +168,12 @@ export default async function LocaleLayout({
       "@type": "AdministrativeArea",
       name: "Banten",
     },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"],
+      opens: "08:00",
+      closes: "16:30",
+    },
     sameAs: [
       "https://www.tiktok.com/@megaadhitamasejati?_r=1&_t=ZS-98I1AGVgHHJ",
       "https://www.instagram.com/megaadhitamasejati?igsh=MWIzY2twMTRtNjh0NA%3D%3D",
@@ -175,19 +181,23 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={`${poppins.className} antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${poppins.className} antialiased`}>
+      <body>
         <ServiceWorkerRegister />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Pageloader />
           <Header />
-          <main className="bg-stone-50 min-h-screen">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </NextIntlClientProvider>
 

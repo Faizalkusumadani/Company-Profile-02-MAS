@@ -59,7 +59,7 @@ const gridVariants: Variants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08, // lebih cepat dari 0.15 → terasa lebih snappy
+      staggerChildren: 0.08,
       delayChildren: 0.05,
     },
   },
@@ -101,7 +101,7 @@ function ProductCard({
     <m.div
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
-      className="group flex flex-col rounded-2xl shadow-md hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-200 bg-white"
+      className="group flex flex-col rounded-2xl shadow-md hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-200"
     >
       {/* IMAGE */}
       <div className="relative aspect-4/3 bg-linear-to-br from-gray-50 to-gray-100 overflow-hidden shrink-0">
@@ -142,7 +142,7 @@ function ProductCard({
 
       {/* CONTENT */}
       <div className="p-3.5 sm:p-5 flex flex-col grow">
-        <h3 className="font-bold mb-1.5 sm:mb-2 text-gray-900 text-sm sm:text-lg line-clamp-2 group-hover:text-red-600/70 transition-colors leading-snug">
+        <h3 className="font-bold mb-1.5 sm:mb-2 text-mas-dark text-sm sm:text-lg line-clamp-2 group-hover:text-red-600/70 transition-colors leading-snug">
           {produk.name}
         </h3>
 
@@ -166,7 +166,6 @@ function ProductCard({
     </m.div>
   );
 }
-
 // ─── Mobile Filter Chip (plain button, lepas dari styling TabsTrigger) ────────
 
 function MobileFilterChip({
@@ -230,7 +229,7 @@ export default function MenuTabsCard({ categories }: MenuTabsCardProps) {
             <TabsTrigger
               key={cat.id}
               value={cat.id}
-              className="flex-1 min-w-0 text-sm md:text-base lg:text-lg text-gray-700 py-4 md:py-6 px-3 rounded-2xl bg-white border border-gray-100 data-[state=active]:bg-red-50 data-[state=active]:border-red-400 data-[state=active]:text-red-500"
+              className="flex-1 min-w-0 text-sm md:text-base lg:text-lg text-gray-700 py-4 md:py-6 px-3 rounded-2xl bg-zinc-50 border border-gray-100 data-[state=active]:bg-red-50 data-[state=active]:border-red-400 data-[state=active]:text-red-500"
             >
               <div className="flex flex-col items-center">
                 {IconComponent && (

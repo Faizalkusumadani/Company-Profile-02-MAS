@@ -118,14 +118,14 @@ export default async function Fasilitas({ params }: Props) {
                 <span className="text-mas-red uppercase font-light tracking-[0.3em] block text-base">
                   {t("About.facility.tag")}
                 </span>
-                <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">
+                <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-mas-dark">
                   Mega Adhitama Sejati{" "}
-                  <span className="font-extrabold  text-mas-red">
+                  <span className="font-bold text-mas-red">
                     {t("About.facility.header")}
                   </span>
                 </h2>
               </div>
-              <p className="text-smp-muted max-w-md text-xs md:text-sm font-normal leading-relaxed md:text-right">
+              <p className="text-gray-400 max-w-md text-xs md:text-sm font-normal leading-relaxed md:text-right">
                 {t("About.facility.content")}
               </p>
             </div>
@@ -142,10 +142,10 @@ export default async function Fasilitas({ params }: Props) {
                     alt={img.alt}
                     fill
                     sizes="(max-width: 1280px) 100vw, 80vw"
-                    className="object-cover filter grayscale contrast-105 opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ease-out"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
 
-                  <div className="absolute inset-0 bg-linear-to-t from-mas-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 bg-linear-to-t from-mas-dark/90 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex flex-col justify-end p-6">
                     <span className="text-[10px] uppercase font-bold text-mas-red tracking-wider">
                       {t("About.facility.header")}
                     </span>

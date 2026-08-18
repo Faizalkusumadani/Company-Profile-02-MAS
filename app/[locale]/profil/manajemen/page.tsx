@@ -104,7 +104,7 @@ export default async function Manajemen() {
                       src={item.image}
                       width={400}
                       height={500}
-                      className="w-64 h-auto bg-gray-200 rounded-lg object-cover shadow-lg"
+                      className="w-64 h-auto bg-zinc-50 rounded-lg object-cover shadow-lg"
                       alt={item.name}
                     />
                   </div>
@@ -113,13 +113,13 @@ export default async function Manajemen() {
                   <div className="md:col-span-2 flex flex-col justify-center space-y-4">
                     {/* Nomor urut + nama */}
                     <div className="text-center md:text-left">
-                      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-0.5 leading-tight">
+                      <h2 className="text-2xl sm:text-3xl font-semibold text-mas-dark mt-0.5 leading-tight">
                         {item.name}
                       </h2>
                       {/* Garis aksen di bawah nama */}
                       <div className="flex items-center gap-1.5 mt-2 justify-center md:justify-start">
                         <span className="block w-6 h-0.5 rounded-full bg-mas-red" />
-                        <p className="text-mas-red font-semibold text-sm sm:text-base">
+                        <p className="text-mas-red font-medium text-sm sm:text-base">
                           {item.position}
                         </p>
                       </div>
@@ -147,14 +147,14 @@ export default async function Manajemen() {
                 {/* ── Separator antara item (tidak muncul setelah item terakhir) ── */}
                 {index < modalData.length - 1 && (
                   <div className="flex items-center gap-4">
-                    <div className="flex-1 h-px bg-gray-200" />
+                    <div className="flex-1 h-px bg-gray-100" />
                     {/* Motif titik di tengah separator */}
                     <div className="flex gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-red-300" />
                       <span className="w-1.5 h-1.5 rounded-full bg-mas-red" />
                       <span className="w-1.5 h-1.5 rounded-full bg-red-300" />
                     </div>
-                    <div className="flex-1 h-px bg-gray-200" />
+                    <div className="flex-1 h-px bg-gray-100" />
                   </div>
                 )}
               </React.Fragment>

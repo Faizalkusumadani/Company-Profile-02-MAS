@@ -90,7 +90,7 @@ export default async function VisiMisi({ params }: Props) {
               {/* Left Column: Big Statement & Logo */}
               <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-none">
+                  <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-mas-dark tracking-tight leading-none">
                     Core <br className="hidden sm:inline" />
                     <span className="text-mas-red">Values.</span>
                   </h2>
@@ -124,7 +124,7 @@ export default async function VisiMisi({ params }: Props) {
                           <span className="text-xs font-mono font-bold text-gray-400 group-hover:text-mas-red transition-colors">
                             0{index + 1}
                           </span>
-                          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-gray-900 flex items-center gap-1.5">
+                          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-mas-dark flex items-center gap-1.5">
                             <span
                               className={`text-2xl sm:text-6xl ${item.color}`}
                             >

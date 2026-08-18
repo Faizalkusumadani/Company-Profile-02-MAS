@@ -89,7 +89,7 @@ export default async function Berita({ params }: Props) {
       {/* ── Daftar Berita ── */}
       <section className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-gray-700 text-2xl font-semibold tracking-tight">
+          <h2 className="text-mas-dark text-2xl lg:text-4xl font-semibold tracking-tight">
             {t("Roominformation.news")}{" "}
             <span className="text-mas-red">
               {t("Roominformation.exclusive")}
@@ -117,7 +117,7 @@ export default async function Berita({ params }: Props) {
 
                 {/* Teks */}
                 <div className="mt-4">
-                  <h3 className="text-gray-900 font-semibold text-base leading-snug mb-2 line-clamp-3">
+                  <h3 className="text-mas-dark font-semibold text-base leading-snug mb-2 line-clamp-3">
                     {news.title}
                   </h3>
                   <p className="text-gray-500 text-sm line-clamp-2 mb-2">

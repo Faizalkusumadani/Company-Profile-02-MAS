@@ -78,7 +78,7 @@ function FaqHeader({
         </p>
       )}
       {title && (
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-700 mb-3 sm:mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-mas-dark mb-3 sm:mb-4">
           {title}
         </h2>
       )}

@@ -110,7 +110,7 @@ export default async function Kontak({ params }: Props) {
                 {/* Location */}
                 <div className="space-y-6 order-2">
                   <div>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-mas-dark">
+                    <h2 className="text-3xl sm:text-4xl font-semibold text-mas-dark">
                       {t("Contact.title")}
                       <span className="text-mas-red">
                         {" "}
@@ -191,7 +191,7 @@ export default async function Kontak({ params }: Props) {
             </div>
 
             <div className="mb-4 space-y-6">
-              <h3 className="text-3xl sm:text-4xl font-bold text-mas-dark">
+              <h3 className="text-3xl sm:text-4xl font-semibold text-mas-dark">
                 {t("Contact.titleform")}{" "}
                 <span className="text-mas-red">{t("Contact.titleform_1")}</span>
               </h3>

@@ -87,12 +87,12 @@ export default function BrandMarquee({
             className="text-center mb-12 sm:mb-16 space-y-3"
           >
             {subtitle && (
-              <p className="text-xs sm:text-sm tracking-[0.3em] text-mas-red uppercase font-medium">
+              <p className="text-xs sm:text-sm tracking-[0.3em] text-mas-red uppercase font-light">
                 {subtitle}
               </p>
             )}
             {title && (
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-mas-dark tracking-tight">
                 {title}
               </h2>
             )}

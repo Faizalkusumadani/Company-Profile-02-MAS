@@ -88,7 +88,7 @@ export default async function VisiMisi({ params }: Props) {
         <article className="px-4 sm:px-6 lg:px-8 py-16">
           <div className="mx-auto max-w-7xl">
             <div className="space-y-8 mb-12 lg:mb-16">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6 leading-snug">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 leading-snug">
                 <span className="text-mas-red">
                   {t("About.vision.header")}{" "}
                 </span>

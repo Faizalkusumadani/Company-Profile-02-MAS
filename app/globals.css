@@ -39,22 +39,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.embla__slide {
-  position: relative;
-}
-
-.embla__container {
-  display: flex;
-}
-
-.embla__slide {
-  flex: 0 0 100%;
-}
-
-.embla__slide:not(.is-snapped) {
-  opacity: 0;
-}
-
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);

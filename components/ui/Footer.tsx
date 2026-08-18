@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:flex md:justify-between">
         {/* CONNECT WITH US */}
         <div>
-          <h3 className="text-lg sm:text-xl font-bold mb-6 text-white">
+          <h3 className="text-lg sm:text-xl font-bold mb-6 text-white/80">
             CONNECT WITH US
           </h3>
           <Image
@@ -57,10 +57,10 @@ export default function Footer() {
 
         {/* HEAD OFFICE */}
         <div className="mt-12 md:mt-0">
-          <h3 className="text-lg sm:text-xl font-bold mb-6 text-white">
+          <h3 className="text-lg sm:text-xl font-bold mb-6 text-white/80">
             HEAD OFFICE
           </h3>
-          <address className="not-italic space-y-4 text-base text-white/80">
+          <address className="not-italic space-y-4 text-base text-white/60">
             <p className="flex items-start gap-3">
               <IoLocationSharp
                 className="text-xl mt-0.5 shrink-0"
@@ -101,7 +101,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-gray-700 mt-14 pt-4 text-white text-center text-sm">
+      <div className="border-t border-white/50 mt-14 pt-4 text-white/80 text-center text-sm">
         <span className="inline-flex items-center justify-center gap-2 flex-wrap">
           © 2025 PT Mega Adhitama Sejati. All Rights Reserved | Member of
           <a
@@ -114,6 +114,7 @@ export default function Footer() {
               src="/logo_reddmas.png"
               width={80}
               height={24}
+              sizes="80px"
               alt="Reddmas Group"
               className="object-contain inline-block align-middle"
               loading="eager"
@@ -135,6 +136,7 @@ export default function Footer() {
           src="/whatsapp.svg"
           width={32}
           height={32}
+          sizes="32px"
           alt=""
           aria-hidden="true"
           className="w-8 h-8"

@@ -97,7 +97,7 @@ export default async function Produk({ params }: Props) {
         <div className="px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="space-y-6 text-center">
-              <h2 className="text-gray-700 text-2xl md:text-3xl lg:text-[63px] font-semibold">
+              <h2 className="text-mas-dark text-2xl md:text-3xl lg:text-[63px] font-semibold">
                 {t("Products.title")}
                 <span className="text-mas-red"> {t("Products.title_1")}</span>
               </h2>

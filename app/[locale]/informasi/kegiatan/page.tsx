@@ -151,7 +151,7 @@ export default async function Kegiatan({ params }: Props) {
         {/* ── Gallery Kegiatan ── */}
         <div className="py-10 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-gray-700 text-2xl lg:text-4xl font-semibold tracking-tight">
+            <h2 className="text-mas-dark text-2xl lg:text-4xl font-semibold tracking-tight">
               {t("Roominformation.activities")}{" "}
               <span className="text-mas-red">
                 {t("Roominformation.exclusive")}
@@ -176,7 +176,7 @@ export default async function Kegiatan({ params }: Props) {
                     />
                   </div>
                   <div className="mt-4">
-                    <h3 className="text-gray-900 font-semibold text-base leading-snug mb-2 line-clamp-3">
+                    <h3 className="text-mas-dark font-semibold text-base leading-snug mb-2 line-clamp-3">
                       {activity.title}
                     </h3>
                     <p className="text-gray-500 text-sm line-clamp-2 mb-2">

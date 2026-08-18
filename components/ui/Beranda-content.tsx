@@ -91,7 +91,6 @@ const cardVariants = {
     x: 0,
     scale: 1,
     transition: {
-      // spring physics: lebih hidup daripada cubic-bezier manual
       type: "spring" as const,
       stiffness: 260,
       damping: 22,
@@ -287,7 +286,7 @@ export default function BerandaClient() {
             <span className="text-mas-red uppercase font-light tracking-[0.3em] text-base">
               {tfeature("desc_features")}
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-mas-dark leading-tight max-w-3xl tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-semibold text-mas-dark leading-tight max-w-3xl tracking-tight">
               {tfeature("title_features")}
               <span className="text-mas-red">
                 {" "}
@@ -312,7 +311,7 @@ export default function BerandaClient() {
                     ease: "easeOut",
                     delay: index * 0.08,
                   }}
-                  className=" bg-white group relative w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] max-w-md rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-xs transition-all duration-300 hover:border-mas-red/50 hover:shadow-lg hover:shadow-gray-200/50 hover:-translate-y-1"
+                  className=" bg-zinc-50 group relative w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] max-w-md rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-xs transition-all duration-300 hover:border-mas-red/50 hover:shadow-lg hover:shadow-gray-200/50 hover:-translate-y-1"
                 >
                   <div className="flex flex-col h-full justify-start">
                     {/* Card Header: Icon + Title Inline */}
@@ -388,7 +387,7 @@ export default function BerandaClient() {
                   {tabout("title")}
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-mas-dark mb-3 sm:mb-4 leading-snug">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-mas-dark mb-3 sm:mb-4 leading-snug">
                 <span className="text-mas-red">Mega</span> Adhitama Sejati
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-500 leading-relaxed text-justify [text-align-last:start]">
@@ -426,7 +425,7 @@ export default function BerandaClient() {
             <p className="text-mas-red uppercase font-light tracking-[0.3em] text-base">
               {tproduct("title-product")}
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-mas-dark leading-snug max-w-3xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-mas-dark leading-snug max-w-3xl">
               {tproduct("sub-product")}
               <span className="text-mas-red">
                 {" "}
@@ -488,7 +487,7 @@ export default function BerandaClient() {
                     ? {}
                     : { variants: { ...cardVariants, ...cardHoverVariants } })}
                   style={{ borderRadius: 24 }}
-                  className="relative overflow-hidden border border-gray-100 bg-white/80 backdrop-blur-xl p-6 sm:p-7 cursor-default"
+                  className="relative overflow-hidden border border-gray-100 bg-zinc-50 backdrop-blur-xl p-6 sm:p-7 cursor-default"
                   layout
                 >
                   {/* Shimmer overlay — pure Framer, bukan CSS */}
@@ -567,7 +566,7 @@ export default function BerandaClient() {
       </div>
 
       {/* ── Brand Marquee ── */}
-      <div className="border-y border-gray-100 bg-gray-100">
+      <div className="border-y border-gray-100 bg-zinc-50">
         <BrandMarquee
           brands={Brands}
           title={
@@ -607,7 +606,7 @@ export default function BerandaClient() {
             <p className="text-xs sm:text-sm tracking-[0.3em] text-mas-red uppercase font-light">
               {ttestimoni("testimoni")}
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-700 leading-snug">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-mas-dark leading-snug">
               {ttestimoni("desc_testimoni")}{" "}
               <span className="text-mas-red">
                 {ttestimoni("desc_testimoni_01")}
