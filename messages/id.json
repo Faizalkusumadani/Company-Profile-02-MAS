@@ -25,7 +25,8 @@
       "activities_desc": "Dokumentasi kegiatan dan event perusahaan"
     },
     "career": "Karir",
-    "contact": "Hubungi Kami"
+    "contact": "Hubungi Kami",
+    "policy": "Kebijakan Privasi"
   },
   "metadata": {
     "beranda_pages": "Distributor Bahan Bangunan Retail dengan Wilayah Layanan Utama di Provinsi Banten",
@@ -511,6 +512,30 @@
     "desc": "Dengan lebih dari 14 brand bisnis dan 1.100 retail yang tersebar di seluruh Jabodetabek, kami menawarkan beragam posisi yang penuh tantangan untuk profesional, lulusan baru, hingga kesempatan magang.",
     "cta": "Lihat Selengkapnya",
     "tag": "Lowongan pekerjaan"
+  },
+
+  "Cookies": {
+    "ariaLabel": "Pengaturan cookie",
+    "title": "Kami menggunakan cookie",
+    "description": "Kami menggunakan cookie untuk meningkatkan pengalaman kamu, menganalisis trafik, dan menampilkan konten yang relevan.",
+    "learnMore": "Pelajari lebih lanjut",
+    "managePreferences": "Atur preferensi",
+    "hidePreferences": "Sembunyikan preferensi",
+    "acceptAll": "Terima semua",
+    "rejectAll": "Tolak semua",
+    "savePreferences": "Simpan preferensi",
+    "necessary": {
+      "title": "Esensial",
+      "description": "Diperlukan agar situs berfungsi dengan baik. Selalu aktif."
+    },
+    "analytics": {
+      "title": "Analitik",
+      "description": "Membantu kami memahami cara pengunjung menggunakan situs."
+    },
+    "marketing": {
+      "title": "Pemasaran",
+      "description": "Digunakan untuk menampilkan iklan yang lebih relevan."
+    }
   },
 
   "Contact": {

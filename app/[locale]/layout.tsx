@@ -6,9 +6,9 @@ import type { Metadata, Viewport } from "next";
 import Pageloader from "@/components/ui/Pageloader";
 import ServiceWorkerRegister from "@/components/ui/ServiceWorkerRegister";
 import { Poppins } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
+import CookieConsent from "@/components/ui/Cookie";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 import "../globals.css";
@@ -199,11 +199,8 @@ export default async function LocaleLayout({
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <CookieConsent gaId={process.env.NEXT_PUBLIC_GA_ID} />
         </NextIntlClientProvider>
-
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </body>
     </html>
   );

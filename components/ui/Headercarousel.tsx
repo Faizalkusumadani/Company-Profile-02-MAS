@@ -188,7 +188,12 @@ export default function HeaderCarousel({
       >
         {/* ── Background layer (images) ─────────────────────────────── */}
         <div className="absolute inset-0 z-0">
-          {/* Hidden Warm Cache Image */}
+          {/* Hidden Warm Cache Image — sizes & quality HARUS sama persis dengan
+              <Image> utama di bawah (lihat sizes="(max-width: 640px)..." dan
+              quality={80}). Next.js membuat URL /_next/image yang unik per
+              kombinasi src+width+quality, jadi kalau nilainya beda, ini bukan
+              "warm cache" beneran — cuma download thumbnail kecil yang percuma,
+              lalu tetap fetch ulang versi besar saat slide itu jadi current. */}
           {warmIndex !== null && (
             <div
               key={`warm-cache-${warmIndex}`}
@@ -199,8 +204,8 @@ export default function HeaderCarousel({
                 src={slides[warmIndex].src}
                 alt=""
                 fill
-                quality={60}
-                sizes="10vw"
+                quality={80}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1536px"
                 loading="eager"
               />
             </div>
@@ -229,7 +234,10 @@ export default function HeaderCarousel({
                 fill
                 priority={current === 0}
                 fetchPriority={current === 0 ? "high" : "auto"}
-                loading="eager"
+                // `priority` sudah otomatis memaksa eager load untuk slide pertama;
+                // set loading="eager" eksplisit cuma untuk slide selain slide pertama
+                // (biar tidak kena warning Next.js "priority + loading='eager' bersamaan").
+                loading={current === 0 ? undefined : "eager"}
                 quality={80}
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1536px"

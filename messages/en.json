@@ -25,7 +25,8 @@
       "activities_desc": "Documentation of company activities and events"
     },
     "career": "Career",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "policy": "Privacy policy"
   },
 
   "metadata": {
@@ -514,6 +515,31 @@
     "cta": "See More",
     "tag": "Job vacancies"
   },
+
+  "Cookies": {
+    "ariaLabel": "Cookie settings",
+    "title": "We use cookies",
+    "description": "We use cookies to improve your experience, analyze traffic, and show relevant content.",
+    "learnMore": "Learn more",
+    "managePreferences": "Manage preferences",
+    "hidePreferences": "Hide preferences",
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "savePreferences": "Save preferences",
+    "necessary": {
+      "title": "Necessary",
+      "description": "Required for the site to function properly. Always on."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "Helps us understand how visitors use the site."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "description": "Used to show more relevant ads."
+    }
+  },
+
   "Contact": {
     "title": "Information",
     "title_01": "Company",
